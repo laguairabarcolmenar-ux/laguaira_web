@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="es" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+  @layer base {
+    html {
+      scroll-behavior: smooth;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #0D0B0A;
+      color: #FFFDF5;
+    }
+    body {
+      overscroll-behavior: none;
+    }
+    main > :first-child {
+      margin-top: 0 !important;
+    }
+    main > :last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  /* Reveal on scroll */
+  .reveal-element {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Interactive warm ripples & card glow */
+  .warm-card-glow {
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  }
+  .warm-card-glow:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.25), 0 0 20px rgba(197, 34, 31, 0.15);
+    border-color: rgba(255, 215, 0, 0.6) !important;
+  }
+  .warm-card-glow:active {
+    transform: scale(0.99);
+  }
+
+  .warm-btn {
+    transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .warm-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.35);
+  }
+  .warm-btn:active {
+    transform: scale(0.97);
+  }
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-background": "#FFFDF5",
+          "surface-container": "#1C1815",
+          "surface-variant": "#231F1C",
+          "surface-bright": "#2E2824",
+          "surface-dim": "#0D0B0A",
+          "inverse-surface": "#FFFDF5",
+          "outline": "#9E8E7C",
+          "surface": "#0D0B0A",
+          "surface-container-low": "#14110F",
+          "surface-container-lowest": "#0D0B0A",
+          "surface-container-high": "#28231E",
+          "surface-container-highest": "#332C27",
+          "on-surface": "#FFFDF5",
+          "on-surface-variant": "#E8DFD8",
+          "background": "#0D0B0A",
+          // Refined Warm Tones
+          "warm-cream": "#FFFDF5",
+          "warm-cream-muted": "#E8DFD8",
+          "primary": "#FFF4D4",
+          "primary-container": "#FFD700",
+          "primary-amber": "#FFC72C",
+          "on-primary": "#2D2200",
+          "on-primary-fixed": "#241A00",
+          "secondary": "#B6C4FF",
+          "secondary-container": "#1A3D9E",
+          "on-secondary-container": "#C8D5FF",
+          "carmine": "#C5221F",
+          "carmine-dark": "#B71C1C",
+          "on-tertiary-container": "#C5221F",
+          "tertiary": "#FFF0ED",
+          "error": "#FFB4AB",
+          "error-container": "#B71C1C"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.75rem",
+          "xl": "1rem",
+          "2xl": "1.5rem",
+          "3xl": "2rem",
+          "full": "9999px"
+        },
+        spacing: {
+          "margin-mobile": "1.25rem",
+          "space-xl": "2.5rem",
+          "gutter": "1.5rem",
+          "space-md": "1rem",
+          "space-xs": "0.25rem",
+          "margin": "3rem",
+          "gutter-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-sm": "0.5rem"
+        },
+        fontFamily: {
+          "headline-lg": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "body-sm": ["Be Vietnam Pro"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "body-lg": ["Be Vietnam Pro"],
+          "headline-xl-mobile": ["Plus Jakarta Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "title-md": ["Plus Jakarta Sans"],
+          "display-lg": ["Plus Jakarta Sans"],
+          "body-md": ["Be Vietnam Pro"],
+          "display-lg-mobile": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "headline-xl": ["Plus Jakarta Sans"]
+        },
+        fontSize: {
+          "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+          "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.04em", fontWeight: "600" }],
+          "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+          "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+          "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "700" }],
+          "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+          "label-lg": ["15px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
+          "title-md": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+          "display-lg": ["56px", { lineHeight: "64px", letterSpacing: "-0.02em", fontWeight: "800" }],
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+          "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+          "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.015em", fontWeight: "700" }]
+        }
+      }
+    }
+  };
+</script></head>
+<body class="bg-[#0D0B0A] font-body-md text-body-md text-[#FFFDF5] antialiased selection:bg-[#FFD700] selection:text-[#2D2200]">
+<!-- NAVBAR -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#0D0B0A]/85 backdrop-blur-xl shadow-[0_6px_25px_rgba(0,0,0,0.6)] border-b border-[#FFD700]/20">
+<div class="h-20 w-full px-margin-mobile lg:px-margin flex items-center justify-between">
+<a class="flex items-center gap-space-md group" href="#inicio">
+<div class="w-13 h-13 rounded-full overflow-hidden shrink-0 flex items-center justify-center p-0.5 border-2 border-[#FFD700] shadow-[0_0_18px_rgba(255,215,0,0.45)] bg-[#14110F] transition-transform duration-300 group-hover:scale-105">
+<img alt="Logo La Guaira Bar Restaurante" class="w-12 h-12 object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_gB1t5HOtbJWuRPIb0lEKHE8ZLrUFz9xJ0Wv-yZEDzFKX9ovKrEPYoLmyyrjzLqCxdmHDuTfzzaZIwOKm7L515gTHmuGM0ubAOvOwDz9-4-C2j2lxHzSkGfbnTuwDSnN0TidbhI2GX08yBoiXHH3kqda5sdPheLqQVH4ZMzud21CtyXaJmuScZBTbiXIE1mRCzOWbyHwxaXIfkTK8NlAC1AwYMPTCAMIxSRBt_FzKuA_FFQV4O3_mHSPZbrTjCRdN86E"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-extrabold tracking-tight text-[#FFFDF5] group-hover:text-[#FFD700] transition-colors">La Guaira - Bar Restaurante</span>
+<span class="font-label-sm text-label-sm text-[#E8DFD8]/80 font-medium hidden sm:inline-block">Gastronomía Venezolana Auténtica • Colmenar Viejo</span>
+</div>
+</a>
+<nav class="hidden xl:flex items-center gap-space-lg">
+<a aria-current="page" class="transition-all bg-[#FFD700] text-[#241A00] font-bold rounded-xl px-4 py-2 shadow-[0_0_15px_rgba(255,215,0,0.35)] hover:scale-105" data-path="inicio" href="#inicio">Inicio</a>
+<a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="menu-criollo" href="#menu-criollo">Menú Criollo</a>
+<a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="nuestra-esencia" href="#nuestra-esencia">Nuestra Esencia</a>
+<a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="reservas" href="#reservas">Reservas</a>
+<a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="carta-qr" href="#carta-qr">Carta QR</a>
+</nav>
+</div>
+<!-- Cruz-Diez Chromatic Rhythm Ribbon Top Nav Accent -->
+<div class="h-1.5 w-full flex overflow-hidden">
+<div class="h-full w-1/3 bg-[#FFD700]"></div>
+<div class="h-full w-1/3 bg-[#1A3D9E]"></div>
+<div class="h-full w-1/3 bg-[#C5221F]"></div>
+</div>
+</header>
+<main class="w-full pt-20 bg-[#0D0B0A] min-h-screen">
+<div class="flex flex-col w-full">
+<!-- HERO SECTION: Angel Falls Backdrop + Warm Sunset Gradient Scrim -->
+<section class="relative w-full -mt-20 overflow-hidden bg-[#0D0B0A] bg-fixed bg-cover bg-center" id="inicio" style="background-image: linear-gradient(to bottom, rgba(13,11,10,0.48) 0%, rgba(13,11,10,0.88) 85%, #0D0B0A 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdFf1_Q-3Ix33ez99xgCPkQ8oFYVNO4imB9CeFwWMqTI_Qc4fP__dLYnv7-dPiQPbDEOCm6TIcWPW5u0M_P6DnHOW7sG2q2l4ORqF-3U92UgRWtKkiZZL4N5y4bsYDlOuQiFb-tJO8lkpN1EuzmUSB0yBq__GCvXW38bJfTnIi09xJN4zvN5fvDXxgVBQxvepAdxQ7vI2elVSYeiFcFtXMe1vXU-70D80O7krbw_OTddaQWMrMAHkTVYinoSP07g0RGxg');">
+<!-- Cruz-Diez Chromatic Rhythm Ribbon -->
+<div class="w-full h-2 flex z-20 relative">
+<div class="flex-1 bg-[#FFD700] shadow-[0_0_12px_rgba(255,215,0,0.6)]"></div>
+<div class="flex-1 bg-[#1A3D9E]"></div>
+<div class="flex-1 bg-[#C5221F] shadow-[0_0_12px_rgba(197,34,31,0.6)]"></div>
+</div>
+<!-- Ambient Golden & Carmine Warm Glows -->
+<div class="absolute inset-0 pointer-events-none opacity-45 mix-blend-screen">
+<div class="absolute -top-24 -left-20 w-96 h-96 rounded-full bg-[#FFD700]/25 blur-3xl"></div>
+<div class="absolute top-1/2 -right-24 w-[32rem] h-[32rem] rounded-full bg-[#C5221F]/20 blur-3xl"></div>
+<div class="absolute bottom-10 left-1/4 w-80 h-80 rounded-full bg-[#FFC72C]/20 blur-3xl"></div>
+</div>
+<div class="relative w-full min-h-[94vh] flex items-center pt-28 pb-20 px-margin-mobile lg:px-margin">
+<div class="relative z-10 max-w-5xl mx-auto w-full flex flex-col items-start gap-space-md mt-4 reveal-element">
+<!-- Live status pill -->
+<div class="inline-flex items-center gap-space-sm bg-[#1C1815]/85 backdrop-blur-md px-space-md py-space-xs rounded-full border border-[#FFD700]/30 shadow-[0_0_15px_rgba(255,215,0,0.15)]">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD700] opacity-80"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFD700]"></span>
+</span>
+<span class="font-label-md text-label-md text-[#FFFDF5] font-semibold">Abierto hoy</span>
+<span class="text-[#9E8E7C] text-xs">•</span>
+<span class="font-label-md text-label-md text-[#E8DFD8] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px] text-[#FFD700]">location_on</span>
+          Colmenar Viejo, Madrid • Fogón Criollo Tradicional
+        </span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display-lg text-display-lg text-[#FFFDF5] tracking-tight max-w-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
+        El auténtico sabor de <span class="text-[#FFD700] drop-shadow-[0_0_25px_rgba(255,215,0,0.55)]">Venezuela</span> en la Sierra de Madrid
+      </h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-[#F5EFEB] max-w-2xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+        Cachapas doradas con auténtico queso de mano, empanadas crujientes al momento, pabellón criollo cocinado a fuego lento y cócteles tropicales con rones añejos.
+      </p>
+<!-- CTA Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-md mt-space-sm">
+<a class="warm-btn inline-flex items-center gap-space-xs bg-[#C5221F] hover:bg-[#B71C1C] text-[#FFFDF5] font-label-lg text-label-lg px-space-lg py-space-md rounded-2xl shadow-[0_8px_25px_rgba(197,34,31,0.45)] hover:shadow-[0_10px_35px_rgba(197,34,31,0.65)]" href="#reservas">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+          Reservar Mesa
+        </a>
+<a class="warm-btn inline-flex items-center gap-space-xs bg-[#1C1815]/85 hover:bg-[#28231E] backdrop-blur-md text-[#FFFDF5] font-label-lg text-label-lg px-space-lg py-space-md rounded-2xl border border-[#FFD700]/30 shadow-lg" href="#menu-criollo">
+<span class="material-symbols-outlined text-[20px] text-[#FFD700]">menu_book</span>
+          Ver Nuestra Carta
+        </a>
+<a class="warm-btn inline-flex items-center gap-space-xs bg-transparent hover:bg-[#28231E]/70 text-[#FFD700] font-label-md text-label-md px-space-md py-space-md rounded-2xl transition-colors border border-transparent hover:border-[#FFD700]/30" href="#carta-qr">
+<span class="material-symbols-outlined text-[19px]">qr_code_scanner</span>
+          Carta QR Móvil
+        </a>
+</div>
+<!-- Quick highlights badges strip -->
+<div class="w-full grid grid-cols-2 sm:grid-cols-4 gap-space-md mt-space-lg pt-space-xs bg-[#14110F]/85 backdrop-blur-xl p-space-md rounded-[28px] border border-[#FFD700]/20 shadow-[0_12px_36px_rgba(0,0,0,0.6)]">
+<div class="flex items-center gap-space-sm p-space-xs warm-card-glow rounded-xl p-2 border border-transparent">
+<div class="w-11 h-11 rounded-2xl bg-[#28231E] flex items-center justify-center shrink-0 shadow-inner">
+<span class="text-2xl">🌽</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Maíz 100% Natural</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">Masa sin aditivos ni gluten</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-xs warm-card-glow rounded-xl p-2 border border-transparent">
+<div class="w-11 h-11 rounded-2xl bg-[#28231E] flex items-center justify-center shrink-0 shadow-inner">
+<span class="text-2xl">🧀</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Queso de Mano Real</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">Textura suave y jugosa</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-xs warm-card-glow rounded-xl p-2 border border-transparent">
+<div class="w-11 h-11 rounded-2xl bg-[#28231E] flex items-center justify-center shrink-0 shadow-inner">
+<span class="text-2xl">🍹</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Coctelería &amp; Polar</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">Rones de Santa Teresa</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-xs warm-card-glow rounded-xl p-2 border border-transparent">
+<div class="w-11 h-11 rounded-2xl bg-[#28231E] flex items-center justify-center shrink-0 shadow-inner">
+<span class="text-2xl text-[#FFD700]">⭐</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">4.9 en Google</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">+380 reseñas en Madrid</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- REPEATING KINETIC ART PATTERN RIBBON -->
+<div class="w-full h-3 overflow-hidden shadow-md relative">
+<img alt="Patrón cinético Carlos Cruz-Diez" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqHJJSPpE1JVNlyT0ExDQ4P4GhaEO8fd8EZ2EhndkHudaBgqUPVa9DuPqKOs4763SgbIE0O8w6Old5DMU3Fb8vydsxRC0N7C9fXzGLzWgiUwgPys9FKxnufXpWSe4k1Vj30OpBB0l2YzCDSJ5zIqwxGTtXIIbVYk9Qy_H7fKjj7C6EaQzzpDLwKKRw_NeRUbPNlz5dY7_55kONLIoq8XnFKzlNoExXlOwOYAj5YM2SPx0PkjonCSfKBrvNHkxaWU45eiw"/>
+</div>
+<!-- NUESTRA ESENCIA SECTION (Aerial Coast Backdrop & Cinematics) -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-[#14110F] relative bg-fixed bg-cover bg-center" id="nuestra-esencia" style="background-image: linear-gradient(to bottom, rgba(13,11,10,0.92) 0%, rgba(20,17,15,0.88) 50%, #0D0B0A 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjy5kanAASkcI89khbSc2zomqbm2-_It5djTkxv_sNkTS7O5Tsg2hyFZOS3iERrAfkcGe7ymcZdngfhTQ-QcMBgP_jTluhwlR5DVDD70H0u1XvAEmVIe4JL3RLfBdVQkSwT9bONNRuctb_VEaVFDq5qiYoETBsyLgFEvRiBXh1W6edTrMaYoRBxD8NrQUyeLLALzX-FxnwFizEmnRb-yj65z1GpvCQiYZHZhlRsX1aOXFJ7vu7j7T-52yDjW4EYIVVWSc');">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl relative z-10 reveal-element">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">wb_sunny</span> Herencia Gastronómica
+        </span>
+<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">De las costas de La Guaira a la Sierra Norte</h2>
+</div>
+<p class="font-body-md text-body-md text-[#E8DFD8] max-w-xl leading-relaxed">
+        Nacimos inspirados en los colores cinéticos de Maiquetía, la brisa marina del litoral central y el fogón criollo que congrega a la familia alrededor de una buena bandeja de cachapas y arepas calientes.
+      </p>
+</div>
+<!-- Featured Gastronomy Atmospheric Showcase Banner with IMAGE_10 -->
+<div class="w-full rounded-[32px] overflow-hidden relative shadow-[0_16px_40px_rgba(0,0,0,0.7)] border border-[#FFD700]/25 group warm-card-glow">
+<div class="relative h-80 sm:h-96 w-full overflow-hidden">
+<img alt="Ambiente cálido de bar venezolano en Madrid con cachapas, arepas y empanadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95" src="https://lh3.googleusercontent.com/aida/AEtjO1W4xDgLdGZeyWhnkMcCJPuzUxHcf3HO-3sd4xEyFvlbx2fXdfnnQiCLAfXq9ZGtfbyFrKdoJ-l1eBIH2MboW8Qy6Cu9H5IrR9XFl2QVxyW2lczysLZJG775EC4gE2zz5viUDdYBPvkqKlkYEBVzi_zQ4fUIJ0NZiRiH448Ev47bcbPxFROD6fu7itqpj5jTGs1tHbHiYn4-92d7ngFbIaefpgPsDrsnkKCPoqi_sDApYx33E2Z9QsTOSW4U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0D0B0A] via-[#14110F]/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div class="max-w-2xl">
+<span class="bg-[#FFD700] text-[#241A00] font-label-sm text-label-sm font-extrabold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2 shadow">
+              Experiencia En Vivo
+            </span>
+<h3 class="font-headline-lg text-headline-lg text-[#FFFDF5] font-extrabold drop-shadow-md">
+              Mesa Criolla, Rones de Solera &amp; Calidez de Hogar
+            </h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] hidden sm:block mt-1">
+              Arepas tibias rellenas al momento, queso de mano fundente y los mejores rones venezolanos en el ambiente más auténtico de Colmenar Viejo.
+            </p>
+</div>
+<a class="warm-btn inline-flex items-center gap-2 bg-[#C5221F] text-[#FFFDF5] px-5 py-2.5 rounded-xl font-label-md text-label-md font-bold shadow-lg shrink-0" href="#reservas">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span> Reservar Esta Experiencia
+          </a>
+</div>
+</div>
+</div>
+<!-- Bento-style Story Mosaic -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg">
+<!-- Main Narrative Card -->
+<div class="md:col-span-7 p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl flex flex-col justify-between relative overflow-hidden warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="absolute -right-16 -top-16 w-56 h-56 bg-[#FFD700]/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-space-md">
+<div class="w-13 h-13 rounded-2xl bg-[#FFD700]/20 border border-[#FFD700]/30 text-[#FFD700] flex items-center justify-center p-2.5 shadow-md">
+<span class="material-symbols-outlined text-[28px]">local_fire_department</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-[#FFFDF5]">Fuego lento, aliño casero y memoria criolla</h3>
+<p class="font-body-md text-body-md text-[#E8DFD8] leading-relaxed">
+            En La Guaira Bar Restaurante cada plato se cocina desde cero. La carne mechada se deshebra a mano tras horas de hervor con sofrito dulce de ají dulce, pimientos y cebollas. Nuestras arepas no conocen atajos: se amasan en el momento y salen humeantes con su costra dorada y corazón tierno.
+          </p>
+<div class="grid grid-cols-3 gap-space-md pt-space-sm">
+<div class="bg-[#28231E] p-space-sm rounded-2xl border border-white/5">
+<span class="font-display-lg text-[28px] font-extrabold text-[#FFD700] block">100%</span>
+<span class="font-label-sm text-label-sm text-[#E8DFD8]">Maíz sin conservantes</span>
+</div>
+<div class="bg-[#28231E] p-space-sm rounded-2xl border border-white/5">
+<span class="font-display-lg text-[28px] font-extrabold text-[#FFC72C] block">6h+</span>
+<span class="font-label-sm text-label-sm text-[#E8DFD8]">Cocción carne mechada</span>
+</div>
+<div class="bg-[#28231E] p-space-sm rounded-2xl border border-white/5">
+<span class="font-display-lg text-[28px] font-extrabold text-[#C5221F] block">0%</span>
+<span class="font-label-sm text-label-sm text-[#E8DFD8]">Gluten en masas maíz</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg flex items-center gap-space-sm text-[#E8DFD8] font-label-md text-label-md pt-2">
+<span class="material-symbols-outlined text-[#FFD700] text-[22px]">verified</span>
+          Recetas familiares transmitidas por tres generaciones
+        </div>
+</div>
+<!-- Visual Vignette 1: Empanadas & Salsas -->
+<div class="md:col-span-5 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="h-64 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" data-alt="Traditional golden crispy Venezuelan empanadas served with homemade green guasacaca sauce in rustic clay bowls on a dark wooden table in an atmospheric Venezuelan restaurant in Madrid, vibrant warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoNP-iW4JijWQB47oi3x_wDHiAKJ9a6n0HV5-76NuETjGlqnC_6RVlszXh7zQxjbYdTMFZo6oo_0ixxE0EFOQ69KlTfcHiB5tA_XKENUVS5xPUrKCIHXjwWbwFVJz91OtUEjSqkMXHuRVkRXv7X8SND4PB_McWEE3GBRlGoq1SG9TntxARaxOtUFLgLlgAsL2oXh-amLMY7eY_OKXouYxhnIxcevPjXzD3LJEjABxvd1cb3bcmUNzAcA"/>
+<span class="absolute top-4 left-4 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-[#FFD700] font-semibold border border-[#FFD700]/30 shadow">
+            Crujientes al punto
+          </span>
+</div>
+<div class="p-space-lg flex flex-col gap-space-xs">
+<h4 class="font-title-md text-title-md text-[#FFFDF5] font-bold">Empanadas Criollas con Guasacaca</h4>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">
+            Masa fina de maíz con toque dulce secreto, fritura limpia y rellenos desbordantes que van desde cazón oriental hasta pabellón entero.
+          </p>
+</div>
+</div>
+<!-- Visual Vignette 2: Cachapa con Queso de Mano -->
+<div class="md:col-span-6 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="h-64 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" data-alt="Close up of a warm Venezuelan sweet corn cachapa folded over melted handcrafted queso de mano cheese with butter glistening on top, resting on a banana leaf on a dark stone slate background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1RZWhhPxx2oDJHQQSkAGnyFwG3GS6akzSUbIw4Yj5qquNoq5xlUegrTaR8p58GyfU07tL8zK-2kiWhqaQiOpat5sDnMSuCdUKnbGmoCaMtgj9WJ3JGx1Kkb_yWLcgD9wgOIgXcb-Cid37zfUmaDnvnx-IGXsO8Q8YUQIP73Hwp_iQTyjVMN4-EOnPOlojtqGOi33yt8o1Y-_xZc9VBnckCL2xkVGAFiLZR4az3qDprnT6hH9hYWH8Rg"/>
+<span class="absolute top-4 left-4 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-[#FFD700] font-semibold border border-[#FFD700]/30 shadow">
+            Plato Insignia
+          </span>
+</div>
+<div class="p-space-lg flex flex-col gap-space-xs">
+<h4 class="font-title-md text-title-md text-[#FFFDF5] font-bold">Cachapas de Maíz Tierno</h4>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">
+            Elaboradas exclusivamente con choclo dulce molido. Servidas con mantequilla artesanal y una rueda entera de queso de mano que se derrite al primer corte.
+          </p>
+</div>
+</div>
+<!-- Cruz-Diez Tribute Card -->
+<div class="md:col-span-6 p-space-lg rounded-[32px] shadow-2xl flex flex-col justify-between relative overflow-hidden warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="relative h-40 w-full rounded-2xl overflow-hidden mb-space-md shadow-lg border border-white/10">
+<img alt="Adoquines cromáticos y arte cinético de Carlos Cruz-Diez en Maiquetía" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqHJJSPpE1JVNlyT0ExDQ4P4GhaEO8fd8EZ2EhndkHudaBgqUPVa9DuPqKOs4763SgbIE0O8w6Old5DMU3Fb8vydsxRC0N7C9fXzGLzWgiUwgPys9FKxnufXpWSe4k1Vj30OpBB0l2YzCDSJ5zIqwxGTtXIIbVYk9Qy_H7fKjj7C6EaQzzpDLwKKRw_NeRUbPNlz5dY7_55kONLIoq8XnFKzlNoExXlOwOYAj5YM2SPx0PkjonCSfKBrvNHkxaWU45eiw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0D0B0A]/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-lg text-[#FFD700] font-label-sm text-label-sm font-bold flex items-center gap-1.5 border border-[#FFD700]/30 shadow">
+<span class="material-symbols-outlined text-[16px] text-[#FFD700]">palette</span> Aeropuerto Simón Bolívar (Maiquetía)
+          </div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-[#FFC72C] uppercase font-bold tracking-wider">Inspiración Artística &amp; Identidad</span>
+<h4 class="font-headline-md text-headline-md text-[#FFFDF5]">Un homenaje a Maiquetía y Carlos Cruz-Diez</h4>
+<p class="font-body-md text-body-md text-[#E8DFD8] leading-relaxed">
+            El mítico suelo de adoquines cromáticos del Aeropuerto Internacional viaja con cada venezolano en su memoria. En nuestro local en Colmenar Viejo hemos traducido esa cadencia vibrante en un espacio de reencuentro, música y hospitalidad caribeña.
+          </p>
+</div>
+<div class="flex items-center gap-space-md mt-space-md pt-space-xs">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center text-xs font-bold text-[#241A00] shadow-[0_0_8px_rgba(255,215,0,0.5)]">💛</div>
+<div class="w-8 h-8 rounded-full bg-[#1A3D9E] flex items-center justify-center text-xs font-bold text-white shadow">💙</div>
+<div class="w-8 h-8 rounded-full bg-[#C5221F] flex items-center justify-center text-xs font-bold text-white shadow-[0_0_8px_rgba(197,34,31,0.5)]">❤️</div>
+</div>
+<span class="font-label-md text-label-md text-[#FFFDF5] font-semibold">Madrid vibra con ritmo y orgullo tricolor</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PANEL DIVIDER KINETIC ACCENT -->
+<div class="w-full h-2 flex">
+<div class="flex-1 bg-[#FFD700]"></div>
+<div class="flex-1 bg-[#1A3D9E]"></div>
+<div class="flex-1 bg-[#C5221F]"></div>
+</div>
+<!-- MENÚ CRIOLLO INTERACTIVO SECTION -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-[#0D0B0A] relative" id="menu-criollo">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg reveal-element">
+<!-- Section Title & Filter Tabs -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">restaurant_menu</span> Nuestra Carta
+        </span>
+<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">Menú Criollo Auténtico</h2>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-1">Opciones sin gluten señalizadas. Consulta alérgenos con nuestro equipo.</p>
+</div>
+<div class="inline-flex items-center gap-space-xs bg-[#1C1815] px-space-md py-2 rounded-full border border-[#FFD700]/30 shadow-md">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">eco</span>
+<span class="font-label-sm text-label-sm text-[#FFFDF5] font-semibold">Arepas y cachapas naturalmente 100% sin gluten</span>
+</div>
+</div>
+<!-- Category Filter Tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-2 scrollbar-none w-full">
+<button class="menu-tab-btn active-tab bg-[#FFD700] text-[#241A00] font-label-md text-label-md font-bold px-space-md py-2.5 rounded-xl transition-all shrink-0 shadow-[0_0_15px_rgba(255,215,0,0.35)] hover:scale-105" data-filter="all" type="button">
+        Todos los Platos
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="empanadas" type="button">
+        🥟 Empanadas
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="cachapas" type="button">
+        🌽 Cachapas
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="arepas" type="button">
+        🫓 Arepas Rellenas
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="platos" type="button">
+        🍲 Pabellón &amp; Especiales
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="menu-dia" type="button">
+        ⭐ Menú del Día (12,90€)
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="bebidas" type="button">
+        🍹 Bebidas &amp; Rones
+      </button>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="dishes-container">
+<!-- Dish Card 1: Cachapa Queso de Mano -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="cachapas">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional Venezuelan cachapa topped with large slice of artisanal white cheese and melting butter, served on rustic stone plate in a cozy restaurant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7XxQvxjkVLz-TWnqLoiXLzwqA96H4NetgbyZT4T4V4FOcd36WG5NhIkCPiiy7AS9MY4XS4vJVxrkWrR3wUYwTXwVf_iniz6WeqgiTW3J_KFHIzitaJGVe3FijwslKMnmuHnF_Y7TiaQwavr0ywpTOd0z8N2kn2-ZJtkX9t8QKb9OpeLcYgcD1i17MsDtmj5h2I_Xa0q7xNSOnVPN1Ef0F3WGgtxw8e3nM7z8yGic7GChBW12KVNatyA"/>
+<span class="absolute top-3 left-3 bg-[#FFD700] text-[#241A00] font-label-sm text-label-sm font-extrabold px-2.5 py-1 rounded-lg shadow">
+              Favorito Top
+            </span>
+<span class="absolute bottom-3 right-3 bg-[#0D0B0A]/85 backdrop-blur-sm text-[#FFFDF5] font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-white/10">
+              Sin Gluten
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Cachapa con Queso de Mano</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">12,50€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            Tortita dorada de maíz tierno dulce 100% natural rellena con queso de mano artesanal y mantequilla derretida.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">local_dining</span> Ración generosa
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+<!-- Dish Card 2: Arepa Reina Pepiada -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Venezuelan Arepa Reina Pepiada stuffed with creamy chicken breast, fresh avocado, cilantro and mayonnaise, displayed against dark atmospheric warm wood backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd1R8hU9bMyia1wEKuNjE1de4cDo8gxolMCdxz3SCPoHYrGp-JEVW-rjNy-BN53mf5Qww2mRb0fjzC-kR4ziLrqKccH9FGmCPwmtG6pzCweHfses3kBq68kqXxFDRcumt6E9rdqYWkO84rmH0Cn5NdrqNTAudRb-dRxvrJ70UPTdXU2xH4ouWKYfeDiBIj9S2bgYj5YjsxanvDBLn-r5lp-KQz-EY9ze4xBRXAsKeKIdMR_m74ETPRIQ"/>
+<span class="absolute top-3 left-3 bg-[#1A3D9E] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
+              La Reina
+            </span>
+<span class="absolute bottom-3 right-3 bg-[#0D0B0A]/85 backdrop-blur-sm text-[#FFFDF5] font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-white/10">
+              Sin Gluten
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Arepa Reina Pepiada</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">8,50€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            El relleno más icónico de Caracas: pechuga de pollo deshilachada con suave crema de aguacate maduro, mayonesa y cilantro fresco.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">verified</span> Clásico caraqueño
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+<!-- Dish Card 3: Empanada de Cazón Oriental -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Crispy golden Venezuelan fish empanada cut in half showing seasoned shredded dogfish cazón stuffing, served with lime wedge on ceramic dish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlLNCqxUPmr3uLoQu_yh79LTDNstlMWl7HWTHrR7RNdgSYzx4vzA_C8DR5WB9wQZbS2QWrRwJKezB5UhbwVphWcT2RFDTseojuBTKYXVseLZLuddGUB-c4JPUZ9JJ7Tb7YSzkBuQaI1qBv8TgDcvALE6dyfdy66mU5nnL-nNcjalmJIyV0exDWAVX-CXrfeODS9Edn3Z8TsLAO99VN818z8dKGeSH2KBc-gJrOtA2jWZXBcSqnJvrMKQ"/>
+<span class="absolute top-3 left-3 bg-[#C5221F] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
+              Tradición Costera
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Cazón</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">4,20€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            Receta de la costa caribeña: guiso de cazón sazonado con sofrito de ajíes dulces, cebolla y toque anisado en masa crujiente.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">water</span> Sabor marítimo
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+<!-- Dish Card 4: Pabellón Criollo Tradicional -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="platos">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional Venezuelan Pabellón Criollo national dish with shredded flank beef, white rice, black turtle beans, fried ripe plantain slices and white grated cheese." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-a5609Jx6lIH2XQ6gWItNFvxBZib0VhghpNXMyxCvEp0cFk5lyjAmyBpW_g3AR5ISsFwpGPZsB-UhgPBfJhzEQNw51pzzojd31CmF5x2mMXzJsufX7axPRXotTfPQjeNUidfi83vvIxIotXFuInUMR9nmqAeEERX2u8CXxUEkISH8sN4Vg4f3E_7vo6fOeAEirutyFKxTZCg1KtqsadwwiFHZeMIbgkSt3hXQ9_6p0iVzNGTfs97hg"/>
+<span class="absolute top-3 left-3 bg-[#FFD700] text-[#241A00] font-label-sm text-label-sm font-extrabold px-2.5 py-1 rounded-lg shadow">
+              Plato Nacional
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Pabellón Criollo Completo</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">14,50€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            Carne mechada tierna y jugosa, caraotas negras guisadas con toque criollo, arroz blanco suelto y tajadas de plátano macho maduro con queso blanco.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">stars</span> El plato rey
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+<!-- Dish Card 5: Arepa Pelúa -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Venezuelan Arepa Pelua packed with slow cooked shredded flank beef and rich yellow cheddar style shredded cheese melting out of the toasted corn pocket." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS9BXTRkvrjTBN-a8Rqn9XAqfEVVQDvdBT2Oi2G5ULJ3SjSrWbD4FLexE9Ox3McxFanuWNT5UXkCWyKuv5nMHhtnGeSKGHmhVfsmBcUfo5Gam-kiNUR7AnkvTN4sDLpKELMG_iXCkpVicQGAWF5_cEqOzHjq0VXnEQD6jCJlul1dtC9IywqK_7bCVOyrrEzOGg1RTWUY6041q8rL0Ev9W5l-LLoQ0MTghI0yW7px08Hk-cSfMfoRrCAw"/>
+<span class="absolute top-3 left-3 bg-[#FFC72C] text-[#241A00] font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
+              La Más Pedida
+            </span>
+<span class="absolute bottom-3 right-3 bg-[#0D0B0A]/85 backdrop-blur-sm text-[#FFFDF5] font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-white/10">
+              Sin Gluten
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Arepa La Pelúa</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">8,90€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            Carne mechada a fuego lento desbordando la arepa, combinada con abundante queso amarillo gouda fundente rallado grueso.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span> Muy jugosa
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+<!-- Dish Card 6: Empanada Operada de Pabellón -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Golden fried Venezuelan empanada operada sliced open along the spine filled with shredded beef, black beans, fried sweet plantain and grated cheese with spicy salsa." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPaNc6gvui2i-YA5Q0lRDud_zfeeOKI0YX8iEPRpa0fPo_oZeHa-kWqCKYjIFsp9pyH7JcfcrXnHCgO82HFA9PZ5cZiu4mdOEXsMcFWMmF8UnbESQl2jxDfgJfXXcA9xSMT3yeymJ-CXRub5J9kYCOrsD6HDUDVgKOvyEextjiWn7pcex6bHdTpifG_pCBEQq7sxTkqfX2j3VyRmlS_jupE7piW_tiPYj-DukscilZkVEDCKmA3VEFPg"/>
+<span class="absolute top-3 left-3 bg-[#C5221F] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
+              Especial de la Casa
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada Operada</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">5,50€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            Abierta por el lomo como en las playas de La Guaira: rellena con carne mechada, caraotas negras, tajadas de plátano dulce y queso blanco rallado.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">beach_access</span> Estilo playero
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+<!-- Dish Card 7: Menú del Día Banner Card -->
+<div class="dish-item md:col-span-2 lg:col-span-3 bg-[#1C1815] p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg warm-card-glow border-2 border-[#FFD700]/30" data-category="menu-dia" style="background: linear-gradient(135deg, #1C1815 0%, #28231E 100%);">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-sm">
+<span class="bg-[#FFD700] text-[#241A00] font-label-sm text-label-sm font-extrabold px-3 py-1 rounded-lg shadow">De Martes a Viernes (13:00 - 16:30)</span>
+<span class="text-[#E8DFD8] font-label-sm text-label-sm">Cocina Casera de Colmenar</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-[#FFFDF5] font-bold mt-1">Menú del Día Criollo &amp; Tradicional</h3>
+<p class="font-body-md text-body-md text-[#E8DFD8] leading-relaxed">
+            Incluye Primer Plato (a elegir entre Sopa Criolla de Res, Crema de Calabaza o Ensalada fresca), Segundo Plato (Pabellón, Pollo en Guiso o Chuleta a la brasa con tostones), Bebida (Agua, Caña de Polar o Papelón) y Postre casero o Café.
+          </p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-space-sm shrink-0">
+<div class="text-center md:text-right">
+<span class="font-display-lg text-display-lg text-[#FFD700] font-black drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">12,90€</span>
+<span class="block font-label-sm text-label-sm text-[#E8DFD8]">IVA incluido</span>
+</div>
+<a class="warm-btn bg-[#C5221F] hover:bg-[#B71C1C] text-[#FFFDF5] font-label-md text-label-md font-bold px-space-lg py-3 rounded-2xl shadow-[0_6px_20px_rgba(197,34,31,0.4)]" href="#reservas">
+            Reservar para Mediodía
+          </a>
+</div>
+</div>
+<!-- Dish Card 8: Bebidas & Cócteles -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="bebidas">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional Venezuelan Papelon con Limon chilled beverage with sugarcane panela and fresh limes next to a frosty Polar beer bottle in a warm bar setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLnch9lGglxIFh_opu-ghfAr56w4wfMft2In1-wQlEyhWbtcgapqY8DIlZfitHPmPbbuUDe8T5W5Pxb5t_9JzWJ-YlCKtTEMb74pQc3BYM2m-lWtireoFFBJCmrlzKgq-qZvZyYTb2MyFEZFYGGaU97C4AOA76rPwlZfY2K3d22XrDrDSSy41Dbj48S_ar_GVrOn5-FMOZGif7pP-W66JzAfzhmpDrXuZnqnrIjIv5xjeKLlQkALpRDA"/>
+<span class="absolute top-3 left-3 bg-[#1A3D9E] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
+              Refrescante 100%
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Papelón con Limón Frío</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,50€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            Jugo artesanal caribeño elaborado con panela pura de caña, abundante zumo de lima recién exprimido y mucho hielo picado.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">local_bar</span> Sabor de infancia
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+<!-- Dish Card 9: Cerveza Polar y Ron Santa Teresa -->
+<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="bebidas">
+<div>
+<div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Venezuelan rum Santa Teresa 1796 served on ice with an orange peel twist next to an ice-cold Polar beer bottle on a rustic wooden counter." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6CEHUWOWOIAIOLrYP2V9QFC3_TqbbJdQH6dIWSuQluG9DB6DVM8tIA2rXL96JGVwCSfqcRVGwRwqc_JWihZRApCKL7S1LPra168SLe5sW1g7Lw2JGTjGXLOwkRIzFtbnC_TGk5unRxovdHuca73whXapsjpY54v7riSWYsySdsPSQy9eEcny5qGv7gz_tXAQhbnhN1JyOBDMZ7f-XEJXrYUDxN5kfcJOrDXs7VkyOG8uNIJaABkQjhg"/>
+<span class="absolute top-3 left-3 bg-[#FFD700] text-[#241A00] font-label-sm text-label-sm font-extrabold px-2.5 py-1 rounded-lg shadow">
+              Denominación de Origen
+            </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Ron Santa Teresa 1796</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">9,50€</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
+            Ron solera ultra-premium de los Valles de Aragua servido con hielo de roca y piel de naranja flambeada. También disponible Cerveza Polar fría (3,60€).
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
+<span class="font-label-sm text-label-sm text-[#9E8E7C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">liquor</span> Ron Solera
+          </span>
+<button class="order-add-btn warm-btn bg-[#28231E] hover:bg-[#FFD700] hover:text-[#241A00] text-[#FFFDF5] font-label-sm text-label-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1 border border-white/10" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Pedir
+          </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RESERVA DE MESA ONLINE & LOCAL INFO -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-[#14110F] relative" id="reservas">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start reveal-element">
+<!-- Left Column: Atmosphere & Map Info -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">support_agent</span> Atención Personalizada
+        </span>
+<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">Asegura tu Mesa en La Guaira</h2>
+<p class="font-body-md text-body-md text-[#E8DFD8] mt-2 leading-relaxed">
+          Ya sea para una comida en familia con cachapas recién horneadas, una quedada con amigos y tercios de Polar, o celebrar un cumpleaños criollo, te recibimos con los brazos abiertos.
+        </p>
+</div>
+<!-- Google Map Static View with data-location -->
+<div class="rounded-[28px] overflow-hidden shadow-2xl bg-[#1C1815] border border-[#FFD700]/20 warm-card-glow">
+<div class="w-full h-56 bg-cover bg-center" data-location="Colmenar Viejo, Madrid, Spain" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxV7HOfvdcXuf0Pz7bTAultaTLP7JQn9ZtZEYQcq1me-0mVR4ja23UkN-9A8CYHPTaV77_e6mwFckPaqXnN8c9HD6asq1fEY6VHdqmscqI-0whLrpTeXaanO3gxVtapye3P-TPsUdpnomlhsLk_ADmbXEQvim8JyN6wZ2iysHXBeYVo59SggqdOtmn0nUiJ4O6Zhv6YEN2KV0e8endRbNwD-rb55qs9Allt0iVylATNTvfT1I3DvoGwQ');"></div>
+<div class="p-space-md flex items-center justify-between bg-[#28231E]">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[#FFD700] text-[22px]">location_on</span>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Colmenar Viejo, Madrid</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">Fácil aparcamiento en las inmediaciones</p>
+</div>
+</div>
+<a class="font-label-sm text-label-sm text-[#FFD700] hover:underline font-bold" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+            Cómo llegar
+          </a>
+</div>
+</div>
+<!-- Testimonial preview -->
+<div class="bg-[#1C1815] p-space-md rounded-[28px] shadow-xl flex items-start gap-space-md border border-[#FFD700]/20 warm-card-glow">
+<div class="w-12 h-12 rounded-2xl bg-[#FFD700]/15 flex items-center justify-center shrink-0 border border-[#FFD700]/30">
+<span class="material-symbols-outlined text-[#FFD700] text-[24px]">format_quote</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-[#FFFDF5] italic leading-relaxed">
+            "Las mejores cachapas que he comido en toda la Comunidad de Madrid. El queso de mano es auténtico de verdad y el trato te hace sentir en casa desde que entras."
+          </p>
+<p class="font-label-sm text-label-sm text-[#FFD700] mt-space-xs font-semibold">
+            — Carlos Méndez (Reseña verificada en Google Maps ⭐⭐⭐⭐⭐)
+          </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Booking Widget -->
+<div class="lg:col-span-7 bg-[#1C1815] p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl relative overflow-hidden border border-[#FFD700]/25 warm-card-glow" style="background: rgba(28, 24, 21, 0.92); backdrop-filter: blur(16px);">
+<!-- Top tricolor accent line -->
+<div class="absolute top-0 left-0 right-0 h-1.5 flex">
+<div class="w-1/3 bg-[#FFD700]"></div>
+<div class="w-1/3 bg-[#1A3D9E]"></div>
+<div class="w-1/3 bg-[#C5221F]"></div>
+</div>
+<div class="flex items-center justify-between mb-space-md pt-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-[#FFFDF5] font-bold">Solicitud de Reserva Rápida</h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">Sin comisiones, confirmación directa con el restaurante</p>
+</div>
+<div class="hidden sm:flex items-center gap-1.5 text-[#241A00] bg-[#FFD700] px-3 py-1 rounded-full font-label-sm text-label-sm font-bold shadow">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+          Respuesta en 10 min
+        </div>
+</div>
+<form class="flex flex-col gap-space-md" id="reservation-form">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Name -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-[#FFFDF5] font-semibold" for="res-name">Nombre y Apellidos</label>
+<input class="bg-[#28231E] text-[#FFFDF5] placeholder:text-[#9E8E7C] px-space-md py-3 rounded-xl border border-white/10 focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 outline-none font-body-sm text-body-sm transition-all" id="res-name" placeholder="Ej. Valentina Morales" required="" type="text"/>
+</div>
+<!-- WhatsApp / Phone -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-[#FFFDF5] font-semibold" for="res-phone">Teléfono / WhatsApp</label>
+<input class="bg-[#28231E] text-[#FFFDF5] placeholder:text-[#9E8E7C] px-space-md py-3 rounded-xl border border-white/10 focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 outline-none font-body-sm text-body-sm transition-all" id="res-phone" placeholder="+34 600 000 000" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<!-- Date -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-[#FFFDF5] font-semibold" for="res-date">Fecha</label>
+<input class="bg-[#28231E] text-[#FFFDF5] px-space-md py-3 rounded-xl border border-white/10 focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 outline-none font-body-sm text-body-sm transition-all" id="res-date" required="" type="date"/>
+</div>
+<!-- Shift / Time -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-[#FFFDF5] font-semibold" for="res-time">Turno / Hora</label>
+<select class="bg-[#28231E] text-[#FFFDF5] px-space-md py-3 rounded-xl border border-white/10 focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 outline-none font-body-sm text-body-sm transition-all" id="res-time" required="">
+<option disabled="" selected="" value="">Elige turno</option>
+<optgroup label="Almuerzo (Mediodía)">
+<option value="13:30">13:30 h</option>
+<option value="14:15">14:15 h</option>
+<option value="15:00">15:00 h</option>
+<option value="15:45">15:45 h</option>
+</optgroup>
+<optgroup label="Cena (Noche)">
+<option value="20:30">20:30 h</option>
+<option value="21:15">21:15 h</option>
+<option value="22:00">22:00 h</option>
+<option value="22:30">22:30 h</option>
+</optgroup>
+</select>
+</div>
+<!-- Party Size -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-[#FFFDF5] font-semibold" for="res-guests">Comensales</label>
+<select class="bg-[#28231E] text-[#FFFDF5] px-space-md py-3 rounded-xl border border-white/10 focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 outline-none font-body-sm text-body-sm transition-all" id="res-guests" required="">
+<option value="1">1 persona</option>
+<option selected="" value="2">2 personas</option>
+<option value="3">3 personas</option>
+<option value="4">4 personas</option>
+<option value="5">5 personas</option>
+<option value="6">6 personas</option>
+<option value="grupo">Grupo (+7 personas)</option>
+</select>
+</div>
+</div>
+<!-- Notes / Allergies -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-[#FFFDF5] font-semibold" for="res-notes">Alergias o comentarios especiales (opcional)</label>
+<textarea class="bg-[#28231E] text-[#FFFDF5] placeholder:text-[#9E8E7C] px-space-md py-3 rounded-xl border border-white/10 focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 outline-none font-body-sm text-body-sm transition-all resize-none" id="res-notes" placeholder="Ej. Somos celíacos / Celebración de cumpleaños / Trona para bebé" rows="2"></textarea>
+</div>
+<!-- CTA WhatsApp button -->
+<button class="warm-btn w-full bg-[#C5221F] hover:bg-[#B71C1C] text-[#FFFDF5] font-label-lg text-label-lg font-bold py-space-md px-space-lg rounded-2xl shadow-[0_6px_25px_rgba(197,34,31,0.4)] transition-all flex items-center justify-center gap-space-sm" type="submit">
+<span class="material-symbols-outlined text-[24px]">send</span>
+          Confirmar Reserva vía WhatsApp
+        </button>
+<div class="flex items-center justify-between text-[#E8DFD8] font-label-sm text-label-sm pt-space-xs">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[#FFD700] text-[16px]">lock</span>
+            Tus datos solo se usan para confirmar tu mesa
+          </span>
+<span class="text-[#FFD700] font-bold">Reserva gratuita</span>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- WIDGET GENERADOR DE CÓDIGO QR DE LA CARTA -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-[#0D0B0A] relative overflow-hidden" id="carta-qr">
+<!-- Ambient Backdrop Gradient -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#1A3D9E]/10 via-[#FFD700]/5 to-[#C5221F]/10 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto relative z-10 reveal-element">
+<div class="p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-space-xl border border-[#FFD700]/25 warm-card-glow" style="background: rgba(20, 17, 15, 0.9); backdrop-filter: blur(16px);">
+<!-- Text & Action column -->
+<div class="flex flex-col gap-space-md max-w-xl">
+<div class="inline-flex items-center gap-space-xs bg-[#28231E] px-space-md py-space-xs rounded-full w-fit border border-[#FFD700]/30 shadow">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">touch_app</span>
+<span class="font-label-sm text-label-sm text-[#FFFDF5] font-semibold">Para comensales en mesa y para llevar</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5]">
+          Escanea nuestra Carta Digital en tu móvil
+        </h2>
+<p class="font-body-md text-body-md text-[#E8DFD8] leading-relaxed">
+          Accede al menú interactivo completo con fotos de cada plato criollo, listado oficial de 14 alérgenos alimentarios, sugerencias del chef y recomendaciones de maridaje con ron venezolano.
+        </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="warm-btn bg-[#FFD700] hover:bg-[#FFC72C] text-[#241A00] font-label-lg text-label-lg font-bold px-space-lg py-space-md rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.35)] flex items-center gap-2" href="#menu-criollo">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+            Ver Carta en Navegador
+          </a>
+<button class="warm-btn bg-[#28231E] hover:bg-[#332C27] text-[#FFFDF5] font-label-md text-label-md font-semibold px-space-lg py-space-md rounded-2xl shadow border border-white/10 flex items-center gap-2" id="btn-download-qr" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#FFD700]">file_download</span>
+            Descargar Menú PDF
+          </button>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs text-[#E8DFD8] font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">check_circle</span>
+            Precios con IVA incluido
+          </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">check_circle</span>
+            Actualizado 2026
+          </div>
+</div>
+</div>
+<!-- High-Contrast QR Code Card & Table Standee Mockup -->
+<div class="flex flex-col sm:flex-row items-center gap-space-lg shrink-0">
+<!-- Realistic Card Stand -->
+<div class="bg-[#0D0B0A] p-space-lg rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-[#FFD700]/30 flex flex-col items-center text-center w-72 warm-card-glow">
+<!-- Kinetic Accent Border on Top -->
+<div class="w-full h-1.5 bg-gradient-to-r from-[#FFD700] via-[#1A3D9E] to-[#C5221F] rounded-full mb-space-md"></div>
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-[#FFD700] font-bold">Carta Oficial</p>
+<h4 class="font-title-md text-title-md text-[#FFFDF5] font-extrabold mt-0.5">LA GUAIRA BAR</h4>
+<!-- High Contrast White QR Canvas Container -->
+<div class="w-48 h-48 bg-white p-3 rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] mt-space-md flex items-center justify-center">
+<svg class="w-full h-full text-[#0D0B0A]" fill="currentColor" viewbox="0 0 100 100">
+<!-- Outer Corners QR Locators -->
+<rect fill="#0D0B0A" height="26" rx="3" width="26" x="5" y="5"></rect>
+<rect fill="#ffffff" height="18" rx="2" width="18" x="9" y="9"></rect>
+<rect fill="#0D0B0A" height="10" rx="1" width="10" x="13" y="13"></rect>
+<rect fill="#0D0B0A" height="26" rx="3" width="26" x="69" y="5"></rect>
+<rect fill="#ffffff" height="18" rx="2" width="18" x="73" y="9"></rect>
+<rect fill="#0D0B0A" height="10" rx="1" width="10" x="77" y="13"></rect>
+<rect fill="#0D0B0A" height="26" rx="3" width="26" x="5" y="69"></rect>
+<rect fill="#ffffff" height="18" rx="2" width="18" x="9" y="73"></rect>
+<rect fill="#0D0B0A" height="10" rx="1" width="10" x="13" y="77"></rect>
+<!-- Data Matrix Blocks -->
+<rect height="6" width="6" x="36" y="8"></rect>
+<rect height="6" width="6" x="46" y="8"></rect>
+<rect height="6" width="6" x="56" y="8"></rect>
+<rect height="6" width="6" x="36" y="18"></rect>
+<rect height="6" width="6" x="46" y="24"></rect>
+<rect height="6" width="6" x="56" y="18"></rect>
+<rect height="6" width="6" x="8" y="36"></rect>
+<rect height="6" width="6" x="18" y="44"></rect>
+<rect height="6" width="6" x="28" y="36"></rect>
+<rect height="6" width="6" x="8" y="52"></rect>
+<rect fill="#FFD700" height="10" width="10" x="36" y="36"></rect>
+<rect height="8" width="8" x="50" y="36"></rect>
+<rect height="6" width="6" x="62" y="36"></rect>
+<rect height="6" width="6" x="74" y="36"></rect>
+<rect height="6" width="6" x="84" y="44"></rect>
+<rect height="8" width="8" x="36" y="50"></rect>
+<rect fill="#C5221F" height="10" width="10" x="48" y="50"></rect>
+<rect height="6" width="6" x="64" y="50"></rect>
+<rect height="8" width="8" x="78" y="54"></rect>
+<rect height="6" width="6" x="36" y="66"></rect>
+<rect height="6" width="6" x="46" y="72"></rect>
+<rect height="6" width="6" x="56" y="66"></rect>
+<rect height="6" width="6" x="36" y="80"></rect>
+<rect height="6" width="6" x="48" y="84"></rect>
+<rect height="8" width="8" x="64" y="76"></rect>
+<rect height="6" width="6" x="78" y="72"></rect>
+<rect height="6" width="6" x="86" y="84"></rect>
+</svg>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-md">
+            Apunta con la cámara de tu móvil para ver fotos y alérgenos
+          </p>
+<div class="mt-space-sm bg-[#1C1815] px-space-md py-1.5 rounded-full border border-white/10">
+<span class="font-label-sm text-label-sm text-[#FFD700] font-bold">Mesa 12 • Escanea y pide fácil</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FOOTER WITH CARLOS CRUZ-DIEZ PATTERN BACKDROP STRIP -->
+<div class="w-full h-4 relative overflow-hidden flex shadow-inner">
+<img alt="Arte cinético decorativo Carlos Cruz-Diez" class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqHJJSPpE1JVNlyT0ExDQ4P4GhaEO8fd8EZ2EhndkHudaBgqUPVa9DuPqKOs4763SgbIE0O8w6Old5DMU3Fb8vydsxRC0N7C9fXzGLzWgiUwgPys9FKxnufXpWSe4k1Vj30OpBB0l2YzCDSJ5zIqwxGTtXIIbVYk9Qy_H7fKjj7C6EaQzzpDLwKKRw_NeRUbPNlz5dY7_55kONLIoq8XnFKzlNoExXlOwOYAj5YM2SPx0PkjonCSfKBrvNHkxaWU45eiw"/>
+</div>
+<footer class="w-full bg-[#0D0B0A] text-[#FFFDF5] relative">
+<div class="h-1.5 w-full flex">
+<div class="flex-1 bg-[#FFD700]"></div>
+<div class="flex-1 bg-[#1A3D9E]"></div>
+<div class="flex-1 bg-[#C5221F]"></div>
+</div>
+<div class="w-full px-margin-mobile lg:px-margin py-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<div class="w-13 h-13 rounded-full overflow-hidden shrink-0 flex items-center justify-center p-0.5 border-2 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4)] bg-[#14110F]">
+<img alt="Logo Oficial La Guaira" class="w-12 h-12 object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_gB1t5HOtbJWuRPIb0lEKHE8ZLrUFz9xJ0Wv-yZEDzFKX9ovKrEPYoLmyyrjzLqCxdmHDuTfzzaZIwOKm7L515gTHmuGM0ubAOvOwDz9-4-C2j2lxHzSkGfbnTuwDSnN0TidbhI2GX08yBoiXHH3kqda5sdPheLqQVH4ZMzud21CtyXaJmuScZBTbiXIE1mRCzOWbyHwxaXIfkTK8NlAC1AwYMPTCAMIxSRBt_FzKuA_FFQV4O3_mHSPZbrTjCRdN86E"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight text-[#FFD700]">LA GUAIRA</span>
+<span class="font-label-sm text-label-sm text-[#E8DFD8] font-medium">Bar Restaurante Venezolano</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] leading-relaxed">
+          Auténtica gastronomía venezolana en el corazón de Colmenar Viejo, Madrid. Pasión caribeña, sabores de tradición criolla y la calidez de nuestro hogar costero.
+        </p>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-title-md text-title-md text-[#FFFDF5] font-bold">Horarios</span>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-[#E8DFD8]">
+<p class="text-[#FFFDF5] font-semibold">Martes a Domingo:</p>
+<p>12:00 – 23:30 h</p>
+<div class="mt-space-xs py-1.5 px-3 rounded-xl bg-[#28231E] w-fit border border-white/5">
+<span class="text-[#FFB4AB] font-label-sm text-label-sm font-bold">Lunes cerrado por descanso</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-title-md text-title-md text-[#FFFDF5] font-bold">Ubicación y Contacto</span>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-[#E8DFD8]">
+<p class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">location_on</span>
+            Colmenar Viejo, Madrid
+          </p>
+<p class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">mail</span>
+            laguairabar.colmenar@gmail.com
+          </p>
+<p class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">call</span>
+            Teléfono &amp; WhatsApp reservas
+          </p>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-title-md text-title-md text-[#FFFDF5] font-bold">Redes &amp; Enlaces</span>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+<a class="text-[#E8DFD8] hover:text-[#FFD700] transition-colors flex items-center gap-space-xs" href="https://instagram.com/laguairabar.madrid" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">share</span>
+            Instagram: @laguairabar.madrid
+          </a>
+<a class="text-[#E8DFD8] hover:text-[#FFD700] transition-colors flex items-center gap-space-xs" href="#carta-qr">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">qr_code_2</span>
+            Menú Digital &amp; Carta QR
+          </a>
+<a class="text-[#E8DFD8] hover:text-[#FFD700] transition-colors flex items-center gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[#FFD700] text-[18px]">verified</span>
+            Política de Alérgenos
+          </a>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-center sm:text-left bg-[#14110F] px-space-md py-4 rounded-2xl border border-white/5">
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">© 2026 La Guaira Bar Restaurante. Sabor 100% auténtico venezolano en Madrid.</p>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-[#E8DFD8]">
+<a class="hover:text-[#FFD700] transition-colors" href="#">Aviso Legal</a>
+<a class="hover:text-[#FFD700] transition-colors" href="#">Privacidad</a>
+<a class="hover:text-[#FFD700] transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Interactive JavaScript: IntersectionObserver Reveal, Tabs, Ripple, WhatsApp -->
+<script>
+  // Intersection Observer for Scroll Reveals
+  const revealCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const revealObserver = new IntersectionObserver(revealCallback, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -40px 0px"
+  });
+
+  document.querySelectorAll('.reveal-element').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // Menu Category Filtering
+  document.querySelectorAll('.menu-tab-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-[#FFD700]', 'text-[#241A00]', 'shadow-[0_0_15px_rgba(255,215,0,0.35)]');
+        btn.classList.add('bg-[#1C1815]', 'text-[#E8DFD8]');
+      });
+
+      button.classList.remove('bg-[#1C1815]', 'text-[#E8DFD8]');
+      button.classList.add('bg-[#FFD700]', 'text-[#241A00]', 'shadow-[0_0_15px_rgba(255,215,0,0.35)]');
+
+      const filter = button.getAttribute('data-filter');
+      const items = document.querySelectorAll('.dish-item');
+
+      items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          item.style.display = 'flex';
+          item.style.opacity = '0';
+          setTimeout(() => {
+            item.style.transition = 'opacity 0.35s ease';
+            item.style.opacity = '1';
+          }, 30);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Quick Order button interaction
+  document.querySelectorAll('.order-add-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span> Añadido';
+      btn.classList.remove('bg-[#28231E]', 'text-[#FFFDF5]');
+      btn.classList.add('bg-[#FFD700]', 'text-[#241A00]', 'shadow-[0_0_12px_rgba(255,215,0,0.5)]');
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('bg-[#FFD700]', 'text-[#241A00]', 'shadow-[0_0_12px_rgba(255,215,0,0.5)]');
+        btn.classList.add('bg-[#28231E]', 'text-[#FFFDF5]');
+      }, 1800);
+    });
+  });
+
+  // Reservation WhatsApp Form Redirection
+  const form = document.getElementById('reservation-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('res-name').value;
+      const phone = document.getElementById('res-phone').value;
+      const date = document.getElementById('res-date').value;
+      const time = document.getElementById('res-time').value;
+      const guests = document.getElementById('res-guests').value;
+      const notes = document.getElementById('res-notes').value;
+
+      const message = encodeURIComponent(
+        `¡Hola La Guaira Bar Restaurante! 👋 Quisiera solicitar una reserva:\n\n` +
+        `👤 Nombre: ${name}\n` +
+        `📱 Teléfono: ${phone}\n` +
+        `📅 Fecha: ${date}\n` +
+        `⏰ Turno: ${time} h\n` +
+        `👥 Comensales: ${guests}\n` +
+        (notes ? `📝 Notas especiales: ${notes}\n\n` : '\n') +
+        `¿Tienen disponibilidad? ¡Muchas gracias!`
+      );
+
+      window.open(`https://wa.me/34600000000?text=${message}`, '_blank');
+    });
+  }
+
+  // Set default reservation date to today
+  const dateInput = document.getElementById('res-date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+    dateInput.value = today;
+  }
+
+  // PDF Download Action Feedback
+  const btnPdf = document.getElementById('btn-download-qr');
+  if (btnPdf) {
+    btnPdf.addEventListener('click', () => {
+      const original = btnPdf.innerHTML;
+      btnPdf.innerHTML = '<span class="material-symbols-outlined text-[20px] text-[#FFD700]">done</span> Descargando...';
+      setTimeout(() => {
+        btnPdf.innerHTML = original;
+        alert('Descarga de la Carta Digital de La Guaira iniciada.');
+      }, 900);
+    });
+  }
+</script>
+</body></html>
