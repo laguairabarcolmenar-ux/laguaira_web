@@ -863,12 +863,7 @@
 <a class="warm-btn bg-[#FFD700] hover:bg-[#FFC72C] text-[#241A00] font-label-lg text-label-lg font-bold px-space-lg py-space-md rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.35)] flex items-center gap-2" href="#menu-criollo">
 <span class="material-symbols-outlined text-[20px]">visibility</span>
             Ver Carta en Navegador
-          </a>
-<button class="warm-btn bg-[#28231E] hover:bg-[#332C27] text-[#FFFDF5] font-label-md text-label-md font-semibold px-space-lg py-space-md rounded-2xl shadow border border-white/10 flex items-center gap-2" id="btn-download-qr" type="button">
-<span class="material-symbols-outlined text-[20px] text-[#FFD700]">file_download</span>
-            Descargar Menú PDF
-          </button>
-</div>
+          </a></div>
 <div class="grid grid-cols-2 gap-space-sm pt-space-xs text-[#E8DFD8] font-body-sm text-body-sm">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[#FFD700] text-[18px]">check_circle</span>
@@ -1087,19 +1082,6 @@
     const today = new Date().toISOString().split('T')[0];
     dateInput.min = today;
     dateInput.value = today;
-  }
-
-  // PDF Download Action Feedback
-  const btnPdf = document.getElementById('btn-download-qr');
-  if (btnPdf) {
-    btnPdf.addEventListener('click', () => {
-      const original = btnPdf.innerHTML;
-      btnPdf.innerHTML = '<span class="material-symbols-outlined text-[20px] text-[#FFD700]">done</span> Descargando...';
-      setTimeout(() => {
-        btnPdf.innerHTML = original;
-        alert('Descarga de la Carta Digital de La Guaira iniciada.');
-      }, 900);
-    });
   }
 </script>
 </body></html>
