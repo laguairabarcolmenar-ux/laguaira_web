@@ -1199,14 +1199,18 @@
       }
     });
   };
-  const revealObserver = new IntersectionObserver(revealCallback, {
-    threshold: 0.15,
-    rootMargin: "0px 0px -40px 0px"
-  });
-
-  document.querySelectorAll('.reveal-element').forEach(el => {
-    revealObserver.observe(el);
-  });
+  // threshold 0: secciones muy altas (la carta en móvil) nunca llegan a un % visible mayor
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(revealCallback, {
+      threshold: 0,
+      rootMargin: "0px 0px -40px 0px"
+    });
+    document.querySelectorAll('.reveal-element').forEach(el => {
+      revealObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal-element').forEach(el => el.classList.add('revealed'));
+  }
 
   // Menu Category Filtering
   document.querySelectorAll('.menu-tab-btn').forEach(button => {
