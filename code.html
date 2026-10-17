@@ -1,6 +1,71 @@
 <!DOCTYPE html>
 
-<html class="dark scroll-smooth" lang="es" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<html class="dark scroll-smooth" lang="es" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La Guaira Bar Restaurante | Comida venezolana en Colmenar Viejo</title>
+<meta name="description" content="Restaurante venezolano en Colmenar Viejo (Madrid): cachapas, arepas, empanadas, parrillas y pabellón criollo. Calle Panamá 1. Abierto de martes a domingo de 7:00 a 23:30. Reservas: 919 47 20 27."/>
+<link rel="canonical" href="https://barlaguaira.es/"/>
+<meta name="theme-color" content="#0D0B0A"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<meta property="og:type" content="restaurant"/>
+<meta property="og:locale" content="es_ES"/>
+<meta property="og:site_name" content="La Guaira Bar Restaurante"/>
+<meta property="og:title" content="La Guaira Bar Restaurante · Comida venezolana en Colmenar Viejo"/>
+<meta property="og:description" content="Cachapas, arepas, empanadas y parrillas venezolanas. Calle Panamá 1, Colmenar Viejo. Reservas: 919 47 20 27."/>
+<meta property="og:url" content="https://barlaguaira.es/"/>
+<meta property="og:image" content="https://barlaguaira.es/img/empanada-carne-mechada.jpg"/>
+<meta property="og:image:width" content="900"/>
+<meta property="og:image:height" content="491"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "La Guaira Bar Restaurante",
+  "url": "https://barlaguaira.es/",
+  "image": [
+    "https://barlaguaira.es/img/empanada-carne-mechada.jpg",
+    "https://barlaguaira.es/img/parrilla-caracas.jpg"
+  ],
+  "logo": "https://barlaguaira.es/img/logo.png",
+  "telephone": "+34919472027",
+  "email": "laguairabar.colmenar@gmail.com",
+  "servesCuisine": [
+    "Venezolana",
+    "Latinoamericana"
+  ],
+  "priceRange": "€",
+  "acceptsReservations": true,
+  "hasMenu": "https://barlaguaira.es/#menu-criollo",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Panamá, 1",
+    "postalCode": "28770",
+    "addressLocality": "Colmenar Viejo",
+    "addressRegion": "Madrid",
+    "addressCountry": "ES"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:00",
+      "closes": "23:30"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/laguairabar.colmenar/"
+  ]
+}
+</script>
+<meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
   @layer base {
@@ -209,7 +274,7 @@
 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD700] opacity-80"></span>
 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFD700]"></span>
 </span>
-<span class="font-label-md text-label-md text-[#FFFDF5] font-semibold">Abierto hoy</span>
+<span class="font-label-md text-label-md text-[#FFFDF5] font-semibold" id="open-status">Martes a Domingo · 7:00 – 23:30</span>
 <span class="text-[#9E8E7C] text-xs">•</span>
 <span class="font-label-md text-label-md text-[#E8DFD8] flex items-center gap-1 font-medium">
 <span class="material-symbols-outlined text-[16px] text-[#FFD700]">location_on</span>
@@ -270,11 +335,11 @@
 </div>
 <div class="flex items-center gap-space-sm p-space-xs warm-card-glow rounded-xl p-2 border border-transparent">
 <div class="w-11 h-11 rounded-2xl bg-[#28231E] flex items-center justify-center shrink-0 shadow-inner">
-<span class="text-2xl text-[#FFD700]">⭐</span>
+<span class="material-symbols-outlined text-[24px] text-[#FFD700]">schedule</span>
 </div>
 <div>
-<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">4.9 en Google</p>
-<p class="font-body-sm text-body-sm text-[#E8DFD8]">+380 reseñas en Madrid</p>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Martes a Domingo</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">De 7:00 a 23:30 h</p>
 </div>
 </div>
 </div>
@@ -926,34 +991,30 @@
 </div>
 <!-- Google Map Static View with data-location -->
 <div class="rounded-[28px] overflow-hidden shadow-2xl bg-[#1C1815] border border-[#FFD700]/20 warm-card-glow">
-<div class="w-full h-56 bg-cover bg-center" data-location="Colmenar Viejo, Madrid, Spain" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxV7HOfvdcXuf0Pz7bTAultaTLP7JQn9ZtZEYQcq1me-0mVR4ja23UkN-9A8CYHPTaV77_e6mwFckPaqXnN8c9HD6asq1fEY6VHdqmscqI-0whLrpTeXaanO3gxVtapye3P-TPsUdpnomlhsLk_ADmbXEQvim8JyN6wZ2iysHXBeYVo59SggqdOtmn0nUiJ4O6Zhv6YEN2KV0e8endRbNwD-rb55qs9Allt0iVylATNTvfT1I3DvoGwQ');"></div>
+<iframe class="w-full h-56 block border-0" src="https://www.google.com/maps?q=Calle+Panam%C3%A1+1,+28770+Colmenar+Viejo,+Madrid&amp;output=embed" title="Mapa: Calle Panamá, 1 · 28770 Colmenar Viejo, Madrid" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 <div class="p-space-md flex items-center justify-between bg-[#28231E]">
 <div class="flex items-center gap-space-sm">
 <span class="material-symbols-outlined text-[#FFD700] text-[22px]">location_on</span>
 <div>
-<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Colmenar Viejo, Madrid</p>
-<p class="font-body-sm text-body-sm text-[#E8DFD8]">Fácil aparcamiento en las inmediaciones</p>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Calle Panamá, 1</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">28770 Colmenar Viejo, Madrid</p>
 </div>
 </div>
-<a class="font-label-sm text-label-sm text-[#FFD700] hover:underline font-bold" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<a class="font-label-sm text-label-sm text-[#FFD700] hover:underline font-bold" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Panam%C3%A1+1%2C+28770+Colmenar+Viejo%2C+Madrid" rel="noopener noreferrer" target="_blank">
             Cómo llegar
           </a>
 </div>
 </div>
-<!-- Testimonial preview -->
-<div class="bg-[#1C1815] p-space-md rounded-[28px] shadow-xl flex items-start gap-space-md border border-[#FFD700]/20 warm-card-glow">
+<!-- Llamada directa -->
+<a class="bg-[#1C1815] p-space-md rounded-[28px] shadow-xl flex items-center gap-space-md border border-[#FFD700]/20 warm-card-glow hover:border-[#FFD700]/50 transition-colors" href="tel:+34919472027">
 <div class="w-12 h-12 rounded-2xl bg-[#FFD700]/15 flex items-center justify-center shrink-0 border border-[#FFD700]/30">
-<span class="material-symbols-outlined text-[#FFD700] text-[24px]">format_quote</span>
+<span class="material-symbols-outlined text-[#FFD700] text-[24px]">call</span>
 </div>
 <div>
-<p class="font-body-sm text-body-sm text-[#FFFDF5] italic leading-relaxed">
-            "Las mejores cachapas que he comido en toda la Comunidad de Madrid. El queso de mano es auténtico de verdad y el trato te hace sentir en casa desde que entras."
-          </p>
-<p class="font-label-sm text-label-sm text-[#FFD700] mt-space-xs font-semibold">
-            — Carlos Méndez (Reseña verificada en Google Maps ⭐⭐⭐⭐⭐)
-          </p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">¿Prefieres llamar? Reserva por teléfono</p>
+<p class="font-title-md text-title-md text-[#FFD700] font-bold mt-0.5">919 47 20 27</p>
 </div>
-</div>
+</a>
 </div>
 <!-- Right Column: Interactive Booking Widget -->
 <div class="lg:col-span-7 bg-[#1C1815] p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl relative overflow-hidden border border-[#FFD700]/25 warm-card-glow" style="background: rgba(28, 24, 21, 0.92); backdrop-filter: blur(16px);">
@@ -1137,7 +1198,7 @@
 <span class="font-title-md text-title-md text-[#FFFDF5] font-bold">Horarios</span>
 <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-[#E8DFD8]">
 <p class="text-[#FFFDF5] font-semibold">Martes a Domingo:</p>
-<p>12:00 – 23:30 h</p>
+<p>07:00 – 23:30 h</p>
 <div class="mt-space-xs py-1.5 px-3 rounded-xl bg-[#28231E] w-fit border border-white/5">
 <span class="text-[#FFB4AB] font-label-sm text-label-sm font-bold">Lunes cerrado por descanso</span>
 </div>
@@ -1148,24 +1209,24 @@
 <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-[#E8DFD8]">
 <p class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-[#FFD700] text-[18px]">location_on</span>
-            Colmenar Viejo, Madrid
+            <a class="hover:text-[#FFD700] transition-colors" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Panam%C3%A1+1%2C+28770+Colmenar+Viejo%2C+Madrid" rel="noopener noreferrer" target="_blank">Calle Panamá, 1 · Colmenar Viejo</a>
           </p>
 <p class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-[#FFD700] text-[18px]">mail</span>
             laguairabar.colmenar@gmail.com
           </p>
-<p class="flex items-center gap-space-xs">
+<a class="flex items-center gap-space-xs hover:text-[#FFD700] transition-colors" href="tel:+34919472027">
 <span class="material-symbols-outlined text-[#FFD700] text-[18px]">call</span>
-            Teléfono &amp; WhatsApp reservas
-          </p>
+            919 47 20 27 · Reservas
+          </a>
 </div>
 </div>
 <div class="flex flex-col gap-space-sm">
 <span class="font-title-md text-title-md text-[#FFFDF5] font-bold">Redes &amp; Enlaces</span>
 <div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
-<a class="text-[#E8DFD8] hover:text-[#FFD700] transition-colors flex items-center gap-space-xs" href="https://instagram.com/laguairabar.madrid" rel="noopener noreferrer" target="_blank">
+<a class="text-[#E8DFD8] hover:text-[#FFD700] transition-colors flex items-center gap-space-xs" href="https://www.instagram.com/laguairabar.colmenar/" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-[#FFD700] text-[18px]">share</span>
-            Instagram: @laguairabar.madrid
+            Instagram: @laguairabar.colmenar
           </a>
 <a class="text-[#E8DFD8] hover:text-[#FFD700] transition-colors flex items-center gap-space-xs" href="#carta-qr">
 <span class="material-symbols-outlined text-[#FFD700] text-[18px]">qr_code_2</span>
@@ -1281,8 +1342,26 @@
         `¿Tienen disponibilidad? ¡Muchas gracias!`
       );
 
-      window.open(`https://wa.me/34600000000?text=${message}`, '_blank');
+      window.open(`https://wa.me/34919472027?text=${message}`, '_blank');
     });
+  }
+
+  // Estado abierto / cerrado según la hora de Madrid (martes a domingo, 7:00 – 23:30)
+  const openStatus = document.getElementById('open-status');
+  if (openStatus) {
+    try {
+      const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+      const get = type => parts.find(p => p.type === type).value;
+      const minutes = parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10);
+      const isMonday = get('weekday') === 'Mon';
+      if (!isMonday && minutes >= 7 * 60 && minutes < 23 * 60 + 30) {
+        openStatus.textContent = 'Abierto ahora · hasta las 23:30';
+      } else {
+        const opensTomorrow = minutes >= 7 * 60 || isMonday;
+        const reopenDay = get('weekday') === 'Sun' && opensTomorrow ? 'el martes' : (opensTomorrow ? 'mañana' : 'hoy');
+        openStatus.textContent = `Cerrado · abrimos ${reopenDay} a las 7:00`;
+      }
+    } catch (e) { /* se queda el horario general */ }
   }
 
   // Set default reservation date to today
