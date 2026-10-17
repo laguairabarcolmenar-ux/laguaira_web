@@ -104,15 +104,15 @@
 
   /* Interactive warm ripples & card glow */
   .warm-card-glow {
-    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    transition: scale 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
   }
   .warm-card-glow:hover {
-    transform: scale(1.03);
+    scale: 1.03;
     box-shadow: 0 10px 30px rgba(255, 215, 0, 0.25), 0 0 20px rgba(197, 34, 31, 0.15);
     border-color: rgba(255, 215, 0, 0.6) !important;
   }
   .warm-card-glow:active {
-    transform: scale(0.99);
+    scale: 0.99;
   }
 
   .warm-btn {
@@ -126,6 +126,95 @@
   }
   .warm-btn:active {
     transform: scale(0.97);
+  }
+
+  /* ===== Animaciones 3D con el scroll (CSS nativo, sin librerías) =====
+     Solo se activan si el navegador soporta animation-timeline y el usuario no ha pedido
+     reducir el movimiento; si no, la web se ve igual que antes. Cada elemento lleva su
+     propia perspectiva (perspective() dentro de transform): con una perspectiva en el
+     contenedor, en móvil la carta mide >8000px y las tarjetas se desplazaban de más. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      /* overflow:hidden convierte la caja en contenedor de scroll y view() mediría la
+         posición dentro de ella en vez de en la pantalla; clip recorta igual sin ese efecto */
+      html .overflow-hidden { overflow: clip; }
+
+      /* Tarjetas: entran inclinadas desde el fondo y se enderezan */
+      .fx-card {
+        animation: fx-card-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 35%;
+        transform-origin: 50% 100%;
+      }
+      .fx-card:nth-child(even) { animation-name: fx-card-in-alt; }
+      @keyframes fx-card-in {
+        from { opacity: 0; transform: perspective(1000px) translate3d(0, 50px, -120px) rotate3d(1, 0.3, 0, 26deg); }
+        to   { opacity: 1; transform: perspective(1000px) translate3d(0, 0, 0) rotate3d(1, 0.3, 0, 0deg); }
+      }
+      @keyframes fx-card-in-alt {
+        from { opacity: 0; transform: perspective(1000px) translate3d(0, 50px, -120px) rotate3d(1, -0.3, 0, 26deg); }
+        to   { opacity: 1; transform: perspective(1000px) translate3d(0, 0, 0) rotate3d(1, -0.3, 0, 0deg); }
+      }
+
+      /* Títulos de sección: se levantan como una lámina */
+      .fx-rise {
+        animation: fx-rise linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 30%;
+        transform-origin: 50% 100%;
+      }
+      @keyframes fx-rise {
+        from { opacity: 0; transform: perspective(600px) translateY(30px) rotateX(70deg); }
+        to   { opacity: 1; transform: perspective(600px) translateY(0) rotateX(0deg); }
+      }
+
+      /* Portada: al bajar, el contenido se aleja hacia el fondo */
+      .fx-hero {
+        animation: fx-hero-out linear both;
+        animation-timeline: view();
+        animation-range: exit 0% exit 90%;
+        transform-origin: 50% 0%;
+      }
+      @keyframes fx-hero-out {
+        from { opacity: 1;   transform: perspective(1200px) translate3d(0, 0, 0) rotateX(0deg) scale(1); }
+        to   { opacity: 0.1; transform: perspective(1200px) translate3d(0, -40px, -260px) rotateX(22deg) scale(0.92); }
+      }
+
+      /* Fotos grandes: efecto parallax dentro de su marco */
+      .fx-parallax {
+        scale: 1.18;
+        animation: fx-parallax linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 100%;
+      }
+      @keyframes fx-parallax {
+        from { translate: 0 -7%; }
+        to   { translate: 0 7%; }
+      }
+
+      /* Tarjeta del QR: gira como un expositor de mesa */
+      .fx-standee {
+        animation: fx-standee linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 100%;
+      }
+      @keyframes fx-standee {
+        from { transform: perspective(900px) translateY(40px) rotateY(-38deg); }
+        45%  { transform: perspective(900px) translateY(0) rotateY(0deg); }
+        to   { transform: perspective(900px) translateY(-20px) rotateY(14deg); }
+      }
+
+      /* Iconos de servicios y productos: giran sobre sí mismos al aparecer */
+      .fx-spin {
+        animation: fx-spin linear both;
+        animation-timeline: view();
+        animation-range: entry 20% cover 40%;
+      }
+      @keyframes fx-spin {
+        from { transform: perspective(400px) rotateY(180deg) scale(0.6); }
+        to   { transform: perspective(400px) rotateY(0deg) scale(1); }
+      }
+    }
   }
 </style>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -237,6 +326,7 @@
 </a>
 <nav class="hidden xl:flex items-center gap-space-lg">
 <a aria-current="page" class="transition-all bg-[#FFD700] text-[#241A00] font-bold rounded-xl px-4 py-2 shadow-[0_0_15px_rgba(255,215,0,0.35)] hover:scale-105" data-path="inicio" href="#inicio">Inicio</a>
+<a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="servicios" href="#servicios">Servicios</a>
 <a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="menu-criollo" href="#menu-criollo">Menú Criollo</a>
 <a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="nuestra-esencia" href="#nuestra-esencia">Nuestra Esencia</a>
 <a class="font-label-lg text-label-lg text-[#E8DFD8] hover:text-[#FFD700] hover:scale-105 transition-all py-1" data-path="reservas" href="#reservas">Reservas</a>
@@ -267,7 +357,7 @@
 <div class="absolute bottom-10 left-1/4 w-80 h-80 rounded-full bg-[#FFC72C]/20 blur-3xl"></div>
 </div>
 <div class="relative w-full min-h-[94vh] flex items-center pt-28 pb-20 px-margin-mobile lg:px-margin">
-<div class="relative z-10 max-w-5xl mx-auto w-full flex flex-col items-start gap-space-md mt-4 reveal-element">
+<div class="fx-hero relative z-10 max-w-5xl mx-auto w-full flex flex-col items-start gap-space-md mt-4 reveal-element">
 <!-- Live status pill -->
 <div class="inline-flex items-center gap-space-sm bg-[#1C1815]/85 backdrop-blur-md px-space-md py-space-xs rounded-full border border-[#FFD700]/30 shadow-[0_0_15px_rgba(255,215,0,0.15)]">
 <span class="relative flex h-2.5 w-2.5">
@@ -350,6 +440,176 @@
 <div class="w-full h-3 overflow-hidden shadow-md relative">
 <img alt="Patrón cinético Carlos Cruz-Diez" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqHJJSPpE1JVNlyT0ExDQ4P4GhaEO8fd8EZ2EhndkHudaBgqUPVa9DuPqKOs4763SgbIE0O8w6Old5DMU3Fb8vydsxRC0N7C9fXzGLzWgiUwgPys9FKxnufXpWSe4k1Vj30OpBB0l2YzCDSJ5zIqwxGTtXIIbVYk9Qy_H7fKjj7C6EaQzzpDLwKKRw_NeRUbPNlz5dY7_55kONLIoq8XnFKzlNoExXlOwOYAj5YM2SPx0PkjonCSfKBrvNHkxaWU45eiw"/>
 </div>
+<!-- SERVICIOS & COMPROMISO -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-[#0D0B0A] relative overflow-hidden" id="servicios">
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute -top-32 left-1/4 w-[28rem] h-[28rem] rounded-full bg-[#FFD700]/10 blur-3xl"></div>
+<div class="absolute bottom-0 -right-24 w-[26rem] h-[26rem] rounded-full bg-[#1A3D9E]/15 blur-3xl"></div>
+</div>
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="max-w-2xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">room_service</span> Nuestros Servicios
+</span>
+<h2 class="fx-rise font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">De la mañana a la noche, tu rincón venezolano</h2>
+<p class="font-body-md text-body-md text-[#E8DFD8] mt-space-xs leading-relaxed">Desayunos desde las 7:00, menú del día, pedidos para llevar, celebraciones, partidos y música. De martes a domingo, hasta las 23:30.</p>
+</div>
+<a class="warm-btn inline-flex items-center gap-2 bg-[#C5221F] text-[#FFFDF5] px-5 py-3 rounded-2xl font-label-md text-label-md font-bold shadow-[0_8px_25px_rgba(197,34,31,0.45)] shrink-0 w-fit" href="tel:+34919472027">
+<span class="material-symbols-outlined text-[18px]">call</span> 919 47 20 27
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Servicio: Desayunos criollos -->
+<div class="fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col gap-space-md warm-card-glow border border-[#FFD700]/20 relative overflow-hidden" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none" style="background: #FFD700;"></div>
+<div class="flex items-center justify-between gap-space-sm relative">
+<div class="fx-spin w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border shadow-lg" style="background: #FFD70022; border-color: #FFD70055;">
+<span class="material-symbols-outlined text-[30px]" style="color: #FFD700;">free_breakfast</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">Desde las 7:00</span>
+</div>
+<div class="relative">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Desayunos criollos</h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">Abrimos a las 7:00 para que empieces el día con sabor venezolano: café, empanadas recién fritas, arepas y cachapas.</p>
+</div>
+<a class="mt-auto inline-flex items-center gap-1 font-label-md text-label-md font-bold text-[#FFD700] hover:gap-2 transition-all w-fit relative" href="#menu-criollo">
+Ver la carta <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Servicio: Menú del día -->
+<div class="fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col gap-space-md warm-card-glow border border-[#FFD700]/20 relative overflow-hidden" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none" style="background: #FFC72C;"></div>
+<div class="flex items-center justify-between gap-space-sm relative">
+<div class="fx-spin w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border shadow-lg" style="background: #FFC72C22; border-color: #FFC72C55;">
+<span class="material-symbols-outlined text-[30px]" style="color: #FFC72C;">lunch_dining</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">12,90€ · Mar a Vie</span>
+</div>
+<div class="relative">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Menú del día</h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">Al mediodía, de martes a viernes: primer plato, segundo, bebida y postre o café. Cocina casera criolla a buen precio.</p>
+</div>
+<a class="mt-auto inline-flex items-center gap-1 font-label-md text-label-md font-bold text-[#FFD700] hover:gap-2 transition-all w-fit relative" href="#reservas">
+Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Servicio: Para llevar y a domicilio -->
+<div class="fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col gap-space-md warm-card-glow border border-[#FFD700]/20 relative overflow-hidden" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none" style="background: #C5221F;"></div>
+<div class="flex items-center justify-between gap-space-sm relative">
+<div class="fx-spin w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border shadow-lg" style="background: #C5221F22; border-color: #C5221F55;">
+<span class="material-symbols-outlined text-[30px]" style="color: #C5221F;">takeout_dining</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">Pide por teléfono</span>
+</div>
+<div class="relative">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Para llevar y a domicilio</h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">Llévate tus platos favoritos a casa o a la oficina. Haz tu pedido por teléfono y te lo preparamos.</p>
+</div>
+<a class="mt-auto inline-flex items-center gap-1 font-label-md text-label-md font-bold text-[#FFD700] hover:gap-2 transition-all w-fit relative" href="tel:+34919472027">
+Llamar 919 47 20 27 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Servicio: Eventos y celebraciones -->
+<div class="fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col gap-space-md warm-card-glow border border-[#FFD700]/20 relative overflow-hidden" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none" style="background: #FFD700;"></div>
+<div class="flex items-center justify-between gap-space-sm relative">
+<div class="fx-spin w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border shadow-lg" style="background: #FFD70022; border-color: #FFD70055;">
+<span class="material-symbols-outlined text-[30px]" style="color: #FFD700;">celebration</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">Grupos y encargos</span>
+</div>
+<div class="relative">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Eventos y celebraciones</h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">Cumpleaños, reuniones de empresa y grupos grandes. Cuéntanos qué tienes en mente y lo organizamos contigo.</p>
+</div>
+<a class="mt-auto inline-flex items-center gap-1 font-label-md text-label-md font-bold text-[#FFD700] hover:gap-2 transition-all w-fit relative" href="tel:+34919472027">
+Pedir información <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Servicio: Deportes en pantalla -->
+<div class="fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col gap-space-md warm-card-glow border border-[#FFD700]/20 relative overflow-hidden" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none" style="background: #1A3D9E;"></div>
+<div class="flex items-center justify-between gap-space-sm relative">
+<div class="fx-spin w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border shadow-lg" style="background: #1A3D9E22; border-color: #1A3D9E55;">
+<span class="material-symbols-outlined text-[30px]" style="color: #8FA8FF;">sports_soccer</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">En directo</span>
+</div>
+<div class="relative">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Deportes en pantalla</h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">Fútbol, béisbol y los partidos de la Vinotinto en directo, con una Polar bien fría y algo para picar.</p>
+</div>
+<a class="mt-auto inline-flex items-center gap-1 font-label-md text-label-md font-bold text-[#FFD700] hover:gap-2 transition-all w-fit relative" href="#reservas">
+Reservar para el partido <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Servicio: Música y buen ambiente -->
+<div class="fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col gap-space-md warm-card-glow border border-[#FFD700]/20 relative overflow-hidden" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none" style="background: #C5221F;"></div>
+<div class="flex items-center justify-between gap-space-sm relative">
+<div class="fx-spin w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border shadow-lg" style="background: #C5221F22; border-color: #C5221F55;">
+<span class="material-symbols-outlined text-[30px]" style="color: #C5221F;">music_note</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">Fines de semana</span>
+</div>
+<div class="relative">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Música y buen ambiente</h3>
+<p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">Música venezolana y latina y ambiente de fiesta los fines de semana. Ven a sentirte como en casa.</p>
+</div>
+<a class="mt-auto inline-flex items-center gap-1 font-label-md text-label-md font-bold text-[#FFD700] hover:gap-2 transition-all w-fit relative" href="#reservas">
+Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Compromiso -->
+<div>
+<div class="fx-card rounded-[32px] p-space-lg lg:p-space-xl border-2 border-[#FFD700]/30 shadow-2xl relative overflow-hidden" style="background: linear-gradient(135deg, #1C1815 0%, #28231E 60%, #1A1530 100%);">
+<div class="absolute top-0 left-0 right-0 h-1.5 flex"><div class="w-1/3 bg-[#FFD700]"></div><div class="w-1/3 bg-[#1A3D9E]"></div><div class="w-1/3 bg-[#C5221F]"></div></div>
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-space-lg items-center">
+<div class="lg:col-span-2 flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">verified</span> Nuestro Compromiso
+</span>
+<h3 class="font-headline-lg text-headline-lg text-[#FFFDF5] font-bold">Sabor venezolano de verdad</h3>
+<p class="font-body-md text-body-md text-[#E8DFD8] leading-relaxed">Trabajamos con ingredientes y productos originales de Venezuela para que cada bocado sepa como allá. Sin imitaciones: lo que comías en casa, aquí en Colmenar Viejo.</p>
+</div>
+<div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="fx-card flex items-center gap-space-sm bg-[#0D0B0A]/60 p-space-md rounded-2xl border border-white/10">
+<span class="fx-spin text-3xl" aria-hidden="true">🧀</span>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Queso de mano</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">El de verdad, suave y jugoso</p>
+</div>
+</div>
+<div class="fx-card flex items-center gap-space-sm bg-[#0D0B0A]/60 p-space-md rounded-2xl border border-white/10">
+<span class="fx-spin text-3xl" aria-hidden="true">🌽</span>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Harina de maíz venezolana</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">Para arepas, empanadas y cachapas</p>
+</div>
+</div>
+<div class="fx-card flex items-center gap-space-sm bg-[#0D0B0A]/60 p-space-md rounded-2xl border border-white/10">
+<span class="fx-spin text-3xl" aria-hidden="true">🍺</span>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Cerveza Polar</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">Bien fría, como allá</p>
+</div>
+</div>
+<div class="fx-card flex items-center gap-space-sm bg-[#0D0B0A]/60 p-space-md rounded-2xl border border-white/10">
+<span class="fx-spin text-3xl" aria-hidden="true">🥃</span>
+<div>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Ron Santa Teresa</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]">De los Valles de Aragua</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- NUESTRA ESENCIA SECTION (Aerial Coast Backdrop & Cinematics) -->
 <section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-[#14110F] relative bg-fixed bg-cover bg-center" id="nuestra-esencia" style="background-image: linear-gradient(to bottom, rgba(13,11,10,0.92) 0%, rgba(20,17,15,0.88) 50%, #0D0B0A 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjy5kanAASkcI89khbSc2zomqbm2-_It5djTkxv_sNkTS7O5Tsg2hyFZOS3iERrAfkcGe7ymcZdngfhTQ-QcMBgP_jTluhwlR5DVDD70H0u1XvAEmVIe4JL3RLfBdVQkSwT9bONNRuctb_VEaVFDq5qiYoETBsyLgFEvRiBXh1W6edTrMaYoRBxD8NrQUyeLLALzX-FxnwFizEmnRb-yj65z1GpvCQiYZHZhlRsX1aOXFJ7vu7j7T-52yDjW4EYIVVWSc');">
 <div class="max-w-7xl mx-auto flex flex-col gap-space-xl relative z-10 reveal-element">
@@ -359,7 +619,7 @@
 <span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-2">
 <span class="material-symbols-outlined text-[16px]">wb_sunny</span> Herencia Gastronómica
         </span>
-<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">De las costas de La Guaira a la Sierra Norte</h2>
+<h2 class="fx-rise font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">De las costas de La Guaira a la Sierra Norte</h2>
 </div>
 <p class="font-body-md text-body-md text-[#E8DFD8] max-w-xl leading-relaxed">
         Nacimos inspirados en los colores cinéticos de Maiquetía, la brisa marina del litoral central y el fogón criollo que congrega a la familia alrededor de una buena bandeja de cachapas y arepas calientes.
@@ -368,7 +628,7 @@
 <!-- Featured Gastronomy Atmospheric Showcase Banner with IMAGE_10 -->
 <div class="w-full rounded-[32px] overflow-hidden relative shadow-[0_16px_40px_rgba(0,0,0,0.7)] border border-[#FFD700]/25 group warm-card-glow">
 <div class="relative h-80 sm:h-96 w-full overflow-hidden">
-<img alt="Ambiente cálido de bar venezolano en Madrid con cachapas, arepas y empanadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95" src="https://lh3.googleusercontent.com/aida/AEtjO1W4xDgLdGZeyWhnkMcCJPuzUxHcf3HO-3sd4xEyFvlbx2fXdfnnQiCLAfXq9ZGtfbyFrKdoJ-l1eBIH2MboW8Qy6Cu9H5IrR9XFl2QVxyW2lczysLZJG775EC4gE2zz5viUDdYBPvkqKlkYEBVzi_zQ4fUIJ0NZiRiH448Ev47bcbPxFROD6fu7itqpj5jTGs1tHbHiYn4-92d7ngFbIaefpgPsDrsnkKCPoqi_sDApYx33E2Z9QsTOSW4U"/>
+<img alt="Ambiente cálido de bar venezolano en Madrid con cachapas, arepas y empanadas" class="fx-parallax w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95" src="https://lh3.googleusercontent.com/aida/AEtjO1W4xDgLdGZeyWhnkMcCJPuzUxHcf3HO-3sd4xEyFvlbx2fXdfnnQiCLAfXq9ZGtfbyFrKdoJ-l1eBIH2MboW8Qy6Cu9H5IrR9XFl2QVxyW2lczysLZJG775EC4gE2zz5viUDdYBPvkqKlkYEBVzi_zQ4fUIJ0NZiRiH448Ev47bcbPxFROD6fu7itqpj5jTGs1tHbHiYn4-92d7ngFbIaefpgPsDrsnkKCPoqi_sDApYx33E2Z9QsTOSW4U"/>
 <div class="absolute inset-0 bg-gradient-to-t from-[#0D0B0A] via-[#14110F]/40 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
 <div class="max-w-2xl">
@@ -391,7 +651,7 @@
 <!-- Bento-style Story Mosaic -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg">
 <!-- Main Narrative Card -->
-<div class="md:col-span-7 p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl flex flex-col justify-between relative overflow-hidden warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="fx-card md:col-span-7 p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl flex flex-col justify-between relative overflow-hidden warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
 <div class="absolute -right-16 -top-16 w-56 h-56 bg-[#FFD700]/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col gap-space-md">
 <div class="w-13 h-13 rounded-2xl bg-[#FFD700]/20 border border-[#FFD700]/30 text-[#FFD700] flex items-center justify-center p-2.5 shadow-md">
@@ -422,7 +682,7 @@
         </div>
 </div>
 <!-- Visual Vignette 1: Empanadas & Salsas -->
-<div class="md:col-span-5 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="fx-card md:col-span-5 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
 <div class="h-64 w-full relative overflow-hidden">
 <img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" data-alt="Traditional golden crispy Venezuelan empanadas served with homemade green guasacaca sauce in rustic clay bowls on a dark wooden table in an atmospheric Venezuelan restaurant in Madrid, vibrant warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoNP-iW4JijWQB47oi3x_wDHiAKJ9a6n0HV5-76NuETjGlqnC_6RVlszXh7zQxjbYdTMFZo6oo_0ixxE0EFOQ69KlTfcHiB5tA_XKENUVS5xPUrKCIHXjwWbwFVJz91OtUEjSqkMXHuRVkRXv7X8SND4PB_McWEE3GBRlGoq1SG9TntxARaxOtUFLgLlgAsL2oXh-amLMY7eY_OKXouYxhnIxcevPjXzD3LJEjABxvd1cb3bcmUNzAcA"/>
 <span class="absolute top-4 left-4 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-[#FFD700] font-semibold border border-[#FFD700]/30 shadow">
@@ -437,7 +697,7 @@
 </div>
 </div>
 <!-- Visual Vignette 2: Cachapa con Queso de Mano -->
-<div class="md:col-span-6 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="fx-card md:col-span-6 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
 <div class="h-64 w-full relative overflow-hidden">
 <img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" data-alt="Close up of a warm Venezuelan sweet corn cachapa folded over melted handcrafted queso de mano cheese with butter glistening on top, resting on a banana leaf on a dark stone slate background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1RZWhhPxx2oDJHQQSkAGnyFwG3GS6akzSUbIw4Yj5qquNoq5xlUegrTaR8p58GyfU07tL8zK-2kiWhqaQiOpat5sDnMSuCdUKnbGmoCaMtgj9WJ3JGx1Kkb_yWLcgD9wgOIgXcb-Cid37zfUmaDnvnx-IGXsO8Q8YUQIP73Hwp_iQTyjVMN4-EOnPOlojtqGOi33yt8o1Y-_xZc9VBnckCL2xkVGAFiLZR4az3qDprnT6hH9hYWH8Rg"/>
 <span class="absolute top-4 left-4 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-[#FFD700] font-semibold border border-[#FFD700]/30 shadow">
@@ -452,7 +712,7 @@
 </div>
 </div>
 <!-- Cruz-Diez Tribute Card -->
-<div class="md:col-span-6 p-space-lg rounded-[32px] shadow-2xl flex flex-col justify-between relative overflow-hidden warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
+<div class="fx-card md:col-span-6 p-space-lg rounded-[32px] shadow-2xl flex flex-col justify-between relative overflow-hidden warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
 <div class="relative h-40 w-full rounded-2xl overflow-hidden mb-space-md shadow-lg border border-white/10">
 <img alt="Adoquines cromáticos y arte cinético de Carlos Cruz-Diez en Maiquetía" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqHJJSPpE1JVNlyT0ExDQ4P4GhaEO8fd8EZ2EhndkHudaBgqUPVa9DuPqKOs4763SgbIE0O8w6Old5DMU3Fb8vydsxRC0N7C9fXzGLzWgiUwgPys9FKxnufXpWSe4k1Vj30OpBB0l2YzCDSJ5zIqwxGTtXIIbVYk9Qy_H7fKjj7C6EaQzzpDLwKKRw_NeRUbPNlz5dY7_55kONLIoq8XnFKzlNoExXlOwOYAj5YM2SPx0PkjonCSfKBrvNHkxaWU45eiw"/>
 <div class="absolute inset-0 bg-gradient-to-t from-[#0D0B0A]/90 via-transparent to-transparent"></div>
@@ -494,7 +754,7 @@
 <span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-1.5">
 <span class="material-symbols-outlined text-[16px]">restaurant_menu</span> Nuestra Carta
         </span>
-<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">Menú Criollo Auténtico</h2>
+<h2 class="fx-rise font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">Menú Criollo Auténtico</h2>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-1">Opciones sin gluten señalizadas. Consulta alérgenos con nuestro equipo.</p>
 </div>
 <div class="inline-flex items-center gap-space-xs bg-[#1C1815] px-space-md py-2 rounded-full border border-[#FFD700]/30 shadow-md">
@@ -535,7 +795,7 @@
 <!-- Menu Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="dishes-container">
 <!-- Dish Card 1: Cachapa Queso de Mano -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="cachapas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="cachapas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional Venezuelan cachapa topped with large slice of artisanal white cheese and melting butter, served on rustic stone plate in a cozy restaurant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7XxQvxjkVLz-TWnqLoiXLzwqA96H4NetgbyZT4T4V4FOcd36WG5NhIkCPiiy7AS9MY4XS4vJVxrkWrR3wUYwTXwVf_iniz6WeqgiTW3J_KFHIzitaJGVe3FijwslKMnmuHnF_Y7TiaQwavr0ywpTOd0z8N2kn2-ZJtkX9t8QKb9OpeLcYgcD1i17MsDtmj5h2I_Xa0q7xNSOnVPN1Ef0F3WGgtxw8e3nM7z8yGic7GChBW12KVNatyA"/>
@@ -564,7 +824,7 @@
 </div>
 </div>
 <!-- Dish Card: Cachapa con Carne Mechada -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="cachapas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="cachapas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Cachapa venezolana con queso de mano y carne desmechada" loading="lazy" src="img/cachapa-carne.jpg"/>
@@ -590,7 +850,7 @@
 </div>
 </div>
 <!-- Dish Card: Cachapa con Cochino Frito -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="cachapas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="cachapas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Cachapa venezolana con queso de mano, queso rallado y cochino frito" loading="lazy" src="img/cachapa-cochino-frito.jpg"/>
@@ -616,7 +876,7 @@
 </div>
 </div>
 <!-- Dish Card 2: Arepa Reina Pepiada -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Venezuelan Arepa Reina Pepiada stuffed with creamy chicken breast, fresh avocado, cilantro and mayonnaise, displayed against dark atmospheric warm wood backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd1R8hU9bMyia1wEKuNjE1de4cDo8gxolMCdxz3SCPoHYrGp-JEVW-rjNy-BN53mf5Qww2mRb0fjzC-kR4ziLrqKccH9FGmCPwmtG6pzCweHfses3kBq68kqXxFDRcumt6E9rdqYWkO84rmH0Cn5NdrqNTAudRb-dRxvrJ70UPTdXU2xH4ouWKYfeDiBIj9S2bgYj5YjsxanvDBLn-r5lp-KQz-EY9ze4xBRXAsKeKIdMR_m74ETPRIQ"/>
@@ -645,7 +905,7 @@
 </div>
 </div>
 <!-- Dish Card 3: Empanada de Cazón Oriental -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Crispy golden Venezuelan fish empanada cut in half showing seasoned shredded dogfish cazón stuffing, served with lime wedge on ceramic dish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlLNCqxUPmr3uLoQu_yh79LTDNstlMWl7HWTHrR7RNdgSYzx4vzA_C8DR5WB9wQZbS2QWrRwJKezB5UhbwVphWcT2RFDTseojuBTKYXVseLZLuddGUB-c4JPUZ9JJ7Tb7YSzkBuQaI1qBv8TgDcvALE6dyfdy66mU5nnL-nNcjalmJIyV0exDWAVX-CXrfeODS9Edn3Z8TsLAO99VN818z8dKGeSH2KBc-gJrOtA2jWZXBcSqnJvrMKQ"/>
@@ -671,7 +931,7 @@
 </div>
 </div>
 <!-- Dish Card 4: Pabellón Criollo Tradicional -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="platos">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="platos">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional Venezuelan Pabellón Criollo national dish with shredded flank beef, white rice, black turtle beans, fried ripe plantain slices and white grated cheese." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-a5609Jx6lIH2XQ6gWItNFvxBZib0VhghpNXMyxCvEp0cFk5lyjAmyBpW_g3AR5ISsFwpGPZsB-UhgPBfJhzEQNw51pzzojd31CmF5x2mMXzJsufX7axPRXotTfPQjeNUidfi83vvIxIotXFuInUMR9nmqAeEERX2u8CXxUEkISH8sN4Vg4f3E_7vo6fOeAEirutyFKxTZCg1KtqsadwwiFHZeMIbgkSt3hXQ9_6p0iVzNGTfs97hg"/>
@@ -697,7 +957,7 @@
 </div>
 </div>
 <!-- Dish Card 5: Arepa Pelúa -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Venezuelan Arepa Pelua packed with slow cooked shredded flank beef and rich yellow cheddar style shredded cheese melting out of the toasted corn pocket." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS9BXTRkvrjTBN-a8Rqn9XAqfEVVQDvdBT2Oi2G5ULJ3SjSrWbD4FLexE9Ox3McxFanuWNT5UXkCWyKuv5nMHhtnGeSKGHmhVfsmBcUfo5Gam-kiNUR7AnkvTN4sDLpKELMG_iXCkpVicQGAWF5_cEqOzHjq0VXnEQD6jCJlul1dtC9IywqK_7bCVOyrrEzOGg1RTWUY6041q8rL0Ev9W5l-LLoQ0MTghI0yW7px08Hk-cSfMfoRrCAw"/>
@@ -726,7 +986,7 @@
 </div>
 </div>
 <!-- Dish Card 6: Empanada Operada de Pabellón -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Golden fried Venezuelan empanada operada sliced open along the spine filled with shredded beef, black beans, fried sweet plantain and grated cheese with spicy salsa." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPaNc6gvui2i-YA5Q0lRDud_zfeeOKI0YX8iEPRpa0fPo_oZeHa-kWqCKYjIFsp9pyH7JcfcrXnHCgO82HFA9PZ5cZiu4mdOEXsMcFWMmF8UnbESQl2jxDfgJfXXcA9xSMT3yeymJ-CXRub5J9kYCOrsD6HDUDVgKOvyEextjiWn7pcex6bHdTpifG_pCBEQq7sxTkqfX2j3VyRmlS_jupE7piW_tiPYj-DukscilZkVEDCKmA3VEFPg"/>
@@ -752,7 +1012,7 @@
 </div>
 </div>
 <!-- Dish Card: Empanada de Pollo -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de pollo dorada y crujiente sobre pizarra con guasacaca y lima" loading="lazy" src="img/empanada-pollo.jpg"/>
@@ -775,7 +1035,7 @@
 </div>
 </div>
 <!-- Dish Card: Empanada de Queso -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de queso con el queso fundido saliendo, servida con guasacaca" loading="lazy" src="img/empanada-queso.jpg"/>
@@ -798,7 +1058,7 @@
 </div>
 </div>
 <!-- Dish Card: Empanada de Carne Mechada -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de carne mechada abierta, servida con guasacaca y cerveza Polar" loading="lazy" src="img/empanada-carne-mechada.jpg"/>
@@ -821,7 +1081,7 @@
 </div>
 </div>
 <!-- Dish Card: Parrilla La Guaira -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Parrilla mar y tierra con carne a la brasa, gambas y limón" loading="lazy" src="img/parrilla-la-guaira.jpg"/>
@@ -847,7 +1107,7 @@
 </div>
 </div>
 <!-- Dish Card: Parrilla Caracas -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Parrilla venezolana con pollo, carne, chorizo, aguacate, yuca, arepitas y tostones sobre tabla de madera" loading="lazy" src="img/parrilla-caracas.jpg"/>
@@ -873,7 +1133,7 @@
 </div>
 </div>
 <!-- Dish Card: Arroz La Guaira -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arroces">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arroces">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arroz a la marinera estilo paella con camarones, almejas y calamar en paellera" loading="lazy" src="img/arroz-la-guaira.jpg"/>
@@ -899,7 +1159,7 @@
 </div>
 </div>
 <!-- Dish Card 7: Menú del Día Banner Card -->
-<div class="dish-item md:col-span-2 lg:col-span-3 bg-[#1C1815] p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg warm-card-glow border-2 border-[#FFD700]/30" data-category="menu-dia" style="background: linear-gradient(135deg, #1C1815 0%, #28231E 100%);">
+<div class="dish-item fx-card md:col-span-2 lg:col-span-3 bg-[#1C1815] p-space-lg lg:p-space-xl rounded-[32px] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg warm-card-glow border-2 border-[#FFD700]/30" data-category="menu-dia" style="background: linear-gradient(135deg, #1C1815 0%, #28231E 100%);">
 <div class="flex flex-col gap-space-xs max-w-2xl">
 <div class="flex items-center gap-space-sm">
 <span class="bg-[#FFD700] text-[#241A00] font-label-sm text-label-sm font-extrabold px-3 py-1 rounded-lg shadow">De Martes a Viernes (13:00 - 16:30)</span>
@@ -921,7 +1181,7 @@
 </div>
 </div>
 <!-- Dish Card 8: Bebidas & Cócteles -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="bebidas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="bebidas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional Venezuelan Papelon con Limon chilled beverage with sugarcane panela and fresh limes next to a frosty Polar beer bottle in a warm bar setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLnch9lGglxIFh_opu-ghfAr56w4wfMft2In1-wQlEyhWbtcgapqY8DIlZfitHPmPbbuUDe8T5W5Pxb5t_9JzWJ-YlCKtTEMb74pQc3BYM2m-lWtireoFFBJCmrlzKgq-qZvZyYTb2MyFEZFYGGaU97C4AOA76rPwlZfY2K3d22XrDrDSSy41Dbj48S_ar_GVrOn5-FMOZGif7pP-W66JzAfzhmpDrXuZnqnrIjIv5xjeKLlQkALpRDA"/>
@@ -947,7 +1207,7 @@
 </div>
 </div>
 <!-- Dish Card 9: Cerveza Polar y Ron Santa Teresa -->
-<div class="dish-item group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="bebidas">
+<div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="bebidas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Venezuelan rum Santa Teresa 1796 served on ice with an orange peel twist next to an ice-cold Polar beer bottle on a rustic wooden counter." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6CEHUWOWOIAIOLrYP2V9QFC3_TqbbJdQH6dIWSuQluG9DB6DVM8tIA2rXL96JGVwCSfqcRVGwRwqc_JWihZRApCKL7S1LPra168SLe5sW1g7Lw2JGTjGXLOwkRIzFtbnC_TGk5unRxovdHuca73whXapsjpY54v7riSWYsySdsPSQy9eEcny5qGv7gz_tXAQhbnhN1JyOBDMZ7f-XEJXrYUDxN5kfcJOrDXs7VkyOG8uNIJaABkQjhg"/>
@@ -984,7 +1244,7 @@
 <span class="font-label-sm text-label-sm uppercase tracking-widest text-[#FFD700] font-bold flex items-center gap-1.5">
 <span class="material-symbols-outlined text-[16px]">support_agent</span> Atención Personalizada
         </span>
-<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">Asegura tu Mesa en La Guaira</h2>
+<h2 class="fx-rise font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">Asegura tu Mesa en La Guaira</h2>
 <p class="font-body-md text-body-md text-[#E8DFD8] mt-2 leading-relaxed">
           Ya sea para una comida en familia con cachapas recién horneadas, una quedada con amigos y tercios de Polar, o celebrar un cumpleaños criollo, te recibimos con los brazos abiertos.
         </p>
@@ -1119,7 +1379,7 @@
 <span class="material-symbols-outlined text-[#FFD700] text-[18px]">touch_app</span>
 <span class="font-label-sm text-label-sm text-[#FFFDF5] font-semibold">Para comensales en mesa y para llevar</span>
 </div>
-<h2 class="font-headline-xl text-headline-xl text-[#FFFDF5]">
+<h2 class="fx-rise font-headline-xl text-headline-xl text-[#FFFDF5]">
           Escanea nuestra Carta Digital en tu móvil
         </h2>
 <p class="font-body-md text-body-md text-[#E8DFD8] leading-relaxed">
@@ -1144,7 +1404,7 @@
 <!-- High-Contrast QR Code Card & Table Standee Mockup -->
 <div class="flex flex-col sm:flex-row items-center gap-space-lg shrink-0">
 <!-- Realistic Card Stand -->
-<div class="bg-[#0D0B0A] p-space-lg rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-[#FFD700]/30 flex flex-col items-center text-center w-72 warm-card-glow">
+<div class="fx-standee bg-[#0D0B0A] p-space-lg rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-[#FFD700]/30 flex flex-col items-center text-center w-72 warm-card-glow">
 <!-- Kinetic Accent Border on Top -->
 <div class="w-full h-1.5 bg-gradient-to-r from-[#FFD700] via-[#1A3D9E] to-[#C5221F] rounded-full mb-space-md"></div>
 <p class="font-label-sm text-label-sm uppercase tracking-wider text-[#FFD700] font-bold">Carta Oficial</p>
