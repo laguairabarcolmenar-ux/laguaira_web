@@ -1,0 +1,133 @@
+{
+  "_instrucciones": "Carta completa de La Guaira. Para cambiar un precio o añadir un plato, edita este archivo y ejecuta: node scripts/generar-carta.js (regenera las pestañas y los paneles de la carta en code.html). Los platos con foto están como tarjetas en code.html y no se repiten aquí.",
+  "pestanas": [
+    { "id": "all", "label": "Todos los Platos" },
+    { "id": "desayunos", "label": "☕ Desayunos" },
+    { "id": "empanadas", "label": "🥟 Empanadas" },
+    { "id": "cachapas", "label": "🌽 Cachapas" },
+    { "id": "arepas", "label": "🫓 Arepas" },
+    { "id": "platos", "label": "🍲 Platos" },
+    { "id": "parrillas", "label": "🔥 Parrillas" },
+    { "id": "arroces", "label": "🥘 Arroces" },
+    { "id": "pastas", "label": "🍝 Pastas" },
+    { "id": "ensaladas", "label": "🥗 Ensaladas" },
+    { "id": "hamburguesas", "label": "🍔 Hamburguesas" },
+    { "id": "sandwiches", "label": "🥪 Sándwiches" },
+    { "id": "postres", "label": "🍮 Postres" },
+    { "id": "menu-dia", "label": "⭐ Menú del Día (12,50€)" },
+    { "id": "bebidas", "label": "🥤 Jugos y Bebidas" }
+  ],
+  "paneles": [
+    {
+      "categoria": "desayunos", "emoji": "☕", "titulo": "Desayunos", "nota": "Desde las 7:00",
+      "platos": [
+        { "nombre": "Desayuno criollo con perico", "detalle": "1 arepa con queso, perico y aguacate", "precio": "8,00€" },
+        { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" },
+        { "nombre": "Cruasán mixto", "precio": "2,80€" },
+        { "nombre": "Cruasán a la plancha", "precio": "1,70€" }
+      ]
+    },
+    {
+      "categoria": "empanadas", "emoji": "🥟", "titulo": "Más empanadas", "nota": "Sencillas 3,00€ · Combinadas 3,50€",
+      "platos": [
+        { "nombre": "Empanada de carne molida", "precio": "3,00€" },
+        { "nombre": "Empanada combinada", "detalle": "Combina tus rellenos favoritos", "precio": "3,50€" }
+      ]
+    },
+    {
+      "categoria": "arepas", "emoji": "🫓", "titulo": "Más arepas", "nota": "5,50€ cada una",
+      "platos": [
+        { "nombre": "Arepa de pollo", "precio": "5,50€" },
+        { "nombre": "Arepa de carne mechada", "precio": "5,50€" },
+        { "nombre": "Arepa de carne molida", "precio": "5,50€" },
+        { "nombre": "Arepa de cazón", "precio": "5,50€" },
+        { "nombre": "Arepa de pabellón", "precio": "5,50€" }
+      ]
+    },
+    {
+      "categoria": "platos", "emoji": "🍲", "titulo": "Platos principales", "nota": "Contorno: acompañante a elegir",
+      "platos": [
+        { "nombre": "Merluza frita o rebozada", "detalle": "Con contorno a elegir", "precio": "14,00€" },
+        { "nombre": "Salmón con vegetales", "precio": "15,00€" },
+        { "nombre": "Pollo frito para 2 personas", "detalle": "Con patatas fritas", "precio": "12,00€" },
+        { "nombre": "Costillas a la BBQ", "precio": "12,00€" },
+        { "nombre": "Costillas fritas", "precio": "12,00€" },
+        { "nombre": "Pasticho de carne", "detalle": "Con pan de ajo", "precio": "12,00€" },
+        { "nombre": "Pollo al horno", "precio": "9,00€" },
+        { "nombre": "Pollo a la plancha", "precio": "9,00€" },
+        { "nombre": "Alitas BBQ", "precio": "8,00€" }
+      ]
+    },
+    {
+      "categoria": "arroces", "emoji": "🥘", "titulo": "Más arroces",
+      "platos": [
+        { "nombre": "Arroz a la jardinera", "precio": "8,00€" }
+      ]
+    },
+    {
+      "categoria": "pastas", "emoji": "🍝", "titulo": "Pastas",
+      "platos": [
+        { "nombre": "Pasta boloñesa", "precio": "10,00€" },
+        { "nombre": "Pasta con pollo guisado", "precio": "10,00€" },
+        { "nombre": "Pasta con mariscos", "precio": "13,00€" }
+      ]
+    },
+    {
+      "categoria": "ensaladas", "emoji": "🥗", "titulo": "Ensaladas",
+      "platos": [
+        { "nombre": "Ensalada César", "precio": "9,00€" },
+        { "nombre": "Ensalada mixta", "precio": "9,00€" },
+        { "nombre": "Ensalada de remolacha", "precio": "9,00€" },
+        { "nombre": "Ensalada rallada", "precio": "7,00€" }
+      ]
+    },
+    {
+      "categoria": "hamburguesas", "emoji": "🍔", "titulo": "Hamburguesas", "nota": "Todas con patatas",
+      "platos": [
+        { "nombre": "Hamburguesa triple", "detalle": "3 tipos de carne, vegetales, huevo, queso, jamón, beicon y patatas", "precio": "12,00€" },
+        { "nombre": "Hamburguesa doble", "detalle": "2 carnes (carne y pollo), vegetales, queso, huevo, beicon y patatas", "precio": "10,00€" },
+        { "nombre": "Hamburguesa normal", "detalle": "Carne o pollo, vegetales, queso, jamón y patatas", "precio": "8,00€" }
+      ]
+    },
+    {
+      "categoria": "sandwiches", "emoji": "🥪", "titulo": "Sándwiches",
+      "platos": [
+        { "nombre": "Sándwich mixto", "precio": "7,00€" },
+        { "nombre": "Club sándwich", "precio": "10,00€" },
+        { "nombre": "Pepito mixto", "precio": "12,00€" }
+      ]
+    },
+    {
+      "categoria": "postres", "emoji": "🍮", "titulo": "Postres caseros", "nota": "Todos a 3,00€",
+      "platos": [
+        { "nombre": "Quesillo", "precio": "3,00€" },
+        { "nombre": "Tres leches", "precio": "3,00€" },
+        { "nombre": "Arroz con leche", "precio": "3,00€" },
+        { "nombre": "Bizcocho", "precio": "3,00€" }
+      ]
+    },
+    {
+      "categoria": "bebidas", "emoji": "🧃", "titulo": "Jugos naturales",
+      "platos": [
+        { "nombre": "Guayaba", "precio": "2,80€" },
+        { "nombre": "Chicha", "precio": "2,80€" },
+        { "nombre": "Guanábana", "precio": "2,60€" },
+        { "nombre": "Tamarindo", "precio": "2,60€" },
+        { "nombre": "Fresa", "precio": "2,60€" },
+        { "nombre": "Parchita", "precio": "2,60€" },
+        { "nombre": "Avena", "precio": "2,60€" },
+        { "nombre": "3 en 1", "precio": "3,20€" },
+        { "nombre": "Naranja", "precio": "2,50€" }
+      ]
+    },
+    {
+      "categoria": "bebidas", "emoji": "🥤", "titulo": "Batidos", "nota": "Todos fríos · 3,50€",
+      "platos": [
+        { "nombre": "Batido de frutas", "precio": "3,50€" },
+        { "nombre": "Batido de chocolate", "precio": "3,50€" },
+        { "nombre": "Batido de vainilla", "precio": "3,50€" },
+        { "nombre": "Batido de Oreo", "precio": "3,50€" }
+      ]
+    }
+  ]
+}

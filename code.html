@@ -484,7 +484,7 @@ Ver la carta <span class="material-symbols-outlined text-[18px]">arrow_forward</
 <div class="fx-spin w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border shadow-lg" style="background: #FFC72C22; border-color: #FFC72C55;">
 <span class="material-symbols-outlined text-[30px]" style="color: #FFC72C;">lunch_dining</span>
 </div>
-<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">12,90€ · Mar a Vie</span>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700] whitespace-nowrap">12,50€ · Mar a Vie</span>
 </div>
 <div class="relative">
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Menú del día</h3>
@@ -764,6 +764,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <!-- Category Filter Tabs -->
 <div class="flex items-center gap-space-xs overflow-x-auto pb-2 scrollbar-none w-full">
+<!-- PESTAÑAS:INICIO -->
 <button class="menu-tab-btn active-tab bg-[#FFD700] text-[#241A00] font-label-md text-label-md font-bold px-space-md py-2.5 rounded-xl transition-all shrink-0 shadow-[0_0_15px_rgba(255,215,0,0.35)] hover:scale-105" data-filter="all" type="button">
         Todos los Platos
       </button>
@@ -777,10 +778,10 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
         🌽 Cachapas
       </button>
 <button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="arepas" type="button">
-        🫓 Arepas Rellenas
+        🫓 Arepas
       </button>
 <button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="platos" type="button">
-        🍲 Pabellón &amp; Especiales
+        🍲 Platos
       </button>
 <button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="parrillas" type="button">
         🔥 Parrillas
@@ -788,12 +789,28 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="arroces" type="button">
         🥘 Arroces
       </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="pastas" type="button">
+        🍝 Pastas
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="ensaladas" type="button">
+        🥗 Ensaladas
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="hamburguesas" type="button">
+        🍔 Hamburguesas
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="sandwiches" type="button">
+        🥪 Sándwiches
+      </button>
+<button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="postres" type="button">
+        🍮 Postres
+      </button>
 <button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="menu-dia" type="button">
-        ⭐ Menú del Día (12,90€)
+        ⭐ Menú del Día (12,50€)
       </button>
 <button class="menu-tab-btn bg-[#1C1815] text-[#E8DFD8] hover:text-[#FFFDF5] hover:border-[#FFD700]/50 border border-white/5 font-label-md text-label-md font-semibold px-space-md py-2.5 rounded-xl transition-all shrink-0 hover:scale-105" data-filter="bebidas" type="button">
-        🍹 Bebidas &amp; Rones
+        🥤 Jugos y Bebidas
       </button>
+<!-- PESTAÑAS:FIN -->
 </div>
 <!-- Menu Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="dishes-container">
@@ -892,7 +909,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Arepa Reina Pepiada</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">8,50€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">5,50€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
             El relleno más icónico de Caracas: pechuga de pollo deshilachada con suave crema de aguacate maduro, mayonesa y cilantro fresco.
@@ -918,7 +935,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Cazón</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">4,20€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
             Receta de la costa caribeña: guiso de cazón sazonado con sofrito de ajíes dulces, cebolla y toque anisado en masa crujiente.
@@ -944,7 +961,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Pabellón Criollo Completo</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">14,50€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">13,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
             Carne mechada tierna y jugosa, caraotas negras guisadas con toque criollo, arroz blanco suelto y tajadas de plátano macho maduro con queso blanco.
@@ -1022,7 +1039,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Pollo</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,20€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
             Masa de maíz dorada y crujiente rellena de pollo guisado y desmechado con sofrito criollo.
@@ -1045,7 +1062,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Queso</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,20€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
             Crujiente empanada de maíz rellena de queso blanco que se funde al primer mordisco.
@@ -1068,7 +1085,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Carne Mechada</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,40€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
             Masa de maíz frita al momento rellena de carne mechada guisada a fuego lento.
@@ -1083,21 +1100,21 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
           </button>
 </div>
 </div>
-<!-- Dish Card: Parrilla La Guaira -->
+<!-- Dish Card: Parrilla Mar y Tierra -->
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Parrilla mar y tierra con carne a la brasa, gambas y limón" loading="lazy" src="img/parrilla-la-guaira.jpg"/>
 <span class="absolute top-3 left-3 bg-[#C5221F] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
-              Para 2 personas
+              Para compartir
             </span>
 </div>
 <div class="flex items-start justify-between gap-2">
-<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Parrilla La Guaira</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">16,50€</span>
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Parrilla Mar y Tierra</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">30,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
-            Carne, pollo, morcilla y chorizo picados, con pulpo, gambas y mejillones. Acompañada de yuca frita, tostones o arepas a elegir.
+            Carne, pollo y chorizo con gambas, calamares y mariscos variados. Con contornos a elegir.
           </p>
 </div>
 <div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
@@ -1109,7 +1126,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
           </button>
 </div>
 </div>
-<!-- Dish Card: Parrilla Caracas -->
+<!-- Dish Card: Parrilla Mixta -->
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
@@ -1119,11 +1136,11 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
             </span>
 </div>
 <div class="flex items-start justify-between gap-2">
-<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Parrilla Caracas</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">16,50€</span>
+<h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Parrilla Mixta</h3>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">25,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
-            Pollo, carne, chorizo y morcilla a la brasa con aguacate y nuestras salsas. Acompañada de yuca, arepas y tostones.
+            Carne, pollo, chorizo y morcilla a la brasa, con ensalada y contorno a elegir.
           </p>
 </div>
 <div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
@@ -1146,10 +1163,10 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Arroz La Guaira</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">12,50€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">12,00€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
-            Nuestro arroz a la marinera al estilo paella: arroz meloso y dorado con camarones frescos, almejas y lo mejor del mar, como en la costa de La Guaira.
+            Nuestro arroz al estilo paella con pollo y mariscos: camarones frescos, almejas y lo mejor del mar, como en la costa de La Guaira.
           </p>
 </div>
 <div class="mt-space-md pt-space-sm flex items-center justify-between border-t border-white/10">
@@ -1253,7 +1270,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex flex-col items-center md:items-end gap-space-sm shrink-0">
 <div class="text-center md:text-right">
-<span class="font-display-lg text-display-lg text-[#FFD700] font-black drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">12,90€</span>
+<span class="font-display-lg text-display-lg text-[#FFD700] font-black drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]">12,50€</span>
 <span class="block font-label-sm text-label-sm text-[#E8DFD8]">IVA incluido</span>
 </div>
 <a class="warm-btn bg-[#C5221F] hover:bg-[#B71C1C] text-[#FFFDF5] font-label-md text-label-md font-bold px-space-lg py-3 rounded-2xl shadow-[0_6px_20px_rgba(197,34,31,0.4)]" href="#reservas">
@@ -1272,7 +1289,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Papelón con Limón Frío</h3>
-<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">3,50€</span>
+<span class="font-headline-sm text-headline-sm text-[#FFD700] font-extrabold whitespace-nowrap">2,60€</span>
 </div>
 <p class="font-body-sm text-body-sm text-[#E8DFD8] mt-space-xs leading-relaxed">
             Jugo artesanal caribeño elaborado con panela pura de caña, abundante zumo de lima recién exprimido y mucho hielo picado.
@@ -1314,6 +1331,479 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 </div>
 </div>
+<!-- CARTA-COMPLETA:INICIO -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg items-start" id="carta-completa">
+<!-- Panel carta: Desayunos -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="desayunos" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">☕</span> Desayunos</h3>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Desde las 7:00</span>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Desayuno criollo con perico</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">1 arepa con queso, perico y aguacate</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">8,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Desayuno criollo con caraotas</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">1 arepa con queso, huevo y caraotas negras</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">10,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Cruasán mixto</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,80€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Cruasán a la plancha</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">1,70€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Más empanadas -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="empanadas" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🥟</span> Más empanadas</h3>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Sencillas 3,00€ · Combinadas 3,50€</span>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Empanada de carne molida</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Empanada combinada</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">Combina tus rellenos favoritos</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,50€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Más arepas -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="arepas" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🫓</span> Más arepas</h3>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">5,50€ cada una</span>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Arepa de pollo</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">5,50€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Arepa de carne mechada</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">5,50€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Arepa de carne molida</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">5,50€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Arepa de cazón</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">5,50€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Arepa de pabellón</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">5,50€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Platos principales -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="platos" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🍲</span> Platos principales</h3>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Contorno: acompañante a elegir</span>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Merluza frita o rebozada</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">Con contorno a elegir</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">14,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Salmón con vegetales</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">15,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pollo frito para 2 personas</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">Con patatas fritas</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">12,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Costillas a la BBQ</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">12,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Costillas fritas</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">12,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pasticho de carne</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">Con pan de ajo</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">12,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pollo al horno</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">9,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pollo a la plancha</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">9,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Alitas BBQ</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">8,00€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Más arroces -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="arroces" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🥘</span> Más arroces</h3>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Arroz a la jardinera</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">8,00€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Pastas -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="pastas" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🍝</span> Pastas</h3>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pasta boloñesa</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">10,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pasta con pollo guisado</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">10,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pasta con mariscos</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">13,00€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Ensaladas -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="ensaladas" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🥗</span> Ensaladas</h3>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Ensalada César</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">9,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Ensalada mixta</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">9,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Ensalada de remolacha</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">9,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Ensalada rallada</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">7,00€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Hamburguesas -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="hamburguesas" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🍔</span> Hamburguesas</h3>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Todas con patatas</span>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Hamburguesa triple</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">3 tipos de carne, vegetales, huevo, queso, jamón, beicon y patatas</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">12,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Hamburguesa doble</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">2 carnes (carne y pollo), vegetales, queso, huevo, beicon y patatas</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">10,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Hamburguesa normal</p>
+<p class="font-body-sm text-body-sm text-[#E8DFD8]/80 mt-0.5">Carne o pollo, vegetales, queso, jamón y patatas</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">8,00€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Sándwiches -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="sandwiches" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🥪</span> Sándwiches</h3>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Sándwich mixto</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">7,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Club sándwich</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">10,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Pepito mixto</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">12,00€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Postres caseros -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="postres" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🍮</span> Postres caseros</h3>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Todos a 3,00€</span>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Quesillo</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Tres leches</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Arroz con leche</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Bizcocho</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,00€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Jugos naturales -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="bebidas" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🧃</span> Jugos naturales</h3>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Guayaba</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,80€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Chicha</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,80€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Guanábana</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,60€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Tamarindo</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,60€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Fresa</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,60€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Parchita</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,60€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Avena</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,60€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">3 en 1</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,20€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Naranja</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">2,50€</span>
+</li>
+</ul>
+</div>
+<!-- Panel carta: Batidos -->
+<div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="bebidas" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🥤</span> Batidos</h3>
+<span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Todos fríos · 3,50€</span>
+</div>
+<ul class="flex flex-col">
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Batido de frutas</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,50€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Batido de chocolate</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,50€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Batido de vainilla</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,50€</span>
+</li>
+<li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-[#FFFDF5] font-bold">Batido de Oreo</p>
+</div>
+<span class="flex-1 min-w-[1rem] border-b border-dotted border-white/20" aria-hidden="true"></span>
+<span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">3,50€</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- CARTA-COMPLETA:FIN -->
 </div>
 </section>
 <!-- RESERVA DE MESA ONLINE & LOCAL INFO -->
