@@ -93,7 +93,7 @@
       "categoria": "sandwiches", "emoji": "🥪", "titulo": "Sándwiches",
       "platos": [
         { "nombre": "Sándwich mixto", "precio": "7,00€" },
-        { "nombre": "Club sándwich", "precio": "10,00€" },
+        { "nombre": "Club House", "precio": "10,00€" },
         { "nombre": "Pepito mixto", "precio": "12,00€" }
       ]
     },
