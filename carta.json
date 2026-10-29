@@ -4,7 +4,6 @@
     { "id": "all", "label": "Todos los Platos" },
     { "id": "desayunos", "label": "☕ Desayunos" },
     { "id": "empanadas", "label": "🥟 Empanadas" },
-    { "id": "cachapas", "label": "🌽 Cachapas" },
     { "id": "arepas", "label": "🫓 Arepas" },
     { "id": "platos", "label": "🍲 Platos" },
     { "id": "parrillas", "label": "🔥 Parrillas" },
