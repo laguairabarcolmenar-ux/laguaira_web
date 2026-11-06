@@ -8,8 +8,6 @@
     { "id": "platos", "label": "🍲 Platos" },
     { "id": "parrillas", "label": "🔥 Parrillas" },
     { "id": "arroces", "label": "🥘 Arroces" },
-    { "id": "pastas", "label": "🍝 Pastas" },
-    { "id": "ensaladas", "label": "🥗 Ensaladas" },
     { "id": "hamburguesas", "label": "🍔 Hamburguesas" },
     { "id": "sandwiches", "label": "🥪 Sándwiches" },
     { "id": "postres", "label": "🍮 Postres" },
@@ -60,23 +58,6 @@
       "categoria": "arroces", "emoji": "🥘", "titulo": "Más arroces",
       "platos": [
         { "nombre": "Arroz a la jardinera", "precio": "8,00€" }
-      ]
-    },
-    {
-      "categoria": "pastas", "emoji": "🍝", "titulo": "Pastas",
-      "platos": [
-        { "nombre": "Pasta boloñesa", "precio": "10,00€" },
-        { "nombre": "Pasta con pollo guisado", "precio": "10,00€" },
-        { "nombre": "Pasta con mariscos", "precio": "13,00€" }
-      ]
-    },
-    {
-      "categoria": "ensaladas", "emoji": "🥗", "titulo": "Ensaladas",
-      "platos": [
-        { "nombre": "Ensalada César", "precio": "9,00€" },
-        { "nombre": "Ensalada mixta", "precio": "9,00€" },
-        { "nombre": "Ensalada de remolacha", "precio": "9,00€" },
-        { "nombre": "Ensalada rallada", "precio": "7,00€" }
       ]
     },
     {
