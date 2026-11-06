@@ -39,8 +39,7 @@
         { "nombre": "Arepa de pollo", "precio": "5,50€" },
         { "nombre": "Arepa de carne mechada", "precio": "5,50€" },
         { "nombre": "Arepa de carne molida", "precio": "5,50€" },
-        { "nombre": "Arepa de cazón", "precio": "5,50€" },
-        { "nombre": "Arepa de pabellón", "precio": "5,50€" }
+        { "nombre": "Arepa de cazón", "precio": "5,50€" }
       ]
     },
     {
@@ -122,10 +121,41 @@
     {
       "categoria": "bebidas", "emoji": "🥤", "titulo": "Batidos", "nota": "Todos fríos · 3,50€",
       "platos": [
-        { "nombre": "Batido de frutas", "precio": "3,50€" },
         { "nombre": "Batido de chocolate", "precio": "3,50€" },
         { "nombre": "Batido de vainilla", "precio": "3,50€" },
         { "nombre": "Batido de Oreo", "precio": "3,50€" }
+      ]
+    },
+    {
+      "categoria": "bebidas", "emoji": "🥤", "titulo": "Refrescos y bebidas",
+      "platos": [
+        { "nombre": "Malta", "precio": "2,70€" },
+        { "nombre": "Frescolita", "precio": "2,80€" },
+        { "nombre": "Coca-Cola", "precio": "2,50€" },
+        { "nombre": "Coca-Cola Zero", "precio": "2,50€" },
+        { "nombre": "Sprite", "precio": "2,50€" },
+        { "nombre": "Fanta naranja", "precio": "2,50€" },
+        { "nombre": "Acuario", "precio": "2,50€" },
+        { "nombre": "Fuze Tea", "precio": "2,50€" },
+        { "nombre": "Zumo de melocotón", "precio": "2,50€" },
+        { "nombre": "Zumo de piña", "precio": "2,50€" },
+        { "nombre": "Agua con gas", "precio": "2,50€" },
+        { "nombre": "Agua", "precio": "1,50€" }
+      ]
+    },
+    {
+      "categoria": "bebidas", "emoji": "🍺", "titulo": "Cervezas",
+      "platos": [
+        { "nombre": "Polar Pilsen", "precio": "2,00€" },
+        { "nombre": "Polar Especial", "precio": "2,20€" }
+      ]
+    },
+    {
+      "categoria": "bebidas", "emoji": "☕", "titulo": "Cafés",
+      "platos": [
+        { "nombre": "Café con leche", "precio": "1,80€" },
+        { "nombre": "Café solo", "precio": "1,70€" },
+        { "nombre": "Suplemento de café", "precio": "0,50€" }
       ]
     }
   ]
