@@ -58,7 +58,7 @@
     {
       "categoria": "arroces", "emoji": "🥘", "titulo": "Más arroces",
       "platos": [
-        { "nombre": "Arroz a la jardinera", "precio": "8,00€" }
+        { "nombre": "Arroz a la jardinera", "detalle": "Con carne de res picada y cerdo", "precio": "10,50€" }
       ]
     },
     {
