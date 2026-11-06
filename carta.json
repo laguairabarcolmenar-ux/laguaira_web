@@ -20,8 +20,8 @@
       "platos": [
         { "nombre": "Desayuno criollo con perico", "detalle": "1 arepa con queso, perico y aguacate", "precio": "8,00€" },
         { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" },
-        { "nombre": "Cruasán mixto", "precio": "2,80€" },
-        { "nombre": "Cruasán a la plancha", "precio": "1,70€" }
+        { "nombre": "Croissant mixto", "precio": "2,80€" },
+        { "nombre": "Croissant a la plancha", "precio": "1,70€" }
       ]
     },
     {
