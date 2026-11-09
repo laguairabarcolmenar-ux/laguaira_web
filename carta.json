@@ -12,7 +12,8 @@
     { "id": "sandwiches", "label": "🥪 Sándwiches" },
     { "id": "postres", "label": "🍮 Postres" },
     { "id": "menu-dia", "label": "⭐ Menú del Día (12,50€)" },
-    { "id": "bebidas", "label": "🥤 Jugos y Bebidas" }
+    { "id": "bebidas", "label": "🥤 Bebidas" },
+    { "id": "licores", "label": "🍺 Cervezas y Licores" }
   ],
   "paneles": [
     {
@@ -109,7 +110,7 @@
       ]
     },
     {
-      "categoria": "bebidas", "emoji": "🥤", "titulo": "Refrescos y bebidas",
+      "categoria": "bebidas", "emoji": "🥤", "titulo": "Refrescos, zumos y agua",
       "platos": [
         { "nombre": "Malta", "precio": "2,70€" },
         { "nombre": "Frescolita", "precio": "2,80€" },
@@ -126,7 +127,7 @@
       ]
     },
     {
-      "categoria": "bebidas", "emoji": "🍺", "titulo": "Cervezas",
+      "categoria": "licores", "emoji": "🍺", "titulo": "Cervezas",
       "platos": [
         { "nombre": "Polar Pilsen", "precio": "2,00€" },
         { "nombre": "Polar Especial", "precio": "2,20€" }
