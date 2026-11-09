@@ -2,7 +2,7 @@
 
 <html class="dark scroll-smooth" lang="es" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>La Guaira Bar Restaurante | Comida venezolana en Colmenar Viejo</title>
-<meta name="description" content="Restaurante venezolano en Colmenar Viejo (Madrid): arepas, empanadas, parrillas y pabellón criollo. Av. de América 9. Abierto de martes a domingo de 7:00 a 23:30. Reservas: 919 47 20 27."/>
+<meta name="description" content="Restaurante venezolano en Colmenar Viejo (Madrid): arepas, empanadas, parrillas y pabellón criollo. Av. de América 9. Abierto todos los días de 7:00 a 23:30. Reservas: 919 47 20 27."/>
 <link rel="canonical" href="https://barlaguaira.es/"/>
 <meta name="theme-color" content="#0D0B0A"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
@@ -50,6 +50,7 @@
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
+        "Monday",
         "Tuesday",
         "Wednesday",
         "Thursday",
@@ -365,7 +366,7 @@
 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD700] opacity-80"></span>
 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFD700]"></span>
 </span>
-<span class="font-label-md text-label-md text-[#FFFDF5] font-semibold" id="open-status">Martes a Domingo · 7:00 – 23:30</span>
+<span class="font-label-md text-label-md text-[#FFFDF5] font-semibold" id="open-status">Todos los días · 7:00 – 23:30</span>
 <span class="text-[#9E8E7C] text-xs">•</span>
 <span class="font-label-md text-label-md text-[#E8DFD8] flex items-center gap-1 font-medium">
 <span class="material-symbols-outlined text-[16px] text-[#FFD700]">location_on</span>
@@ -429,7 +430,7 @@
 <span class="material-symbols-outlined text-[24px] text-[#FFD700]">schedule</span>
 </div>
 <div>
-<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Martes a Domingo</p>
+<p class="font-label-md text-label-md text-[#FFFDF5] font-bold">Todos los días</p>
 <p class="font-body-sm text-body-sm text-[#E8DFD8]">De 7:00 a 23:30 h</p>
 </div>
 </div>
@@ -454,7 +455,7 @@
 <span class="material-symbols-outlined text-[16px]">room_service</span> Nuestros Servicios
 </span>
 <h2 class="fx-rise font-headline-xl text-headline-xl text-[#FFFDF5] mt-1">De la mañana a la noche, tu rincón venezolano</h2>
-<p class="font-body-md text-body-md text-[#E8DFD8] mt-space-xs leading-relaxed">Desayunos desde las 7:00, menú del día, pedidos para llevar, celebraciones, partidos y música. De martes a domingo, hasta las 23:30.</p>
+<p class="font-body-md text-body-md text-[#E8DFD8] mt-space-xs leading-relaxed">Desayunos desde las 7:00, menú del día, pedidos para llevar, celebraciones, partidos y música. Todos los días, hasta las 23:30.</p>
 </div>
 <a class="warm-btn inline-flex items-center gap-2 bg-[#C5221F] text-[#FFFDF5] px-5 py-3 rounded-2xl font-label-md text-label-md font-bold shadow-[0_8px_25px_rgba(197,34,31,0.45)] shrink-0 w-fit" href="tel:+34919472027">
 <span class="material-symbols-outlined text-[18px]">call</span> 919 47 20 27
@@ -2014,11 +2015,8 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="flex flex-col gap-space-sm">
 <span class="font-title-md text-title-md text-[#FFFDF5] font-bold">Horarios</span>
 <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-[#E8DFD8]">
-<p class="text-[#FFFDF5] font-semibold">Martes a Domingo:</p>
+<p class="text-[#FFFDF5] font-semibold">Todos los días:</p>
 <p>07:00 – 23:30 h</p>
-<div class="mt-space-xs py-1.5 px-3 rounded-xl bg-[#28231E] w-fit border border-white/5">
-<span class="text-[#FFB4AB] font-label-sm text-label-sm font-bold">Lunes cerrado por descanso</span>
-</div>
 </div>
 </div>
 <div class="flex flex-col gap-space-sm">
@@ -2163,20 +2161,17 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
     });
   }
 
-  // Estado abierto / cerrado según la hora de Madrid (martes a domingo, 7:00 – 23:30)
+  // Estado abierto / cerrado según la hora de Madrid (todos los días, 7:00 – 23:30)
   const openStatus = document.getElementById('open-status');
   if (openStatus) {
     try {
       const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
       const get = type => parts.find(p => p.type === type).value;
       const minutes = parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10);
-      const isMonday = get('weekday') === 'Mon';
-      if (!isMonday && minutes >= 7 * 60 && minutes < 23 * 60 + 30) {
+      if (minutes >= 7 * 60 && minutes < 23 * 60 + 30) {
         openStatus.textContent = 'Abierto ahora · hasta las 23:30';
       } else {
-        const opensTomorrow = minutes >= 7 * 60 || isMonday;
-        const reopenDay = get('weekday') === 'Sun' && opensTomorrow ? 'el martes' : (opensTomorrow ? 'mañana' : 'hoy');
-        openStatus.textContent = `Cerrado · abrimos ${reopenDay} a las 7:00`;
+        openStatus.textContent = `Cerrado · abrimos ${minutes >= 7 * 60 ? 'mañana' : 'hoy'} a las 7:00`;
       }
     } catch (e) { /* se queda el horario general */ }
   }
