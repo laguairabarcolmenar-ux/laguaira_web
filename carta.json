@@ -16,7 +16,7 @@
   ],
   "paneles": [
     {
-      "categoria": "desayunos", "emoji": "☕", "titulo": "Desayunos", "nota": "Desde las 7:00",
+      "categoria": "desayunos", "emoji": "☕", "titulo": "Desayunos", "nota": "L–V desde 8:00 · S–D desde 9:00",
       "platos": [
         { "nombre": "Desayuno criollo con perico", "detalle": "1 arepa con queso, perico y aguacate", "precio": "8,00€" },
         { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" },
