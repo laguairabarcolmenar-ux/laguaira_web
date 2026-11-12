@@ -4,6 +4,7 @@
     { "id": "all", "label": "Todos los Platos" },
     { "id": "desayunos", "label": "☕ Desayunos" },
     { "id": "empanadas", "label": "🥟 Empanadas" },
+    { "id": "cachapas", "label": "🌽 Cachapas" },
     { "id": "arepas", "label": "🫓 Arepas" },
     { "id": "platos", "label": "🍲 Platos" },
     { "id": "parrillas", "label": "🔥 Parrillas" },
@@ -30,6 +31,12 @@
       "platos": [
         { "nombre": "Empanada de carne molida", "precio": "3,00€" },
         { "nombre": "Empanada combinada", "detalle": "Combina tus rellenos favoritos", "precio": "3,50€" }
+      ]
+    },
+    {
+      "categoria": "cachapas", "emoji": "🌽", "titulo": "Cachapas",
+      "platos": [
+        { "nombre": "Cachapa", "detalle": "Con contorno a elegir", "precio": "9,00€" }
       ]
     },
     {
