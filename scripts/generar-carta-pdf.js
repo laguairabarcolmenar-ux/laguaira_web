@@ -40,7 +40,7 @@ const secciones = orden.map(id => {
   }
   return { titulo: titulo(id), grupos };
 }).filter(s => s.grupos.length);
-const corte = Math.max(1, secciones.findIndex(s => s.titulo.includes('Arroces'))); // primera sección de la segunda hoja
+const corte = Math.max(1, secciones.findIndex(s => s.titulo.includes('Parrillas'))); // primera sección de la segunda hoja
 const total = secciones.reduce((n, s) => n + s.grupos.reduce((k, g) => k + g.platos.length, 0), 0);
 
 const fila = p => `<div class="item"><div class="row"><span class="name">${esc(p.nombre)}</span><span class="dots"></span><span class="price">${esc(p.precio)}</span></div>${p.detalle ? `<div class="desc">${esc(p.detalle)}</div>` : ''}</div>`;
@@ -118,6 +118,12 @@ const seccion = s => `<section class="cat"><h2>${esc(s.titulo)}</h2>${s.grupos.m
   await p.setContent(page, { waitUntil: 'load', timeout: 60000 });
   await p.evaluate(() => document.fonts.ready);
   await new Promise(r => setTimeout(r, 1200));
+  await p.emulateMediaType('print');
+  const desborde = await p.evaluate(() => [...document.querySelectorAll('.page')].map((pg, i) => {
+    const cols = pg.querySelector('.cols');
+    return cols.scrollWidth > cols.clientWidth + 2 || pg.scrollHeight > pg.clientHeight + 2 ? i + 1 : 0;
+  }).filter(Boolean));
+  if (desborde.length) console.warn(`AVISO: la hoja ${desborde.join(', ')} no cabe; ajusta el corte`);
   const out = path.join(root, 'carta-la-guaira.pdf');
   await p.pdf({ path: out, format: 'A4', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
   await browser.close();

@@ -3,14 +3,15 @@
   "pestanas": [
     { "id": "all", "label": "Todos los Platos" },
     { "id": "desayunos", "label": "☕ Desayunos" },
+    { "id": "tequenos", "label": "🧀 Tequeños" },
     { "id": "empanadas", "label": "🥟 Empanadas" },
     { "id": "cachapas", "label": "🌽 Cachapas" },
     { "id": "arepas", "label": "🫓 Arepas" },
+    { "id": "patacones", "label": "🍌 Patacones" },
     { "id": "platos", "label": "🍲 Platos" },
     { "id": "parrillas", "label": "🔥 Parrillas" },
     { "id": "arroces", "label": "🥘 Arroces" },
-    { "id": "hamburguesas", "label": "🍔 Hamburguesas" },
-    { "id": "sandwiches", "label": "🥪 Sándwiches" },
+    { "id": "hamburguesas", "label": "🍔 Hamburguesas y Pepito" },
     { "id": "postres", "label": "🍮 Postres" },
     { "id": "menu-dia", "label": "⭐ Menú del Día (12,50€)" },
     { "id": "bebidas", "label": "🥤 Bebidas" },
@@ -21,9 +22,14 @@
       "categoria": "desayunos", "emoji": "☕", "titulo": "Desayunos", "nota": "L–V desde 8:00 · S–D desde 9:00",
       "platos": [
         { "nombre": "Desayuno criollo con perico", "detalle": "1 arepa con queso, perico y aguacate", "precio": "8,00€" },
-        { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" },
-        { "nombre": "Croissant mixto", "precio": "2,80€" },
-        { "nombre": "Croissant a la plancha", "precio": "1,70€" }
+        { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" }
+      ]
+    },
+    {
+      "categoria": "tequenos", "emoji": "🧀", "titulo": "Tequeños", "nota": "Ración de 6 unidades",
+      "platos": [
+        { "nombre": "Tequeños de queso", "detalle": "6 tequeños rellenos de queso", "precio": "6,00€" },
+        { "nombre": "Tequeños de plátano con queso", "detalle": "6 tequeños de plátano rellenos de queso", "precio": "6,00€" }
       ]
     },
     {
@@ -36,7 +42,8 @@
     {
       "categoria": "cachapas", "emoji": "🌽", "titulo": "Cachapas",
       "platos": [
-        { "nombre": "Cachapa", "detalle": "Con contorno a elegir", "precio": "9,00€" }
+        { "nombre": "Cachapa", "detalle": "Con un contorno a elegir", "precio": "9,00€" },
+        { "nombre": "Cachapa con 2 contornos", "detalle": "Queso con carne mechada, queso con cochino frito o queso con pollo", "precio": "12,00€" }
       ]
     },
     {
@@ -50,13 +57,17 @@
       ]
     },
     {
+      "categoria": "patacones", "emoji": "🍌", "titulo": "Patacones",
+      "platos": [
+        { "nombre": "Patacón", "detalle": "Plátano verde frito con carne mechada o pollo, loncha de jamón y queso, ensalada de tomate, cebolla y lechuga en tiras, aguacate y salsas", "precio": "12,00€" }
+      ]
+    },
+    {
       "categoria": "platos", "emoji": "🍲", "titulo": "Platos principales", "nota": "Contorno: acompañante a elegir",
       "platos": [
         { "nombre": "Merluza frita o rebozada", "detalle": "Con contorno a elegir", "precio": "14,00€" },
-        { "nombre": "Salmón con vegetales", "precio": "15,00€" },
         { "nombre": "Pollo frito para 2 personas", "detalle": "Con patatas fritas", "precio": "12,00€" },
         { "nombre": "Costillas a la BBQ", "precio": "12,00€" },
-        { "nombre": "Costillas fritas", "precio": "12,00€" },
         { "nombre": "Pasticho de carne", "detalle": "Con pan de ajo", "precio": "12,00€" },
         { "nombre": "Pollo al horno", "precio": "9,00€" },
         { "nombre": "Pollo a la plancha", "precio": "9,00€" },
@@ -64,34 +75,21 @@
       ]
     },
     {
-      "categoria": "arroces", "emoji": "🥘", "titulo": "Más arroces",
+      "categoria": "hamburguesas", "emoji": "🍔", "titulo": "Hamburguesas y Pepito", "nota": "Todas con papitas",
       "platos": [
-        { "nombre": "Arroz a la jardinera", "detalle": "Con carne de res picada y cerdo", "precio": "10,50€" }
+        { "nombre": "Hamburguesa normal", "detalle": "Carne, lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "8,00€" },
+        { "nombre": "Hamburguesa doble", "detalle": "Pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "10,00€" },
+        { "nombre": "Hamburguesa triple", "detalle": "Chuleta, pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "12,00€" },
+        { "nombre": "Pepito mixto", "detalle": "Carne y pollo con col y zanahoria rallada y papitas", "precio": "12,00€" }
       ]
     },
     {
-      "categoria": "hamburguesas", "emoji": "🍔", "titulo": "Hamburguesas", "nota": "Todas con patatas",
+      "categoria": "postres", "emoji": "🍮", "titulo": "Postres caseros", "nota": "Todos a 4,00€",
       "platos": [
-        { "nombre": "Hamburguesa triple", "detalle": "3 tipos de carne, vegetales, huevo, queso, jamón, beicon y patatas", "precio": "12,00€" },
-        { "nombre": "Hamburguesa doble", "detalle": "2 carnes (carne y pollo), vegetales, queso, huevo, beicon y patatas", "precio": "10,00€" },
-        { "nombre": "Hamburguesa normal", "detalle": "Carne o pollo, vegetales, queso, jamón y patatas", "precio": "8,00€" }
-      ]
-    },
-    {
-      "categoria": "sandwiches", "emoji": "🥪", "titulo": "Sándwiches",
-      "platos": [
-        { "nombre": "Sándwich mixto", "precio": "7,00€" },
-        { "nombre": "Club House", "precio": "10,00€" },
-        { "nombre": "Pepito mixto", "precio": "12,00€" }
-      ]
-    },
-    {
-      "categoria": "postres", "emoji": "🍮", "titulo": "Postres caseros", "nota": "Todos a 3,00€",
-      "platos": [
-        { "nombre": "Quesillo", "precio": "3,00€" },
-        { "nombre": "Tres leches", "precio": "3,00€" },
-        { "nombre": "Arroz con leche", "precio": "3,00€" },
-        { "nombre": "Bizcocho", "precio": "3,00€" }
+        { "nombre": "Quesillo", "precio": "4,00€" },
+        { "nombre": "Tres leches", "precio": "4,00€" },
+        { "nombre": "Arroz con leche", "precio": "4,00€" },
+        { "nombre": "Bizcocho", "precio": "4,00€" }
       ]
     },
     {
