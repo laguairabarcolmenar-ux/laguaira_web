@@ -91,7 +91,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .hero .mar { position: absolute; left: 0; right: 0; bottom: 0; height: 16mm; background: linear-gradient(180deg, rgba(10,25,60,.0), rgba(6,14,35,.85) 40%, #000); }
   .hero .monte { position: absolute; right: 0; bottom: 12mm; width: 70%; height: 22mm; background: #12070a; clip-path: polygon(0 100%, 12% 62%, 22% 70%, 38% 30%, 50% 48%, 64% 8%, 78% 40%, 90% 28%, 100% 50%, 100% 100%); opacity: .9; }
   .hero img { position: relative; width: 34mm; height: 34mm; filter: drop-shadow(0 2mm 3mm rgba(0,0,0,.6)); }
-  .hero h1 { position: relative; margin: 0 0 0 auto; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 50pt; line-height: .85; text-align: right;
+  .hero h1 { position: relative; margin: 0 0 0 auto; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 42pt; line-height: 1; text-align: right; padding: 3mm 3mm 0 8mm; overflow: visible;
     background: linear-gradient(180deg, #fff1b8, #f2c14e 45%, #b8862b); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 1mm 1.2mm rgba(0,0,0,.7)); }
   .ola { height: 3mm; margin: -6mm -11mm 4mm; background: linear-gradient(90deg, transparent, #f2c14e 20%, #fff1b8 50%, #f2c14e 80%, transparent); clip-path: polygon(0 60%, 25% 20%, 50% 55%, 75% 15%, 100% 50%, 100% 75%, 75% 40%, 50% 80%, 25% 45%, 0 85%); position: relative; }
   .info { display: flex; justify-content: space-between; font-size: 8.4pt; color: #D9CDBF; margin: -1mm 1mm 3mm; }
