@@ -125,7 +125,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .lista { flex: 1; min-width: 0; }
   .foto { flex: 0 0 27mm; width: 27mm; height: 22.5mm; }
   .fotos { flex: 0 0 auto; display: flex; flex-direction: column; gap: 2.5mm; }
-  .foto.real { flex: 0 0 auto; width: 34mm; height: auto; max-height: 26mm; object-fit: cover; border-radius: 3mm; border: 1px solid rgba(242,193,78,.65); box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 2mm 4mm rgba(0,0,0,.6); }
+  .foto.real { flex: 0 0 auto; width: 31mm; height: auto; max-height: 22mm; object-fit: cover; border-radius: 3mm; border: 1px solid rgba(242,193,78,.65); box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 2mm 4mm rgba(0,0,0,.6); }
   .note { margin: 0 0 3px; font-size: 7.9pt; color: #F7B7A3; font-weight: 500; font-style: italic; }
   .item { padding: 1.6px 0; break-inside: avoid; }
   .row { display: flex; align-items: baseline; gap: 5px; }
