@@ -71,7 +71,7 @@ const total = apartados.reduce((n, s) => n + s.platos.length, 0);
 const fila = p => `<div class="item"><div class="row"><span class="name">${esc(p.nombre)}</span><span class="dots"></span><span class="price">${esc(p.precio)}</span></div>${p.detalle ? `<div class="desc">${esc(p.detalle)}</div>` : ''}</div>`;
 const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   <h2><span>${esc(s.titulo)}</span></h2>${s.nota ? `<p class="note">${esc(s.nota)}</p>` : ''}
-  <div class="cuerpo"><div class="lista">${s.platos.map(fila).join('')}</div>${s.imagen ? `<div class="fotos">${s.imagen.src.map(src => `<img class="foto${s.imagen.real ? ' real' : ''}" src="${src}" alt="">`).join('')}</div>` : ''}</div>
+  <div class="cuerpo"><div class="lista">${s.platos.map(fila).join('')}</div>${s.imagen ? `<div class="fotos${s.imagen.src.length > 1 ? ' multi' : ''}">${s.imagen.src.map(src => `<img class="foto${s.imagen.real ? ' real' : ''}" src="${src}" alt="">`).join('')}</div>` : ''}</div>
 </section>`;
 
 (async () => {
@@ -91,13 +91,13 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .page::after { content: ''; position: absolute; inset: 6.2mm; border: .6px solid rgba(232,190,90,.25); border-radius: 5mm; pointer-events: none; }
   /* Cabecera atardecer */
   .hero, .ola, .info, .menudia, footer, .top2 { flex-shrink: 0; }
-  .hero { position: relative; margin: 0 -11mm 4mm; height: 44mm; padding: 7mm 16mm 0; display: flex; align-items: center; gap: 6mm; overflow: hidden;
+  .hero { position: relative; margin: 0 -11mm 4mm; height: 40mm; padding: 6mm 16mm 0; display: flex; align-items: center; gap: 6mm; overflow: hidden;
     background:
       radial-gradient(30mm 20mm at 52% 58%, rgba(255,214,102,.95), rgba(255,140,40,.55) 45%, transparent 75%),
       linear-gradient(180deg, #1b1033 0%, #6b1f3a 32%, #c2451a 58%, #f08a24 72%, #3a1608 86%, #000 100%); }
   .hero .mar { position: absolute; left: 0; right: 0; bottom: 0; height: 16mm; background: linear-gradient(180deg, rgba(10,25,60,.0), rgba(6,14,35,.85) 40%, #000); }
   .hero .monte { position: absolute; right: 0; bottom: 12mm; width: 70%; height: 22mm; background: #12070a; clip-path: polygon(0 100%, 12% 62%, 22% 70%, 38% 30%, 50% 48%, 64% 8%, 78% 40%, 90% 28%, 100% 50%, 100% 100%); opacity: .9; }
-  .hero img { position: relative; width: 34mm; height: 34mm; filter: drop-shadow(0 2mm 3mm rgba(0,0,0,.6)); }
+  .hero img { position: relative; width: 31mm; height: 31mm; filter: drop-shadow(0 2mm 3mm rgba(0,0,0,.6)); }
   .hero h1 { position: relative; margin: 0 0 0 auto; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 42pt; line-height: 1; text-align: right; padding: 3mm 3mm 0 8mm; overflow: visible;
     background: linear-gradient(180deg, #fff1b8, #f2c14e 45%, #b8862b); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 1mm 1.2mm rgba(0,0,0,.7)); }
   .ola { height: 3mm; margin: -6mm -11mm 4mm; background: linear-gradient(90deg, transparent, #f2c14e 20%, #fff1b8 50%, #f2c14e 80%, transparent); clip-path: polygon(0 60%, 25% 20%, 50% 55%, 75% 15%, 100% 50%, 100% 75%, 75% 40%, 50% 80%, 25% 45%, 0 85%); position: relative; }
@@ -109,7 +109,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
     padding: 2px 14px 1px 12px; border-radius: 3px 14px 3px 14px; transform: skewX(-6deg);
     background: linear-gradient(180deg, #fff0b0 0%, #f2c14e 38%, #c8922e 70%, #f2c14e 100%);
     box-shadow: 0 1.5px 0 #6b4a12, 0 0 0 1px rgba(255,240,180,.35) inset, 0 2mm 3mm rgba(0,0,0,.55); }
-  .menudia { display: flex; gap: 12px; align-items: center; border: 1.2px solid rgba(242,193,78,.7); border-radius: 14px; padding: 8px 14px; margin: 0 0 11px;
+  .menudia { display: flex; gap: 12px; align-items: center; border: 1.2px solid rgba(242,193,78,.7); border-radius: 14px; padding: 6px 14px; margin: 0 0 8px;
     background: linear-gradient(90deg, rgba(242,193,78,.16), rgba(242,193,78,.04)); }
   .menudia h2 { margin: 0 0 3px; }
   .menudia .tag { font-size: 7.8pt; font-weight: 700; color: #F2C14E; text-transform: uppercase; letter-spacing: .08em; font-family: 'Plus Jakarta Sans'; margin-left: 8px; }
@@ -118,13 +118,15 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .cols { flex: 1; min-height: 0; display: flex; }
   .col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; }
   .col:first-child { padding-right: 4.5mm; } .col + .col { padding-left: 4.5mm; border-left: 1px solid rgba(242,193,78,.18); }
-  .cat { padding: 3px 0 6px; }
-  .cat + .cat { border-top: 1px solid rgba(255,255,255,.08); padding-top: 7px; }
+  .cat { padding: 2px 0 4px; }
+  .cat + .cat { border-top: 1px solid rgba(255,255,255,.08); padding-top: 5px; }
   #pool { position: absolute; visibility: hidden; left: 0; top: 0; }
   .cuerpo { display: flex; gap: 8px; align-items: center; }
   .lista { flex: 1; min-width: 0; }
   .foto { flex: 0 0 27mm; width: 27mm; height: 22.5mm; }
   .fotos { flex: 0 0 auto; display: flex; flex-direction: column; gap: 2.5mm; }
+  .fotos.multi { gap: 2mm; }
+  .fotos.multi .foto.real { width: 37mm; max-height: 25mm; }
   .foto.real { flex: 0 0 auto; width: 31mm; height: auto; max-height: 22mm; object-fit: cover; border-radius: 3mm; border: 1px solid rgba(242,193,78,.65); box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 2mm 4mm rgba(0,0,0,.6); }
   .note { margin: 0 0 3px; font-size: 7.9pt; color: #F7B7A3; font-weight: 500; font-style: italic; }
   .item { padding: 1.6px 0; break-inside: avoid; }

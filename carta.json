@@ -80,7 +80,7 @@
         { "nombre": "Hamburguesa normal", "detalle": "Carne, lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "8,00€" },
         { "nombre": "Hamburguesa doble", "detalle": "Pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "10,00€" },
         { "nombre": "Hamburguesa triple", "detalle": "Chuleta, pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "12,00€" },
-        { "nombre": "Pepito mixto", "detalle": "Carne y pollo con col y zanahoria rallada y papitas", "precio": "12,00€" }
+        { "nombre": "Pepito mixto", "detalle": "Carne y pollo con col, zanahoria rallada, maíz, queso amarillo, beicon, aguacate y papitas", "precio": "12,00€" }
       ]
     },
     {
