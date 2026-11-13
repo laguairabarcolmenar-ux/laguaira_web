@@ -102,7 +102,8 @@
         { "nombre": "Fresa", "precio": "2,60€" },
         { "nombre": "Parchita", "precio": "2,60€" },
         { "nombre": "Avena", "precio": "2,60€" },
-        { "nombre": "3 en 1", "precio": "3,20€" },
+        { "nombre": "Mora", "precio": "2,60€" },
+        { "nombre": "Piña", "precio": "2,60€" },
         { "nombre": "Naranja", "precio": "2,50€" }
       ]
     },
