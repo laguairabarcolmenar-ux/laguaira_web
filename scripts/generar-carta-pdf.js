@@ -16,21 +16,9 @@ const clean = s => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const img = f => 'data:image/' + (f.endsWith('.png') ? 'png' : 'jpeg') + ';base64,' + fs.readFileSync(path.join(root, 'img', f)).toString('base64');
 
-// Imagen de cada apartado: por id de pestaña, o "id:Subtítulo" para los grupos de una pestaña.
-const imagenes = {
-  desayunos: 'desayuno-empanadas-cafe.jpg',
-  empanadas: 'empanada-abierta.jpg',
-  arepas: 'arepa-reina-pepiada.jpg',
-  platos: 'carta/platos.jpg',
-  parrillas: 'parrilla-la-guaira.jpg',
-  arroces: 'arroz-la-guaira.jpg',
-  hamburguesas: 'carta/hamburguesa.jpg',
-  postres: 'carta/postres.jpg',
-  'bebidas:Jugos naturales': 'carta/jugos.jpg',
-  'bebidas:Batidos': 'carta/batidos.jpg',
-  'bebidas:Refrescos, zumos y agua': 'carta/refrescos.jpg',
-  'bebidas:Cafés': 'carta/cafe.jpg',
-};
+// Ilustración dorada de cada apartado (scripts/ilustraciones.js): por id de pestaña, o "id:Subtítulo".
+const ilustraciones = require('./ilustraciones');
+const ilus = k => ilustraciones[k] ? 'data:image/svg+xml;base64,' + Buffer.from(ilustraciones[k]).toString('base64') : null;
 
 // Descripciones cortas para papel (las de la web son largas)
 const cortas = {
@@ -63,11 +51,11 @@ for (const id of orden) {
   const varios = paneles.length > 1;
   if (!varios) {
     const platos = [...(cards[id] || []), ...(paneles[0] ? paneles[0].platos : [])];
-    if (platos.length) apartados.push({ titulo: titulo(id), nota: paneles[0] && paneles[0].nota, platos, imagen: imagenes[id] });
+    if (platos.length) apartados.push({ titulo: titulo(id), nota: paneles[0] && paneles[0].nota, platos, imagen: ilus(id) });
     continue;
   }
   paneles.forEach((p, k) => apartados.push({
-    titulo: p.titulo, nota: p.nota, imagen: imagenes[`${id}:${p.titulo}`],
+    titulo: p.titulo, nota: p.nota, imagen: ilus(`${id}:${p.titulo}`),
     platos: k === 0 ? [...(cards[id] || []), ...p.platos] : p.platos,
   }));
 }
@@ -76,12 +64,12 @@ const total = apartados.reduce((n, s) => n + s.platos.length, 0);
 const fila = p => `<div class="item"><div class="row"><span class="name">${esc(p.nombre)}</span><span class="dots"></span><span class="price">${esc(p.precio)}</span></div>${p.detalle ? `<div class="desc">${esc(p.detalle)}</div>` : ''}</div>`;
 const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   <h2><span>${esc(s.titulo)}</span></h2>${s.nota ? `<p class="note">${esc(s.nota)}</p>` : ''}
-  <div class="cuerpo"><div class="lista">${s.platos.map(fila).join('')}</div>${s.imagen ? `<img class="foto" src="${img(s.imagen)}" alt="">` : ''}</div>
+  <div class="cuerpo"><div class="lista">${s.platos.map(fila).join('')}</div>${s.imagen ? `<img class="foto" src="${s.imagen}" alt="">` : ''}</div>
 </section>`;
 
 (async () => {
   const qr = await QR.toDataURL('https://barlaguaira.es/#menu-criollo', { errorCorrectionLevel: 'Q', margin: 1, width: 400, color: { dark: '#000000', light: '#FFD700' } });
-  const pagina = corte => `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Carta · La Guaira Bar Restaurante</title>
+  const pagina = () => `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Carta · La Guaira Bar Restaurante</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Oswald:wght@600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500&display=swap" rel="stylesheet">
 <style>
   @page { size: A4; margin: 0; }
@@ -102,7 +90,6 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
       linear-gradient(180deg, #1b1033 0%, #6b1f3a 32%, #c2451a 58%, #f08a24 72%, #3a1608 86%, #000 100%); }
   .hero .mar { position: absolute; left: 0; right: 0; bottom: 0; height: 16mm; background: linear-gradient(180deg, rgba(10,25,60,.0), rgba(6,14,35,.85) 40%, #000); }
   .hero .monte { position: absolute; right: 0; bottom: 12mm; width: 70%; height: 22mm; background: #12070a; clip-path: polygon(0 100%, 12% 62%, 22% 70%, 38% 30%, 50% 48%, 64% 8%, 78% 40%, 90% 28%, 100% 50%, 100% 100%); opacity: .9; }
-  .hero .brillo { position: absolute; left: 55%; bottom: 3mm; width: 22mm; height: 9mm; background: repeating-linear-gradient(180deg, rgba(255,200,90,.75) 0 1px, transparent 1px 3px); filter: blur(.4px); }
   .hero img { position: relative; width: 34mm; height: 34mm; filter: drop-shadow(0 2mm 3mm rgba(0,0,0,.6)); }
   .hero h1 { position: relative; margin: 0 0 0 auto; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 50pt; line-height: .85; text-align: right;
     background: linear-gradient(180deg, #fff1b8, #f2c14e 45%, #b8862b); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 1mm 1.2mm rgba(0,0,0,.7)); }
@@ -121,13 +108,15 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .menudia .tag { font-size: 7.8pt; font-weight: 700; color: #F2C14E; text-transform: uppercase; letter-spacing: .08em; font-family: 'Plus Jakarta Sans'; margin-left: 8px; }
   .menudia p { margin: 2px 0 0; font-size: 9pt; color: #EDE3D6; }
   .menudia .big { margin-left: auto; font-family: 'Oswald'; font-weight: 700; font-size: 28pt; color: #F2C14E; white-space: nowrap; }
-  .cols { column-count: 2; column-gap: 9mm; column-rule: 1px solid rgba(242,193,78,.18); }
-  .cat { break-inside: avoid-column; margin: 0 0 7px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .cols { flex: 1; min-height: 0; display: flex; }
+  .col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; }
+  .col:first-child { padding-right: 4.5mm; } .col + .col { padding-left: 4.5mm; border-left: 1px solid rgba(242,193,78,.18); }
+  .cat { padding: 3px 0 6px; }
+  .cat + .cat { border-top: 1px solid rgba(255,255,255,.08); padding-top: 7px; }
+  #pool { position: absolute; visibility: hidden; left: 0; top: 0; }
   .cuerpo { display: flex; gap: 8px; align-items: center; }
   .lista { flex: 1; min-width: 0; }
-  .foto { flex: 0 0 auto; width: auto; max-width: 30mm; max-height: 32mm; object-fit: contain; border-radius: 3mm;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent), linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
-    -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent), linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-composite: intersect; }
+  .foto { flex: 0 0 27mm; width: 27mm; height: 22.5mm; }
   .note { margin: 0 0 3px; font-size: 7.9pt; color: #F7B7A3; font-weight: 500; font-style: italic; }
   .item { padding: 1.6px 0; break-inside: avoid; }
   .row { display: flex; align-items: baseline; gap: 5px; }
@@ -149,11 +138,11 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
     <div><h2><span>Menú del Día</span><em class="tag">${esc(menuDia.horario)}</em></h2><p>${esc(menuDia.detalle)}</p></div>
     <div class="big">${esc(menuDia.precio)}</div>
   </div>
-  <div class="cols">${apartados.slice(0, corte).map(apartado).join('')}</div>
+  <div class="cols"><div class="col"></div><div class="col"></div></div>
 </div>
 <div class="page">
   <div class="top2"></div>
-  <div class="cols">${apartados.slice(corte).map(apartado).join('')}</div>
+  <div class="cols"><div class="col"></div><div class="col"></div></div>
   <footer>
     <img src="${qr}" alt="">
     <div><b>Carta digital con fotos:</b> escanea el código o entra en <b>barlaguaira.es</b> · @laguairabar.colmenar<br>
@@ -161,26 +150,36 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
     <b>Contorno</b>: acompañante a elegir.</div>
   </footer>
 </div>
+<div id="pool">${apartados.map(apartado).join('')}</div>
 </body></html>`;
 
   const browser = await puppeteer.launch({ executablePath: chrome, headless: true });
   const p = await browser.newPage();
   await p.emulateMediaType('print');
-  // Prueba cortes desde el centro hasta encontrar uno en el que quepan las dos hojas
-  const mitad = Math.round(apartados.length / 2);
-  const candidatos = [...Array(apartados.length - 2).keys()].map(i => i + 1).sort((a, b) => Math.abs(a - mitad) - Math.abs(b - mitad));
-  let corte = null;
-  for (const c of candidatos) {
-    await p.setContent(pagina(c), { waitUntil: 'load', timeout: 60000 });
-    await p.evaluate(() => document.fonts.ready);
-    await new Promise(r => setTimeout(r, 300));
-    const desborde = await p.evaluate(() => [...document.querySelectorAll('.page')].some(pg => {
-      const cols = pg.querySelector('.cols');
-      return cols.scrollWidth > cols.clientWidth + 2 || pg.scrollHeight > pg.clientHeight + 2;
-    }));
-    if (!desborde) { corte = c; break; }
-  }
-  if (corte === null) { await browser.close(); throw new Error('La carta no cabe en dos hojas con ningún corte'); }
+  await p.setContent(pagina(), { waitUntil: 'load', timeout: 60000 });
+  await p.evaluate(() => document.fonts.ready);
+  await new Promise(r => setTimeout(r, 300));
+  // Reparte los apartados (en orden) en las 4 columnas de las dos hojas, lo más equilibrado posible
+  const reparto = await p.evaluate(() => {
+    const cols = [...document.querySelectorAll('.col')];
+    const disp = cols.map(c => c.clientHeight);
+    const secs = [...document.querySelectorAll('#pool .cat')];
+    const alto = secs.map((sec, i) => { sec.classList.toggle('primera', true); cols[0].appendChild(sec); const h = sec.getBoundingClientRect().height; return h; });
+    // el borde superior solo cuenta si no es el primero de la columna: margen de seguridad
+    const n = secs.length; let mejor = null;
+    const suma = (a, b) => alto.slice(a, b).reduce((x, y) => x + y, 0) + 10;
+    for (let a = 1; a < n - 2; a++) for (let b = a + 1; b < n - 1; b++) for (let c = b + 1; c < n; c++) {
+      const tramos = [[0, a], [a, b], [b, c], [c, n]];
+      const ratios = tramos.map(([x, y], k) => suma(x, y) / disp[k]);
+      const peor = Math.max(...ratios);
+      if (peor <= 1 && (!mejor || peor < mejor.peor)) mejor = { peor, tramos };
+    }
+    if (!mejor) return null;
+    mejor.tramos.forEach(([x, y], k) => secs.slice(x, y).forEach(sec => cols[k].appendChild(sec)));
+    const desborde = [...document.querySelectorAll('.page')].some(pg => pg.scrollHeight > pg.clientHeight + 2) || cols.some(c => c.scrollHeight > c.clientHeight + 2);
+    return { desborde, columnas: mejor.tramos.map(([x, y]) => secs.slice(x, y).map(s => s.querySelector('h2').textContent.trim())), llenado: Math.round(mejor.peor * 100) };
+  });
+  if (!reparto || reparto.desborde) { await browser.close(); throw new Error('La carta no cabe en dos hojas'); }
   await new Promise(r => setTimeout(r, 800));
   const out = path.join(root, 'carta-la-guaira.pdf');
   await p.pdf({ path: out, format: 'A4', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
@@ -189,5 +188,6 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
     await p.screenshot({ path: process.argv[4], fullPage: true });
   }
   await browser.close();
-  console.log(`Carta PDF generada (segunda hoja desde «${apartados[corte].titulo}»): ${apartados.length} apartados, ${total} platos + menú del día`);
+  console.log(reparto.columnas.map((c, i) => `Columna ${i + 1}: ${c.join(' · ')}`).join('\n'));
+  console.log(`Carta PDF generada: ${apartados.length} apartados, ${total} platos + menú del día`);
 })().catch(e => { console.error(e); process.exit(1); });
