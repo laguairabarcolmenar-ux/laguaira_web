@@ -26,12 +26,30 @@ const fila = p => `<li class="flex items-baseline gap-2 py-2.5 border-b border-w
 <span class="font-title-md text-title-md text-[#FFD700] font-extrabold whitespace-nowrap">${esc(p.precio)}</span>
 </li>`;
 
+// Fotos de cada panel: img/carta/<apartado>.jpg (y -2, -3), las mismas que usa la carta en PDF.
+const slug = k => k.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const varios = cat => carta.paneles.filter(p => p.categoria === cat).length > 1;
+const fotosDe = c => {
+  const base = slug(varios(c.categoria) ? `${c.categoria}:${c.titulo}` : c.categoria);
+  return ['', '-2', '-3'].map(n => `img/carta/${base}${n}.jpg`).filter(f => fs.existsSync(path.join(root, f)));
+};
+const galeria = c => {
+  const fotos = fotosDe(c);
+  if (!fotos.length) return '';
+  const cols = fotos.length === 1 ? 'grid-cols-1' : fotos.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
+  const asp = fotos.length === 1 ? 'aspect-[16/9]' : 'aspect-[4/3]';
+  return `
+<div class="grid ${cols} gap-2 mb-space-md">
+${fotos.map(f => `<div class="${asp} overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="${f}" alt="${esc(c.titulo)} en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>`).join('\n')}
+</div>`;
+};
+
 const panel = c => `<!-- Panel carta: ${esc(c.titulo)} -->
 <div class="dish-item fx-card bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col warm-card-glow border border-[#FFD700]/20" data-category="${esc(c.categoria)}" style="background: linear-gradient(160deg, #1C1815 0%, #14110F 100%);">
 <div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-xs">
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">${c.emoji}</span> ${esc(c.titulo)}</h3>${c.nota ? `
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">${esc(c.nota)}</span>` : ''}
-</div>
+</div>${galeria(c)}
 <ul class="flex flex-col">
 ${c.platos.map(fila).join('\n')}
 </ul>
