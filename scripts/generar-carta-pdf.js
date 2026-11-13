@@ -18,7 +18,13 @@ const img = f => 'data:image/' + (f.endsWith('.png') ? 'png' : 'jpeg') + ';base6
 
 // Ilustración dorada de cada apartado (scripts/ilustraciones.js): por id de pestaña, o "id:Subtítulo".
 const ilustraciones = require('./ilustraciones');
-const ilus = k => ilustraciones[k] ? 'data:image/svg+xml;base64,' + Buffer.from(ilustraciones[k]).toString('base64') : null;
+// Si existe una foto en img/carta/<apartado>.jpg (p. ej. desayunos.jpg, bebidas-jugos-naturales.jpg) se usa en lugar de la ilustración.
+const slug = k => k.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const ilus = k => {
+  const foto = path.join('carta', slug(k) + '.jpg');
+  if (fs.existsSync(path.join(root, 'img', foto))) return { src: img(foto), real: true };
+  return ilustraciones[k] ? { src: 'data:image/svg+xml;base64,' + Buffer.from(ilustraciones[k]).toString('base64'), real: false } : null;
+};
 
 // Descripciones cortas para papel (las de la web son largas)
 const cortas = {
@@ -64,7 +70,7 @@ const total = apartados.reduce((n, s) => n + s.platos.length, 0);
 const fila = p => `<div class="item"><div class="row"><span class="name">${esc(p.nombre)}</span><span class="dots"></span><span class="price">${esc(p.precio)}</span></div>${p.detalle ? `<div class="desc">${esc(p.detalle)}</div>` : ''}</div>`;
 const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   <h2><span>${esc(s.titulo)}</span></h2>${s.nota ? `<p class="note">${esc(s.nota)}</p>` : ''}
-  <div class="cuerpo"><div class="lista">${s.platos.map(fila).join('')}</div>${s.imagen ? `<img class="foto" src="${s.imagen}" alt="">` : ''}</div>
+  <div class="cuerpo"><div class="lista">${s.platos.map(fila).join('')}</div>${s.imagen ? `<img class="foto${s.imagen.real ? ' real' : ''}" src="${s.imagen.src}" alt="">` : ''}</div>
 </section>`;
 
 (async () => {
@@ -117,6 +123,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .cuerpo { display: flex; gap: 8px; align-items: center; }
   .lista { flex: 1; min-width: 0; }
   .foto { flex: 0 0 27mm; width: 27mm; height: 22.5mm; }
+  .foto.real { flex: 0 0 34mm; width: 34mm; height: 23mm; object-fit: cover; border-radius: 3mm; border: 1px solid rgba(242,193,78,.65); box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 2mm 4mm rgba(0,0,0,.6); }
   .note { margin: 0 0 3px; font-size: 7.9pt; color: #F7B7A3; font-weight: 500; font-style: italic; }
   .item { padding: 1.6px 0; break-inside: avoid; }
   .row { display: flex; align-items: baseline; gap: 5px; }
