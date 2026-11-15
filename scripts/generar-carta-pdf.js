@@ -129,7 +129,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .fotos.multi .foto.real { width: 37mm; max-height: 25mm; }
   .foto.real { flex: 0 0 auto; width: 31mm; height: auto; max-height: 22mm; object-fit: cover; border-radius: 3mm; border: 1px solid rgba(242,193,78,.65); box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 2mm 4mm rgba(0,0,0,.6); }
   .note { margin: 0 0 3px; font-size: 7.9pt; color: #F7B7A3; font-weight: 500; font-style: italic; }
-  .item { padding: 1.6px 0; break-inside: avoid; }
+  .item { padding: 1px 0; break-inside: avoid; }
   .row { display: flex; align-items: baseline; gap: 5px; }
   .name { font-family: 'Plus Jakarta Sans'; font-weight: 700; font-size: 9.4pt; }
   .dots { flex: 1; border-bottom: 1.2px dotted rgba(242,193,78,.35); transform: translateY(-3px); min-width: 8px; }
@@ -138,7 +138,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   footer { break-inside: avoid; display: flex; align-items: center; gap: 12px; margin-top: auto; padding: 8px 2mm 0; border-top: 1px solid rgba(242,193,78,.35); font-size: 8.2pt; color: #CFC3B5; }
   footer img { width: 62px; height: 62px; flex-shrink: 0; border-radius: 6px; }
   footer b { color: #F2C14E; }
-  .top2 { height: 9mm; }
+  .top2 { height: 5mm; }
 </style></head><body>
 <div class="page">
   <div class="hero"><div class="monte"></div><div class="mar"></div>
