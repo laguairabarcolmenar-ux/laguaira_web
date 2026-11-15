@@ -71,3 +71,6 @@ const NL = html.includes('\r\n') ? '\r\n' : '\n';
 fs.writeFileSync(htmlFile, html.replace(/\r?\n/g, NL));
 const total = carta.paneles.reduce((n, c) => n + c.platos.length, 0);
 console.log(`Carta generada: ${carta.pestanas.length} pestañas, ${carta.paneles.length} paneles, ${total} platos.`);
+
+// La carta para móvil (carta.html) sale de los mismos datos: se regenera siempre a la vez.
+require('./generar-carta-movil.js');

@@ -1,3 +1,12 @@
 {
-  "rewrites": [{ "source": "/", "destination": "/code.html" }]
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/code.html"
+    },
+    {
+      "source": "/carta",
+      "destination": "/carta.html"
+    }
+  ]
 }
