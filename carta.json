@@ -80,7 +80,8 @@
         { "nombre": "Hamburguesa normal", "detalle": "Carne, lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "8,00€" },
         { "nombre": "Hamburguesa doble", "detalle": "Pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "10,00€" },
         { "nombre": "Hamburguesa triple", "detalle": "Chuleta, pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas", "precio": "12,00€" },
-        { "nombre": "Pepito mixto", "detalle": "Carne y pollo con col, zanahoria rallada, maíz, queso amarillo, beicon, aguacate y papitas", "precio": "14,00€" }
+        { "nombre": "Pepito mixto", "detalle": "Carne y pollo con col, zanahoria rallada, maíz, queso amarillo, beicon, aguacate y papitas", "precio": "14,00€" },
+        { "nombre": "Pepito mixto especial", "precio": "22,00€" }
       ]
     },
     {
@@ -140,6 +141,7 @@
         { "nombre": "Buchanan's 12 años DeLuxe", "precio": "12,00€" },
         { "nombre": "Ron Santa Teresa", "precio": "7,00€" },
         { "nombre": "Ron Cacique", "precio": "7,00€" },
+        { "nombre": "Ron Negrita", "precio": "5,00€" },
         { "nombre": "Tequila Don Julio", "precio": "7,00€" },
         { "nombre": "Jack Daniel's", "precio": "7,00€" }
       ]
