@@ -47,7 +47,7 @@
       ]
     },
     {
-      "categoria": "arepas", "emoji": "🫓", "titulo": "Más arepas", "nota": "Sencillas 6,00€ · Combinada 6,50€",
+      "categoria": "arepas", "emoji": "🫓", "titulo": "Más arepas", "nota": "Sencillas 6,00€ · Combinadas 6,50€",
       "platos": [
         { "nombre": "Arepa de pollo", "precio": "6,00€" },
         { "nombre": "Arepa de carne mechada", "precio": "6,00€" },
