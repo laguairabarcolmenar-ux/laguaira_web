@@ -46,13 +46,13 @@ const hojas = [
     titulo: 'Pepito mixto', emoji: '🥖', nota: 'Se sirve con papitas',
     fotos: ['carta/hamburguesas-2.jpg'],
     platos: [
-      { nombre: 'Pepito mixto', ingredientes: ['Pan de pepito (barra)', 'Carne', 'Pollo', 'Col rallada', 'Zanahoria rallada', 'Maíz', 'Queso amarillo', 'Beicon (tocineta)', 'Aguacate', 'Papitas'] },
+      { nombre: 'Pepito mixto', ingredientes: ['Pan de pepito (barra)', 'Carne', 'Pollo', 'Col rallada', 'Zanahoria rallada', 'Chorizo', 'Maíz', 'Queso amarillo', 'Beicon (tocineta)', 'Aguacate', 'Papitas'] },
     ],
     preparacion: [
       'Cortar la carne y el pollo en tiras y saltearlos a la plancha bien caliente hasta que estén dorados.',
       'Dorar el beicon hasta que quede crujiente.',
       'Abrir el pan a lo largo y calentarlo en la plancha.',
-      'Rellenar con la carne y el pollo, la col y la zanahoria rallada, el maíz y el beicon.',
+      'Rellenar con la carne y el pollo, la col y la zanahoria rallada, el chorizo, el maíz y el beicon.',
       'Cubrir con el queso amarillo y gratinar o calentar hasta que se funda.',
       'Terminar con el aguacate en láminas y las papitas por encima. Servir al momento.',
     ],
