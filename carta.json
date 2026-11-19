@@ -22,7 +22,9 @@
       "categoria": "desayunos", "emoji": "☕", "titulo": "Desayunos", "nota": "L–V desde 8:00 · S–D desde 9:00",
       "platos": [
         { "nombre": "Desayuno criollo con perico", "detalle": "1 arepa con queso, perico y aguacate", "precio": "8,00€" },
-        { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" }
+        { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" },
+        { "nombre": "Cachitos", "precio": "3,50€" },
+        { "nombre": "Golfeados", "precio": "5,50€" }
       ]
     },
     {
@@ -121,6 +123,7 @@
       "platos": [
         { "nombre": "Malta", "precio": "2,70€" },
         { "nombre": "Frescolita", "precio": "2,80€" },
+        { "nombre": "Refresco de uva", "precio": "2,80€" },
         { "nombre": "Coca-Cola", "precio": "2,50€" },
         { "nombre": "Coca-Cola Zero", "precio": "2,50€" },
         { "nombre": "Sprite", "precio": "2,50€" },

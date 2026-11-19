@@ -119,7 +119,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; }
   .col:first-child { padding-right: 4.5mm; } .col + .col { padding-left: 4.5mm; border-left: 1px solid rgba(242,193,78,.18); }
   .cat { padding: 2px 0 4px; }
-  .cat + .cat { border-top: 1px solid rgba(255,255,255,.08); padding-top: 5px; }
+  .cat + .cat { border-top: 1px solid rgba(255,255,255,.08); padding-top: 4px; }
   #pool { position: absolute; visibility: hidden; left: 0; top: 0; }
   .cuerpo { display: flex; gap: 8px; align-items: center; }
   .lista { flex: 1; min-width: 0; }
@@ -129,9 +129,9 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .fotos.multi .foto.real { width: 37mm; max-height: 25mm; }
   .foto.real { flex: 0 0 auto; width: 31mm; height: auto; max-height: 22mm; object-fit: cover; border-radius: 3mm; border: 1px solid rgba(242,193,78,.65); box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 2mm 4mm rgba(0,0,0,.6); }
   .note { margin: 0 0 3px; font-size: 7.9pt; color: #F7B7A3; font-weight: 500; font-style: italic; }
-  .item { padding: 1px 0; break-inside: avoid; }
+  .item { padding: .6px 0; break-inside: avoid; }
   .row { display: flex; align-items: baseline; gap: 5px; }
-  .name { font-family: 'Plus Jakarta Sans'; font-weight: 700; font-size: 9.4pt; }
+  .name { font-family: 'Plus Jakarta Sans'; font-weight: 700; font-size: 9.1pt; }
   .dots { flex: 1; border-bottom: 1.2px dotted rgba(242,193,78,.35); transform: translateY(-3px); min-width: 8px; }
   .price { font-family: 'Plus Jakarta Sans'; font-weight: 800; color: #F2C14E; white-space: nowrap; }
   .desc { font-size: 7.9pt; color: #CFC3B5; line-height: 1.32; margin-top: 1px; }
