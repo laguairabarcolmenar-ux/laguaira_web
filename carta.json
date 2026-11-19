@@ -23,8 +23,8 @@
       "platos": [
         { "nombre": "Desayuno criollo con perico", "detalle": "1 arepa con queso, perico y aguacate", "precio": "8,00€" },
         { "nombre": "Desayuno criollo con caraotas", "detalle": "1 arepa con queso, huevo y caraotas negras", "precio": "10,00€" },
-        { "nombre": "Cachitos", "precio": "3,50€" },
-        { "nombre": "Golfeados", "precio": "5,50€" }
+        { "nombre": "Cachitos", "detalle": "Rellenos de jamón", "precio": "3,50€" },
+        { "nombre": "Golfeados", "detalle": "Con queso de mano", "precio": "5,50€" }
       ]
     },
     {
