@@ -2405,18 +2405,19 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
       const guests = document.getElementById('res-guests').value;
       const notes = document.getElementById('res-notes').value;
 
+      const fecha = date ? date.split('-').reverse().join('/') : '';
       const message = encodeURIComponent(
-        `¡Hola La Guaira Bar Restaurante! 👋 Quisiera solicitar una reserva:\n\n` +
-        `👤 Nombre: ${name}\n` +
-        `📱 Teléfono: ${phone}\n` +
-        `📅 Fecha: ${date}\n` +
-        `⏰ Turno: ${time} h\n` +
-        `👥 Comensales: ${guests}\n` +
-        (notes ? `📝 Notas especiales: ${notes}\n\n` : '\n') +
+        `¡Hola La Guaira Bar Restaurante! Quisiera solicitar una reserva:\n\n` +
+        `*Nombre:* ${name}\n` +
+        `*Teléfono:* ${phone}\n` +
+        `*Fecha:* ${fecha}\n` +
+        `*Turno:* ${time} h\n` +
+        `*Comensales:* ${guests}\n` +
+        (notes ? `*Notas:* ${notes}\n\n` : '\n') +
         `¿Tienen disponibilidad? ¡Muchas gracias!`
       );
 
-      window.open(`https://wa.me/34643128808?text=${message}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=34643128808&text=${message}`, '_blank');
     });
   }
 
