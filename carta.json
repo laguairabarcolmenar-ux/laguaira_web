@@ -140,7 +140,8 @@
       "categoria": "licores", "emoji": "🍺", "titulo": "Cervezas y licores",
       "platos": [
         { "nombre": "Polar Pilsen", "precio": "2,00€" },
-        { "nombre": "Polar Especial", "precio": "2,20€" },
+        { "nombre": "Polar Premium", "precio": "2,50€" },
+        { "nombre": "Cerveza Zulia", "precio": "2,70€" },
         { "nombre": "Buchanan's 12 años DeLuxe", "precio": "12,00€" },
         { "nombre": "Ron Santa Teresa", "precio": "7,00€" },
         { "nombre": "Ron Cacique", "precio": "7,00€" },

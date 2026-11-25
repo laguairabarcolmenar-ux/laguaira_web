@@ -118,7 +118,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .cols { flex: 1; min-height: 0; display: flex; }
   .col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; }
   .col:first-child { padding-right: 4.5mm; } .col + .col { padding-left: 4.5mm; border-left: 1px solid rgba(242,193,78,.18); }
-  .cat { padding: 2px 0 4px; }
+  .cat { padding: 2px 0 3px; }
   .cat + .cat { border-top: 1px solid rgba(255,255,255,.08); padding-top: 4px; }
   #pool { position: absolute; visibility: hidden; left: 0; top: 0; }
   .cuerpo { display: flex; gap: 8px; align-items: center; }
@@ -134,7 +134,7 @@ const apartado = s => `<section class="cat${s.imagen ? ' con-foto' : ''}">
   .name { font-family: 'Plus Jakarta Sans'; font-weight: 700; font-size: 9.1pt; }
   .dots { flex: 1; border-bottom: 1.2px dotted rgba(242,193,78,.35); transform: translateY(-3px); min-width: 8px; }
   .price { font-family: 'Plus Jakarta Sans'; font-weight: 800; color: #F2C14E; white-space: nowrap; }
-  .desc { font-size: 7.9pt; color: #CFC3B5; line-height: 1.32; margin-top: 1px; }
+  .desc { font-size: 7.9pt; color: #CFC3B5; line-height: 1.26; margin-top: 1px; }
   footer { break-inside: avoid; display: flex; align-items: center; gap: 12px; margin-top: auto; padding: 8px 2mm 0; border-top: 1px solid rgba(242,193,78,.35); font-size: 8.2pt; color: #CFC3B5; }
   footer img { width: 62px; height: 62px; flex-shrink: 0; border-radius: 6px; }
   footer b { color: #F2C14E; }
