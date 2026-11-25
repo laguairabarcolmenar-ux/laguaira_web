@@ -20,9 +20,12 @@ const img = f => 'data:image/' + (f.endsWith('.png') ? 'png' : 'jpeg') + ';base6
 const ilustraciones = require('./ilustraciones');
 // Si existe una foto en img/carta/<apartado>.jpg (p. ej. desayunos.jpg, bebidas-jugos-naturales.jpg) se usa en lugar de la ilustración.
 const slug = k => k.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const UNA_FOTO_EN_PAPEL = ['cachapas', 'platos'];
 const ilus = k => {
   // admite varias fotos por apartado: arepas.jpg, arepas-2.jpg, arepas-3.jpg...
-  const fotos = ['', '-2', '-3'].map(n => path.join('carta', slug(k) + n + '.jpg')).filter(f => fs.existsSync(path.join(root, 'img', f)));
+  let fotos = ['', '-2', '-3'].map(n => path.join('carta', slug(k) + n + '.jpg')).filter(f => fs.existsSync(path.join(root, 'img', f)));
+  // En papel no hay sitio para más fotos en estos apartados (en la web sí salen todas)
+  if (UNA_FOTO_EN_PAPEL.includes(slug(k))) fotos = fotos.slice(0, 1);
   if (fotos.length) return { src: fotos.map(img), real: true };
   return ilustraciones[k] ? { src: ['data:image/svg+xml;base64,' + Buffer.from(ilustraciones[k]).toString('base64')], real: false } : null;
 };
