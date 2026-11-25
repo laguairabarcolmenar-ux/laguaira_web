@@ -275,100 +275,7 @@
     }
   }
 </style>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "on-background": "#FFFDF5",
-          "surface-container": "#1C1815",
-          "surface-variant": "#231F1C",
-          "surface-bright": "#2E2824",
-          "surface-dim": "#0D0B0A",
-          "inverse-surface": "#FFFDF5",
-          "outline": "#9E8E7C",
-          "surface": "#0D0B0A",
-          "surface-container-low": "#14110F",
-          "surface-container-lowest": "#0D0B0A",
-          "surface-container-high": "#28231E",
-          "surface-container-highest": "#332C27",
-          "on-surface": "#FFFDF5",
-          "on-surface-variant": "#E8DFD8",
-          "background": "#0D0B0A",
-          // Refined Warm Tones
-          "warm-cream": "#FFFDF5",
-          "warm-cream-muted": "#E8DFD8",
-          "primary": "#FFF4D4",
-          "primary-container": "#FFD700",
-          "primary-amber": "#FFC72C",
-          "on-primary": "#2D2200",
-          "on-primary-fixed": "#241A00",
-          "secondary": "#B6C4FF",
-          "secondary-container": "#1A3D9E",
-          "on-secondary-container": "#C8D5FF",
-          "carmine": "#C5221F",
-          "carmine-dark": "#B71C1C",
-          "on-tertiary-container": "#C5221F",
-          "tertiary": "#FFF0ED",
-          "error": "#FFB4AB",
-          "error-container": "#B71C1C"
-        },
-        borderRadius: {
-          "DEFAULT": "0.25rem",
-          "lg": "0.75rem",
-          "xl": "1rem",
-          "2xl": "1.5rem",
-          "3xl": "2rem",
-          "full": "9999px"
-        },
-        spacing: {
-          "margin-mobile": "1.25rem",
-          "space-xl": "2.5rem",
-          "gutter": "1.5rem",
-          "space-md": "1rem",
-          "space-xs": "0.25rem",
-          "margin": "3rem",
-          "gutter-mobile": "1rem",
-          "space-lg": "1.5rem",
-          "space-sm": "0.5rem"
-        },
-        fontFamily: {
-          "headline-lg": ["Plus Jakarta Sans"],
-          "label-md": ["Plus Jakarta Sans"],
-          "headline-md": ["Plus Jakarta Sans"],
-          "body-sm": ["Be Vietnam Pro"],
-          "label-sm": ["Plus Jakarta Sans"],
-          "body-lg": ["Be Vietnam Pro"],
-          "headline-xl-mobile": ["Plus Jakarta Sans"],
-          "headline-lg-mobile": ["Plus Jakarta Sans"],
-          "label-lg": ["Plus Jakarta Sans"],
-          "title-md": ["Plus Jakarta Sans"],
-          "display-lg": ["Plus Jakarta Sans"],
-          "body-md": ["Be Vietnam Pro"],
-          "display-lg-mobile": ["Plus Jakarta Sans"],
-          "headline-sm": ["Plus Jakarta Sans"],
-          "headline-xl": ["Plus Jakarta Sans"]
-        },
-        fontSize: {
-          "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
-          "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.04em", fontWeight: "600" }],
-          "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
-          "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
-          "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "700" }],
-          "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-          "label-lg": ["15px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
-          "title-md": ["18px", { lineHeight: "24px", fontWeight: "600" }],
-          "display-lg": ["56px", { lineHeight: "64px", letterSpacing: "-0.02em", fontWeight: "800" }],
-          "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-          "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
-          "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.015em", fontWeight: "700" }]
-        }
-      }
-    }
-  };
-</script></head>
+<link rel="stylesheet" href="/css/estilos.css"/></head>
 <body class="bg-[#0D0B0A] font-body-md text-body-md text-[#FFFDF5] antialiased selection:bg-[#FFD700] selection:text-[#2D2200]">
 <!-- NAVBAR -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#0D0B0A]/85 backdrop-blur-xl shadow-[0_6px_25px_rgba(0,0,0,0.6)] border-b border-[#FFD700]/20">
@@ -443,7 +350,7 @@
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
           Reservar Mesa
         </a>
-<a class="warm-btn inline-flex items-center gap-space-xs bg-[#1C1815]/85 hover:bg-[#28231E] backdrop-blur-md text-[#FFFDF5] font-label-lg text-label-lg px-space-lg py-space-md rounded-2xl border border-[#FFD700]/30 shadow-lg" href="#menu-criollo">
+<a class="warm-btn inline-flex items-center gap-space-xs bg-[#1C1815]/85 hover:bg-[#28231E] backdrop-blur-md text-[#FFFDF5] font-label-lg text-label-lg px-space-lg py-space-md rounded-2xl border border-[#FFD700]/30 shadow-lg" href="/carta">
 <span class="material-symbols-outlined text-[20px] text-[#FFD700]">menu_book</span>
           Ver Nuestra Carta
         </a>
@@ -686,7 +593,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <!-- Featured Gastronomy Atmospheric Showcase Banner with IMAGE_10 -->
 <div class="w-full rounded-[32px] overflow-hidden relative shadow-[0_16px_40px_rgba(0,0,0,0.7)] border border-[#FFD700]/25 group warm-card-glow">
 <div class="relative h-80 sm:h-96 w-full overflow-hidden">
-<img alt="Empanadas, guasacaca y café con leche en una mesa de La Guaira" class="fx-parallax w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95" src="img/desayuno-empanadas-cafe.jpg"/>
+<img alt="Empanadas, guasacaca y café con leche en una mesa de La Guaira" class="fx-parallax w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95" src="img/desayuno-empanadas-cafe.webp"/>
 <div class="absolute inset-0 bg-gradient-to-t from-[#0D0B0A] via-[#14110F]/40 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
 <div class="max-w-2xl">
@@ -742,7 +649,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <!-- Visual Vignette 1: Empanadas & Salsas -->
 <div class="fx-card md:col-span-5 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
 <div class="h-64 w-full relative overflow-hidden">
-<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Empanada venezolana abierta con su relleno, guasacaca y café en una mesa de La Guaira" loading="lazy" src="img/empanada-abierta.jpg"/>
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Empanada venezolana abierta con su relleno, guasacaca y café en una mesa de La Guaira" loading="lazy" src="img/empanada-abierta.webp"/>
 <span class="absolute top-4 left-4 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-[#FFD700] font-semibold border border-[#FFD700]/30 shadow">
             Crujientes al punto
           </span>
@@ -757,7 +664,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <!-- Visual Vignette 2: Parrillas para compartir -->
 <div class="fx-card md:col-span-6 rounded-[32px] overflow-hidden shadow-2xl flex flex-col warm-card-glow border border-[#FFD700]/20" style="background: rgba(20, 17, 15, 0.88); backdrop-filter: blur(16px);">
 <div class="h-64 w-full relative overflow-hidden">
-<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Parrilla venezolana con pollo, carne y chorizo a la brasa" loading="lazy" src="img/parrilla-caracas.jpg"/>
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Parrilla venezolana con pollo, carne y chorizo a la brasa" loading="lazy" src="img/parrilla-caracas.webp"/>
 <span class="absolute top-4 left-4 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-[#FFD700] font-semibold border border-[#FFD700]/30 shadow">
             Para compartir
           </span>
@@ -876,7 +783,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arepa reina pepiada con pollo, aguacate y mayonesa, preparada en La Guaira" loading="lazy" src="img/arepa-reina-pepiada.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arepa reina pepiada con pollo, aguacate y mayonesa, preparada en La Guaira" loading="lazy" src="img/arepa-reina-pepiada.webp"/>
 <span class="absolute top-3 left-3 bg-[#1A3D9E] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
               La Reina
             </span>
@@ -957,7 +864,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arepas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arepa de pabellón con carne mechada, caraotas negras, plátano y queso rallado" loading="lazy" src="img/arepa-pabellon.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arepa de pabellón con carne mechada, caraotas negras, plátano y queso rallado" loading="lazy" src="img/arepa-pabellon.webp"/>
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Arepa de Pabellón</h3>
@@ -1035,7 +942,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de pollo dorada y crujiente sobre pizarra con guasacaca y lima" loading="lazy" src="img/empanada-pollo.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de pollo dorada y crujiente sobre pizarra con guasacaca y lima" loading="lazy" src="img/empanada-pollo.webp"/>
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Pollo</h3>
@@ -1058,7 +965,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de queso con el queso fundido saliendo, servida con guasacaca" loading="lazy" src="img/empanada-queso.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de queso con el queso fundido saliendo, servida con guasacaca" loading="lazy" src="img/empanada-queso.webp"/>
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Queso</h3>
@@ -1081,7 +988,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="empanadas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de carne mechada abierta, servida con guasacaca y cerveza Polar" loading="lazy" src="img/empanada-carne-mechada.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Empanada venezolana de carne mechada abierta, servida con guasacaca y cerveza Polar" loading="lazy" src="img/empanada-carne-mechada.webp"/>
 </div>
 <div class="flex items-start justify-between gap-2">
 <h3 class="font-title-md text-title-md text-[#FFFDF5] font-bold group-hover:text-[#FFD700] transition-colors">Empanada de Carne Mechada</h3>
@@ -1104,7 +1011,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Parrilla mar y tierra con carne a la brasa, gambas y limón" loading="lazy" src="img/parrilla-la-guaira.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Parrilla mar y tierra con carne a la brasa, gambas y limón" loading="lazy" src="img/parrilla-la-guaira.webp"/>
 <span class="absolute top-3 left-3 bg-[#C5221F] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
               Para 2 personas
             </span>
@@ -1130,7 +1037,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="parrillas">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Parrilla venezolana con pollo, carne, chorizo, aguacate, yuca, arepitas y tostones sobre tabla de madera" loading="lazy" src="img/parrilla-caracas.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Parrilla venezolana con pollo, carne, chorizo, aguacate, yuca, arepitas y tostones sobre tabla de madera" loading="lazy" src="img/parrilla-caracas.webp"/>
 <span class="absolute top-3 left-3 bg-[#C5221F] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
               Para 2 personas
             </span>
@@ -1156,7 +1063,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <div class="dish-item fx-card group bg-[#1C1815] p-space-lg rounded-[28px] shadow-xl flex flex-col justify-between warm-card-glow border border-[#FFD700]/20" data-category="arroces">
 <div>
 <div class="h-48 w-full rounded-2xl overflow-hidden relative mb-space-md">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arroz a la marinera estilo paella con camarones, almejas y calamar en paellera" loading="lazy" src="img/arroz-la-guaira.jpg"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arroz a la marinera estilo paella con camarones, almejas y calamar en paellera" loading="lazy" src="img/arroz-la-guaira.webp"/>
 <span class="absolute top-3 left-3 bg-[#1A3D9E] text-white font-label-sm text-label-sm font-bold px-2.5 py-1 rounded-lg shadow">
               Para 1 persona
             </span>
@@ -1262,7 +1169,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">L–V desde 8:00 · S–D desde 9:00</span>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/desayunos.jpg" alt="Desayunos en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/desayunos.webp" alt="Desayunos en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1306,7 +1213,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Ración de 6 unidades</span>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/tequenos.jpg" alt="Tequeños en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/tequenos.webp" alt="Tequeños en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1334,7 +1241,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Sencillas 3,00€ · Combinadas 3,50€</span>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/empanadas.jpg" alt="Más empanadas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/empanadas.webp" alt="Más empanadas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1360,7 +1267,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🌽</span> Cachapas</h3>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/cachapas.jpg" alt="Cachapas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/cachapas.webp" alt="Cachapas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1388,9 +1295,9 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Sencillas 6,00€ · Combinadas 6,50€</span>
 </div>
 <div class="grid grid-cols-3 gap-2 mb-space-md">
-<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/arepas.jpg" alt="Más arepas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
-<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/arepas-2.jpg" alt="Más arepas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
-<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/arepas-3.jpg" alt="Más arepas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/arepas.webp" alt="Más arepas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/arepas-2.webp" alt="Más arepas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/arepas-3.webp" alt="Más arepas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1437,7 +1344,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🍌</span> Patacones</h3>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/patacones.jpg" alt="Patacones en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/patacones.webp" alt="Patacones en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1457,7 +1364,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Contorno: acompañante a elegir</span>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/platos.jpg" alt="Platos principales en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/platos.webp" alt="Platos principales en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1521,8 +1428,8 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Todas con papitas</span>
 </div>
 <div class="grid grid-cols-2 gap-2 mb-space-md">
-<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/hamburguesas.jpg" alt="Hamburguesas y Pepito en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
-<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/hamburguesas-2.jpg" alt="Hamburguesas y Pepito en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/hamburguesas.webp" alt="Hamburguesas y Pepito en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[4/3] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/hamburguesas-2.webp" alt="Hamburguesas y Pepito en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1574,7 +1481,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Todos a 4,00€</span>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/postres.jpg" alt="Postres caseros en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/postres.webp" alt="Postres caseros en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1613,7 +1520,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🧃</span> Jugos naturales</h3>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-jugos-naturales.jpg" alt="Jugos naturales en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-jugos-naturales.webp" alt="Jugos naturales en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1695,7 +1602,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <span class="font-label-sm text-label-sm font-bold px-3 py-1 rounded-full bg-[#0D0B0A]/70 border border-white/10 text-[#FFD700]">Todos fríos · 3,50€</span>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-batidos.jpg" alt="Batidos en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-batidos.webp" alt="Batidos en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1727,7 +1634,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🥤</span> Refrescos, zumos y agua</h3>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-refrescos-zumos-y-agua.jpg" alt="Refrescos, zumos y agua en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-refrescos-zumos-y-agua.webp" alt="Refrescos, zumos y agua en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1829,7 +1736,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">🍺</span> Cervezas y licores</h3>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/licores.jpg" alt="Cervezas y licores en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/licores.webp" alt="Cervezas y licores en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1903,7 +1810,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 <h3 class="font-headline-sm text-headline-sm text-[#FFFDF5] font-bold flex items-center gap-2"><span aria-hidden="true">☕</span> Cafés</h3>
 </div>
 <div class="grid grid-cols-1 gap-2 mb-space-md">
-<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-cafes.jpg" alt="Cafés en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
+<div class="aspect-[16/9] overflow-hidden rounded-2xl border border-[#FFD700]/25"><img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="img/carta/bebidas-cafes.webp" alt="Cafés en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"/></div>
 </div>
 <ul class="flex flex-col">
 <li class="flex items-baseline gap-2 py-2.5 border-b border-white/5 last:border-0">
@@ -1998,7 +1905,7 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 <!-- Fachada real del local -->
 <figure class="rounded-[28px] overflow-hidden shadow-2xl border border-[#FFD700]/20 relative m-0">
-<img class="w-full h-64 object-cover" alt="Entrada de La Guaira Bar Restaurante en Colmenar Viejo, con su rótulo y globos con los colores de Venezuela" loading="lazy" src="img/fachada-la-guaira.jpg"/>
+<img class="w-full h-64 object-cover" alt="Entrada de La Guaira Bar Restaurante en Colmenar Viejo, con su rótulo y globos con los colores de Venezuela" loading="lazy" src="img/fachada-la-guaira.webp"/>
 <figcaption class="absolute bottom-3 left-3 bg-[#0D0B0A]/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-[#FFD700] font-semibold border border-[#FFD700]/30">Así nos encuentras</figcaption>
 </figure>
 <!-- Google Map Static View with data-location -->
@@ -2323,6 +2230,17 @@ Reservar mesa <span class="material-symbols-outlined text-[18px]">arrow_forward<
 </div>
 </div>
 </footer>
+<!-- BARRA FIJA MÓVIL: reservar, WhatsApp, llamar, cómo llegar -->
+<nav aria-label="Acciones rápidas" class="lg:hidden fixed bottom-0 inset-x-0 z-50 bg-[#0D0B0A]/90 backdrop-blur-xl border-t border-[#FFD700]/25 shadow-[0_-8px_25px_rgba(0,0,0,0.6)]" style="padding-bottom: env(safe-area-inset-bottom);">
+<div class="grid grid-cols-4 gap-1 px-2 py-1.5">
+<a class="flex flex-col items-center justify-center gap-0.5 py-2 rounded-2xl bg-[#C5221F] text-[#FFFDF5] active:scale-95 transition-transform" href="#reservas"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">restaurant</span><span class="text-[11px] font-bold tracking-wide">Reservar</span></a>
+<a class="flex flex-col items-center justify-center gap-0.5 py-2 rounded-2xl text-[#25D366] active:scale-95 transition-transform" href="https://api.whatsapp.com/send?phone=34643128808" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">chat</span><span class="text-[11px] font-bold tracking-wide">WhatsApp</span></a>
+<a class="flex flex-col items-center justify-center gap-0.5 py-2 rounded-2xl text-[#FFD700] active:scale-95 transition-transform" href="tel:+34919472027"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">call</span><span class="text-[11px] font-bold tracking-wide">Llamar</span></a>
+<a class="flex flex-col items-center justify-center gap-0.5 py-2 rounded-2xl text-[#FFFDF5] active:scale-95 transition-transform" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+de+Am%C3%A9rica+9%2C+28770+Colmenar+Viejo%2C+Madrid" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">location_on</span><span class="text-[11px] font-bold tracking-wide">Cómo llegar</span></a>
+</div>
+</nav>
+<div aria-hidden="true" class="lg:hidden h-16"></div>
+
 <!-- Interactive JavaScript: IntersectionObserver Reveal, Tabs, Ripple, WhatsApp -->
 <script>
   // Intersection Observer for Scroll Reveals

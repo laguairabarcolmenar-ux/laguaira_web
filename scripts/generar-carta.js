@@ -68,9 +68,13 @@ between('<!-- PESTAÑAS:INICIO -->', '<!-- PESTAÑAS:FIN -->', pestanas);
 between('<!-- CARTA-COMPLETA:INICIO -->', '<!-- CARTA-COMPLETA:FIN -->', paneles);
 
 const NL = html.includes('\r\n') ? '\r\n' : '\n';
+html = require('./webp').usarWebp(html);
 fs.writeFileSync(htmlFile, html.replace(/\r?\n/g, NL));
 const total = carta.paneles.reduce((n, c) => n + c.platos.length, 0);
 console.log(`Carta generada: ${carta.pestanas.length} pestañas, ${carta.paneles.length} paneles, ${total} platos.`);
 
 // La carta para móvil (carta.html) sale de los mismos datos: se regenera siempre a la vez.
 require('./generar-carta-movil.js');
+
+// Estilos ya generados (css/estilos.css) con las clases que use ahora code.html.
+require('./generar-css.js');

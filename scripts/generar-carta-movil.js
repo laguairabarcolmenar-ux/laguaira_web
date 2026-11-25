@@ -413,5 +413,5 @@ ${cuerpo}
 </body>
 </html>
 `;
-fs.writeFileSync(path.join(root, 'carta.html'), pagina);
+fs.writeFileSync(path.join(root, 'carta.html'), require('./webp').usarWebp(pagina));
 console.log(`Carta móvil generada: ${grupos.length} grupos, ${total} platos.`);
