@@ -15,17 +15,19 @@
 <meta property="og:url" content="https://barlaguaira.es/carta">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --fondo: #0D0B0A; --panel: #171310; --linea: rgba(255,253,245,.09);
-  --texto: #FFFDF5; --suave: #B9AC9C; --oro: #F5C542; --oro-tinta: #241A00; --rojo: #C5221F;
+  --fondo: #0D0B0A; --panel: #171310; --panel-2: #1E1915; --linea: rgba(255,253,245,.08);
+  --texto: #FFFDF5; --suave: #B9AC9C; --oro: #F5C542; --oro-tinta: #241A00; --rojo: #C5221F; --verde: #8FD19E;
   --titulo: 'Playfair Display', Georgia, serif; --cuerpo: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --barra: 56px; --chips: 52px;
+  --radio: 20px;
+  --sombra: 0 18px 40px -18px rgba(0,0,0,.85), 0 2px 6px rgba(0,0,0,.35);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--fondo); color: var(--texto); font-family: var(--cuerpo); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--fondo); color: var(--texto); font-family: var(--cuerpo); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 .ancho { max-width: 720px; margin: 0 auto; padding: 0 16px; }
 
@@ -41,13 +43,14 @@ a { color: inherit; text-decoration: none; }
 .chips { position: sticky; top: var(--barra); z-index: 19; background: rgba(13,11,10,.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
 .chips nav { max-width: 720px; margin: 0 auto; height: var(--chips); display: flex; align-items: center; gap: 8px; padding: 0 16px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .chips nav::-webkit-scrollbar { display: none; }
-.chips a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; background: var(--panel); border: 1px solid var(--linea); color: var(--suave); font-size: 14px; font-weight: 600; white-space: nowrap; transition: background .2s, color .2s; }
+.chips a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; gap: 4px; padding: 0 14px; border-radius: 999px; background: var(--panel); border: 1px solid var(--linea); color: var(--suave); font-size: 14px; font-weight: 600; white-space: nowrap; transition: background .25s, color .25s, border-color .25s; }
 .chips a.activa { background: var(--oro); border-color: var(--oro); color: var(--oro-tinta); }
 
 /* Cabecera */
-.intro { padding: 28px 0 8px; text-align: center; }
+.intro { padding: 30px 0 8px; text-align: center; }
 .intro .sobre { color: var(--oro); font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
-.intro h1 { margin: 6px 0 6px; font-family: var(--titulo); font-size: clamp(34px, 9vw, 46px); line-height: 1.1; font-weight: 700; }
+.intro h1 { margin: 6px 0 6px; font-family: var(--titulo); font-size: clamp(36px, 10vw, 48px); line-height: 1.08; font-weight: 700; }
+.intro h1 em { font-weight: 500; color: var(--oro); }
 .intro p { margin: 0 auto; max-width: 30em; color: var(--suave); font-size: 15px; }
 .tricolor { display: flex; width: 72px; height: 3px; margin: 16px auto 0; border-radius: 3px; overflow: hidden; }
 .tricolor i { flex: 1; } .tricolor i:nth-child(1) { background: #FFD700; } .tricolor i:nth-child(2) { background: #1A3D9E; } .tricolor i:nth-child(3) { background: var(--rojo); }
@@ -60,33 +63,74 @@ a { color: inherit; text-decoration: none; }
 .menudia p { margin: 2px 0 0; color: #E8DFD8; font-size: 14px; line-height: 1.4; }
 .menudia .precio { font-size: 26px; }
 
-/* Grupos y categorías */
-.grupo { margin: 36px 0 0; display: flex; align-items: center; gap: 12px; color: var(--oro); font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+/* Grupos y apartados */
+.grupo { margin: 44px 0 0; display: flex; align-items: center; gap: 12px; color: var(--oro); font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
 .grupo::before, .grupo::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(245,197,66,.45)); }
 .grupo::after { transform: scaleX(-1); }
-.cat { padding-top: 26px; scroll-margin-top: calc(var(--barra) + var(--chips)); }
-.cat h2 { margin: 0 0 12px; font-family: var(--titulo); font-size: 28px; line-height: 1.15; font-weight: 700; }
-.cat h3 { margin: 26px 0 10px; font-family: var(--titulo); font-size: 21px; font-weight: 600; color: var(--oro); }
-.cat h2 + h3 { margin-top: 0; }
-.nota { display: inline-block; margin: 0 0 12px; padding: 4px 12px; border-radius: 999px; background: var(--panel); border: 1px solid var(--linea); color: var(--oro); font-size: 13px; font-weight: 600; }
+.cat { padding-top: 30px; scroll-margin-top: calc(var(--barra) + var(--chips)); }
+.cab { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 12px; }
+.cab h2 { margin: 0; font-family: var(--titulo); font-size: 30px; line-height: 1.12; font-weight: 700; }
+.cuenta { color: var(--suave); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.cat h3 { margin: 30px 0 10px; font-family: var(--titulo); font-size: 22px; font-weight: 600; color: var(--oro); }
+.cab + h3 { margin-top: 0; }
+.nota { display: inline-block; margin: 0 6px 12px 0; padding: 4px 12px; border-radius: 999px; background: var(--panel); border: 1px solid var(--linea); color: var(--oro); font-size: 13px; font-weight: 600; }
 
-.fotos { margin: 0 0 6px; }
-.fotos img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; background: var(--panel); }
-.fotos.varias { display: flex; gap: 10px; margin: 0 -16px 6px; padding: 0 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-.fotos.varias::-webkit-scrollbar { display: none; }
-.fotos.varias img { flex: 0 0 82%; width: 82%; aspect-ratio: 4 / 3; scroll-snap-align: center; }
+/* Fotos: marco con sombra de profundidad suave. La imagen va un poco ampliada para el paralaje. */
+.marco { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; background: var(--panel-2); }
+.marco img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); filter: saturate(1.06) contrast(1.03); }
+.marco::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,240,210,.06), transparent 35%, transparent 70%, rgba(13,11,10,.28)); box-shadow: inset 0 0 0 1px rgba(255,253,245,.07); }
+.vacio { display: none; }
+/* Sin foto: un fondo cálido con el icono del apartado, para que la tarjeta no se vea vacía */
+.sin-foto .marco { display: none; }
+.sin-foto .vacio { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 44px; border-radius: inherit;
+  background: radial-gradient(120% 90% at 30% 20%, rgba(245,197,66,.18), transparent 60%), radial-gradient(90% 80% at 85% 90%, rgba(197,34,31,.16), transparent 60%), var(--panel-2);
+  box-shadow: inset 0 0 0 1px rgba(245,197,66,.16); }
 
+.portada { position: relative; aspect-ratio: 16 / 10; border-radius: var(--radio); margin: 0 0 14px; box-shadow: var(--sombra); }
+.portada.sin-foto { aspect-ratio: 16 / 6; box-shadow: none; }
+
+/* Filas deslizables (destacados y fotos de apartado) */
+.fila { display: flex; gap: 12px; margin: 0 -16px 14px; padding: 4px 16px 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; list-style: none; -webkit-overflow-scrolling: touch; }
+.fila::-webkit-scrollbar { display: none; }
+.fila > li { scroll-snap-align: center; }
+.portada-fila .pf { position: relative; flex: 0 0 84%; aspect-ratio: 4 / 3; border-radius: var(--radio); box-shadow: var(--sombra); }
+
+/* Platos destacados (con foto propia) */
 ul { list-style: none; margin: 0; padding: 0; }
+.destacados { margin-bottom: 14px; }
+.dest { border-radius: var(--radio); background: var(--panel); box-shadow: var(--sombra); overflow: hidden; }
+.destacados.fila .dest { flex: 0 0 80%; max-width: 340px; }
+.destacados:not(.fila) .dest { margin-bottom: 4px; }
+.dfoto { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radio) var(--radio) 0 0; }
+.dest.sin-foto .dfoto { aspect-ratio: 16 / 7; }
+.dtxt { padding: 14px 16px 16px; }
+.dtxt p { margin: 5px 0 0; color: var(--suave); font-size: 14.5px; line-height: 1.45; }
+
+/* Lista de lectura rápida */
+.lista { margin-top: 2px; }
 .plato { padding: 14px 0; border-bottom: 1px solid var(--linea); }
 .plato:last-child { border-bottom: 0; }
 .linea { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
-.plato h4 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; }
+h4 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; }
 .plato p { margin: 4px 0 0; max-width: 34em; padding-right: 56px; color: var(--suave); font-size: 14.5px; line-height: 1.45; }
 .precio { flex: 0 0 auto; color: var(--oro); font-size: 17px; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.sg { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; border: 1px solid rgba(245,197,66,.4); color: var(--oro); font-size: 11px; font-weight: 600; vertical-align: middle; white-space: nowrap; }
+
+/* Etiquetas discretas */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--linea); color: var(--suave); font-size: 12px; font-weight: 600; line-height: 1.5; }
+.tag i { font-style: normal; color: var(--oro); font-size: 11px; }
+.tag.fav { border-color: rgba(245,197,66,.35); color: #F3DDA0; }
+.tag.dieta { border-color: rgba(143,209,158,.35); color: var(--verde); }
+.tag.pica { border-color: rgba(197,34,31,.5); color: #F0A39F; }
+
+/* Movimiento: solo se activa cuando el script está listo (html.mov). Sin JS, todo se ve quieto y completo. */
+.mov [data-3d] { will-change: transform; }
+.mov .rev { opacity: 0; transform: translate3d(0, 10px, 0); transition: opacity .55s ease-out, transform .55s cubic-bezier(.2,.7,.2,1); }
+.mov .rev.dentro { opacity: 1; transform: none; }
 
 /* Pie */
-footer { margin-top: 44px; padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); border-top: 1px solid var(--linea); background: var(--panel); color: var(--suave); font-size: 14px; text-align: center; }
+footer { margin-top: 48px; padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); border-top: 1px solid var(--linea); background: var(--panel); color: var(--suave); font-size: 14px; text-align: center; }
 footer p { margin: 0 0 10px; }
 footer strong { color: var(--texto); }
 footer .acciones { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 18px 0 0; }
@@ -95,11 +139,17 @@ footer .oro { background: var(--oro); color: var(--oro-tinta); }
 footer .borde { border: 1px solid rgba(245,197,66,.45); color: var(--oro); }
 
 @media (min-width: 720px) {
-  .plato h4, .precio { font-size: 18px; }
-  .fotos.varias { margin: 0 0 6px; padding: 0; overflow: visible; }
-  .fotos.varias img { flex: 1 1 0; width: auto; min-width: 0; }
+  h4, .precio { font-size: 18px; }
+  .portada-fila { margin: 0 0 14px; padding: 4px 0 18px; overflow: visible; }
+  .portada-fila .pf { flex: 1 1 0; min-width: 0; }
+  .destacados.fila .dest { flex-basis: 46%; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .chips a { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .chips a, .mov .rev { transition: none; }
+  .mov .rev { opacity: 1; transform: none; }
+  [data-3d], [data-par], .fila > li { transform: none !important; }
+}
 </style>
 </head>
 <body>
@@ -108,11 +158,11 @@ footer .borde { border: 1px solid rgba(245,197,66,.45); color: var(--oro); }
 <div><strong>La Guaira</strong><small>Bar Restaurante · Colmenar Viejo</small></div>
 <a class="llamar" href="tel:+34919472027" aria-label="Llamar al 919 47 20 27">Llamar</a>
 </div></header>
-<div class="chips"><nav aria-label="Categorías de la carta"><a href="#desayunos" data-chip="desayunos">Desayunos</a><a href="#tequenos" data-chip="tequenos">Tequeños</a><a href="#empanadas" data-chip="empanadas">Empanadas</a><a href="#cachapas" data-chip="cachapas">Cachapas</a><a href="#arepas" data-chip="arepas">Arepas</a><a href="#patacones" data-chip="patacones">Patacones</a><a href="#platos" data-chip="platos">Platos</a><a href="#parrillas" data-chip="parrillas">Parrillas</a><a href="#arroces" data-chip="arroces">Arroces</a><a href="#hamburguesas" data-chip="hamburguesas">Hamburguesas y Pepito</a><a href="#postres" data-chip="postres">Postres</a><a href="#bebidas" data-chip="bebidas">Bebidas</a><a href="#licores" data-chip="licores">Cervezas y Licores</a></nav></div>
+<div class="chips"><nav aria-label="Categorías de la carta"><a href="#desayunos" data-chip="desayunos"><span aria-hidden="true">☕</span> Desayunos</a><a href="#tequenos" data-chip="tequenos"><span aria-hidden="true">🧀</span> Tequeños</a><a href="#empanadas" data-chip="empanadas"><span aria-hidden="true">🥟</span> Empanadas</a><a href="#cachapas" data-chip="cachapas"><span aria-hidden="true">🌽</span> Cachapas</a><a href="#arepas" data-chip="arepas"><span aria-hidden="true">🫓</span> Arepas</a><a href="#patacones" data-chip="patacones"><span aria-hidden="true">🍌</span> Patacones</a><a href="#platos" data-chip="platos"><span aria-hidden="true">🍲</span> Platos</a><a href="#parrillas" data-chip="parrillas"><span aria-hidden="true">🔥</span> Parrillas</a><a href="#arroces" data-chip="arroces"><span aria-hidden="true">🥘</span> Arroces</a><a href="#hamburguesas" data-chip="hamburguesas"><span aria-hidden="true">🍔</span> Hamburguesas y Pepito</a><a href="#postres" data-chip="postres"><span aria-hidden="true">🍮</span> Postres</a><a href="#bebidas" data-chip="bebidas"><span aria-hidden="true">🥤</span> Bebidas</a><a href="#licores" data-chip="licores"><span aria-hidden="true">🍺</span> Cervezas y Licores</a></nav></div>
 <main class="ancho">
 <div class="intro">
 <span class="sobre">Cocina venezolana</span>
-<h1>Nuestra Carta</h1>
+<h1>Nuestra <em>Carta</em></h1>
 <p>Hecha al momento, como en casa. Consulta los alérgenos con nuestro equipo.</p>
 <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
 </div>
@@ -122,72 +172,89 @@ footer .borde { border: 1px solid rgba(245,197,66,.45); color: var(--oro); }
 </div>
 <div class="grupo"><span>Para empezar</span></div>
 <section class="cat" id="desayunos" data-chip="desayunos">
-<h2>Desayunos</h2>
+<header class="cab"><h2>Desayunos</h2><span class="cuenta">4 opciones</span></header>
 <p class="nota">L–V desde 8:00 · S–D desde 9:00</p>
-<div class="fotos"><img src="img/carta/desayunos.jpg" alt="Desayunos en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/desayunos.jpg" alt="Desayunos en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">☕</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Desayuno criollo con perico</h4><span class="precio">8,00&nbsp;€</span></div>
 <p>1 arepa con queso, perico y aguacate</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Desayuno criollo con caraotas</h4><span class="precio">10,00&nbsp;€</span></div>
 <p>1 arepa con queso, huevo y caraotas negras</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Cachitos</h4><span class="precio">3,50&nbsp;€</span></div>
 <p>Rellenos de jamón</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Golfeados</h4><span class="precio">5,50&nbsp;€</span></div>
 <p>Con queso de mano</p>
 </li>
 </ul>
 </section>
 <section class="cat" id="tequenos" data-chip="tequenos">
-<h2>Tequeños</h2>
+<header class="cab"><h2>Tequeños</h2><span class="cuenta">2 opciones</span></header>
 <p class="nota">Ración de 6 unidades</p>
-<div class="fotos"><img src="img/carta/tequenos.jpg" alt="Tequeños en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/tequenos.jpg" alt="Tequeños en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🧀</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Tequeños de queso</h4><span class="precio">6,00&nbsp;€</span></div>
 <p>6 tequeños rellenos de queso</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Tequeños de plátano con queso</h4><span class="precio">6,00&nbsp;€</span></div>
 <p>6 tequeños de plátano rellenos de queso</p>
 </li>
 </ul>
 </section>
 <section class="cat" id="empanadas" data-chip="empanadas">
-<h2>Empanadas</h2>
+<header class="cab"><h2>Empanadas</h2><span class="cuenta">7 opciones</span></header>
 <p class="nota">Sencillas 3,00€ · Combinadas 3,50€</p>
-<div class="fotos"><img src="img/carta/empanadas.jpg" alt="Empanadas en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+
+<ul class="destacados fila" aria-label="Platos destacados: Empanadas" tabindex="0">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlLNCqxUPmr3uLoQu_yh79LTDNstlMWl7HWTHrR7RNdgSYzx4vzA_C8DR5WB9wQZbS2QWrRwJKezB5UhbwVphWcT2RFDTseojuBTKYXVseLZLuddGUB-c4JPUZ9JJ7Tb7YSzkBuQaI1qBv8TgDcvALE6dyfdy66mU5nnL-nNcjalmJIyV0exDWAVX-CXrfeODS9Edn3Z8TsLAO99VN818z8dKGeSH2KBc-gJrOtA2jWZXBcSqnJvrMKQ" alt="Empanada de Cazón" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥟</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Empanada de Cazón</h4><span class="precio">3,00&nbsp;€</span></div>
-<p>Receta de la costa caribeña: guiso de cazón sazonado con sofrito de ajíes dulces, cebolla y toque anisado en masa crujiente.</p>
+<p>Receta de la costa caribeña: guiso de cazón sazonado con sofrito de ajíes dulces, cebolla y toque anisado en masa crujiente.</p><div class="tags"><span class="tag ">Tradición Costera</span></div>
+</div>
 </li>
-<li class="plato">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPaNc6gvui2i-YA5Q0lRDud_zfeeOKI0YX8iEPRpa0fPo_oZeHa-kWqCKYjIFsp9pyH7JcfcrXnHCgO82HFA9PZ5cZiu4mdOEXsMcFWMmF8UnbESQl2jxDfgJfXXcA9xSMT3yeymJ-CXRub5J9kYCOrsD6HDUDVgKOvyEextjiWn7pcex6bHdTpifG_pCBEQq7sxTkqfX2j3VyRmlS_jupE7piW_tiPYj-DukscilZkVEDCKmA3VEFPg" alt="Empanada Operada (Pabellón)" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥟</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Empanada Operada (Pabellón)</h4><span class="precio">4,00&nbsp;€</span></div>
-<p>Abierta por el lomo como en las playas de La Guaira: rellena con carne mechada, caraotas negras, tajadas de plátano dulce y queso blanco rallado.</p>
+<p>Abierta por el lomo como en las playas de La Guaira: rellena con carne mechada, caraotas negras, tajadas de plátano dulce y queso blanco rallado.</p><div class="tags"><span class="tag fav"><i aria-hidden="true">★</i>Especial de la Casa</span></div>
+</div>
 </li>
-<li class="plato">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/empanada-pollo.jpg" alt="Empanada venezolana de pollo dorada y crujiente sobre pizarra con guasacaca y lima" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥟</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Empanada de Pollo</h4><span class="precio">3,00&nbsp;€</span></div>
 <p>Masa de maíz dorada y crujiente rellena de pollo guisado y desmechado con sofrito criollo.</p>
+</div>
 </li>
-<li class="plato">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/empanada-queso.jpg" alt="Empanada venezolana de queso con el queso fundido saliendo, servida con guasacaca" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥟</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Empanada de Queso</h4><span class="precio">3,00&nbsp;€</span></div>
 <p>Crujiente empanada de maíz rellena de queso blanco que se funde al primer mordisco.</p>
+</div>
 </li>
-<li class="plato">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/empanada-carne-mechada.jpg" alt="Empanada venezolana de carne mechada abierta, servida con guasacaca y cerveza Polar" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥟</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Empanada de Carne Mechada</h4><span class="precio">3,00&nbsp;€</span></div>
 <p>Masa de maíz frita al momento rellena de carne mechada guisada a fuego lento.</p>
+</div>
 </li>
-<li class="plato">
+</ul>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Empanada de carne molida</h4><span class="precio">3,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Empanada combinada</h4><span class="precio">3,50&nbsp;€</span></div>
 <p>Combina tus rellenos favoritos</p>
 </li>
@@ -195,149 +262,174 @@ footer .borde { border: 1px solid rgba(245,197,66,.45); color: var(--oro); }
 </section>
 <div class="grupo"><span>Principales</span></div>
 <section class="cat" id="cachapas" data-chip="cachapas">
-<h2>Cachapas</h2>
+<header class="cab"><h2>Cachapas</h2><span class="cuenta">2 opciones</span></header>
 
-<div class="fotos"><img src="img/carta/cachapas.jpg" alt="Cachapas en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/cachapas.jpg" alt="Cachapas en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🌽</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Cachapa</h4><span class="precio">9,00&nbsp;€</span></div>
 <p>Con un contorno a elegir</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Cachapa con 2 contornos</h4><span class="precio">12,00&nbsp;€</span></div>
 <p>Queso con carne mechada, queso con cochino frito o queso con pollo</p>
 </li>
 </ul>
 </section>
 <section class="cat" id="arepas" data-chip="arepas">
-<h2>Arepas</h2>
-<p class="nota">Sencillas 6,00€ · Combinadas 6,50€</p>
-<div class="fotos varias"><img src="img/carta/arepas.jpg" alt="Arepas en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"><img src="img/carta/arepas-2.jpg" alt="Arepas en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"><img src="img/carta/arepas-3.jpg" alt="Arepas en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<header class="cab"><h2>Arepas</h2><span class="cuenta">8 opciones</span></header>
+<p class="nota">Sencillas 6,00€ · Combinadas 6,50€</p><p class="nota">Todas de maíz · sin gluten</p>
+
+<ul class="destacados fila" aria-label="Platos destacados: Arepas" tabindex="0">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/arepa-reina-pepiada.jpg" alt="Arepa reina pepiada con pollo, aguacate y mayonesa, preparada en La Guaira" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🫓</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Arepa Reina Pepiada</h4><span class="precio">6,00&nbsp;€</span></div>
-<p>Pollo desmechado con aguacate.</p>
+<p>Pollo desmechado con aguacate.</p><div class="tags"><span class="tag fav"><i aria-hidden="true">★</i>La Reina</span></div>
+</div>
 </li>
-<li class="plato">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/arepa-pabellon.jpg" alt="Arepa de pabellón con carne mechada, caraotas negras, plátano y queso rallado" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🫓</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Arepa de Pabellón</h4><span class="precio">7,50&nbsp;€</span></div>
 <p>Arepa rellena de carne mechada, caraotas negras, plátano y queso blanco rallado.</p>
+</div>
 </li>
-<li class="plato">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS9BXTRkvrjTBN-a8Rqn9XAqfEVVQDvdBT2Oi2G5ULJ3SjSrWbD4FLexE9Ox3McxFanuWNT5UXkCWyKuv5nMHhtnGeSKGHmhVfsmBcUfo5Gam-kiNUR7AnkvTN4sDLpKELMG_iXCkpVicQGAWF5_cEqOzHjq0VXnEQD6jCJlul1dtC9IywqK_7bCVOyrrEzOGg1RTWUY6041q8rL0Ev9W5l-LLoQ0MTghI0yW7px08Hk-cSfMfoRrCAw" alt="Arepa La Pelúa" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🫓</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Arepa La Pelúa</h4><span class="precio">6,00&nbsp;€</span></div>
-<p>Carne mechada con queso amarillo rallado.</p>
+<p>Carne mechada con queso amarillo rallado.</p><div class="tags"><span class="tag fav"><i aria-hidden="true">★</i>La Más Pedida</span></div>
+</div>
 </li>
-<li class="plato">
+</ul>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Arepa de pollo</h4><span class="precio">6,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Arepa de carne mechada</h4><span class="precio">6,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Arepa de carne molida</h4><span class="precio">6,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Arepa de cazón</h4><span class="precio">6,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Arepa combinada</h4><span class="precio">6,50&nbsp;€</span></div>
 <p>Combina tus rellenos favoritos</p>
 </li>
 </ul>
 </section>
 <section class="cat" id="patacones" data-chip="patacones">
-<h2>Patacones</h2>
+<header class="cab"><h2>Patacones</h2><span class="cuenta">1 opción</span></header>
 
-<div class="fotos"><img src="img/carta/patacones.jpg" alt="Patacones en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/patacones.jpg" alt="Patacones en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🍌</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Patacón</h4><span class="precio">12,00&nbsp;€</span></div>
 <p>Plátano verde frito con carne mechada o pollo, loncha de jamón y queso, ensalada de tomate, cebolla y lechuga en tiras, aguacate y salsas</p>
 </li>
 </ul>
 </section>
 <section class="cat" id="platos" data-chip="platos">
-<h2>Platos</h2>
+<header class="cab"><h2>Platos</h2><span class="cuenta">8 opciones</span></header>
 <p class="nota">Contorno: acompañante a elegir</p>
-<div class="fotos"><img src="img/carta/platos.jpg" alt="Platos en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+
+<ul class="destacados" aria-label="Platos destacados: Platos">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-a5609Jx6lIH2XQ6gWItNFvxBZib0VhghpNXMyxCvEp0cFk5lyjAmyBpW_g3AR5ISsFwpGPZsB-UhgPBfJhzEQNw51pzzojd31CmF5x2mMXzJsufX7axPRXotTfPQjeNUidfi83vvIxIotXFuInUMR9nmqAeEERX2u8CXxUEkISH8sN4Vg4f3E_7vo6fOeAEirutyFKxTZCg1KtqsadwwiFHZeMIbgkSt3hXQ9_6p0iVzNGTfs97hg" alt="Pabellón Criollo Completo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🍲</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Pabellón Criollo Completo</h4><span class="precio">13,00&nbsp;€</span></div>
-<p>Arroz, plátano frito, carne mechada y alubias negras.</p>
+<p>Arroz, plátano frito, carne mechada y alubias negras.</p><div class="tags"><span class="tag fav"><i aria-hidden="true">★</i>Plato Nacional</span></div>
+</div>
 </li>
-<li class="plato">
+</ul>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Merluza frita o rebozada</h4><span class="precio">14,00&nbsp;€</span></div>
 <p>Con contorno a elegir</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Pollo frito para 2 personas</h4><span class="precio">12,00&nbsp;€</span></div>
 <p>Con patatas fritas</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Costillas a la BBQ</h4><span class="precio">12,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Pasticho de carne</h4><span class="precio">12,00&nbsp;€</span></div>
 <p>Con pan de ajo</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Pollo al horno</h4><span class="precio">9,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Pollo a la plancha</h4><span class="precio">9,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Alitas BBQ</h4><span class="precio">8,00&nbsp;€</span></div>
 </li>
 </ul>
 </section>
 <section class="cat" id="parrillas" data-chip="parrillas">
-<h2>Parrillas</h2>
+<header class="cab"><h2>Parrillas</h2><span class="cuenta">2 opciones</span></header>
 
-<div class="fotos varias"><img src="img/carta/parrillas.jpg" alt="Parrillas en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"><img src="img/carta/parrillas-2.jpg" alt="Parrillas en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+
+<ul class="destacados fila" aria-label="Platos destacados: Parrillas" tabindex="0">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/parrilla-la-guaira.jpg" alt="Parrilla mar y tierra con carne a la brasa, gambas y limón" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🔥</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Parrilla La Guaira</h4><span class="precio">30,00&nbsp;€</span></div>
-<p>Para dos personas: pollo, carne y mariscos, con yuca frita o arepitas y patatas.</p>
+<p>Para dos personas: pollo, carne y mariscos, con yuca frita o arepitas y patatas.</p><div class="tags"><span class="tag ">Para 2 personas</span></div>
+</div>
 </li>
-<li class="plato">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/parrilla-caracas.jpg" alt="Parrilla venezolana con pollo, carne, chorizo, aguacate, yuca, arepitas y tostones sobre tabla de madera" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🔥</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Parrilla Caracas</h4><span class="precio">25,00&nbsp;€</span></div>
-<p>Para dos personas: morcilla, chorizo, pollo y carne, con yuca frita o arepitas y patatas.</p>
+<p>Para dos personas: morcilla, chorizo, pollo y carne, con yuca frita o arepitas y patatas.</p><div class="tags"><span class="tag ">Para 2 personas</span></div>
+</div>
 </li>
 </ul>
 </section>
 <section class="cat" id="arroces" data-chip="arroces">
-<h2>Arroces</h2>
+<header class="cab"><h2>Arroces</h2><span class="cuenta">1 opción</span></header>
 
-<div class="fotos"><img src="img/carta/arroces.jpg" alt="Arroces en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+
+<ul class="destacados" aria-label="Platos destacados: Arroces">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="img/arroz-la-guaira.jpg" alt="Arroz a la marinera estilo paella con camarones, almejas y calamar en paellera" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥘</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Arroz La Guaira</h4><span class="precio">12,00&nbsp;€</span></div>
-<p>Nuestro arroz al estilo paella con pollo y mariscos: camarones frescos, almejas y lo mejor del mar, como en la costa de La Guaira.</p>
+<p>Nuestro arroz al estilo paella con pollo y mariscos: camarones frescos, almejas y lo mejor del mar, como en la costa de La Guaira.</p><div class="tags"><span class="tag ">Para 1 persona</span></div>
+</div>
 </li>
 </ul>
 </section>
 <section class="cat" id="hamburguesas" data-chip="hamburguesas">
-<h2>Hamburguesas y Pepito</h2>
+<header class="cab"><h2>Hamburguesas y Pepito</h2><span class="cuenta">5 opciones</span></header>
 <p class="nota">Todas con papitas</p>
-<div class="fotos varias"><img src="img/carta/hamburguesas.jpg" alt="Hamburguesas y Pepito en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"><img src="img/carta/hamburguesas-2.jpg" alt="Hamburguesas y Pepito en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<ul class="portada-fila fila" aria-label="Fotos: Hamburguesas y Pepito" tabindex="0"><li class="pf" data-foto><div class="marco"><img src="img/carta/hamburguesas.jpg" alt="Hamburguesas y Pepito en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🍔</span></li><li class="pf" data-foto><div class="marco"><img src="img/carta/hamburguesas-2.jpg" alt="Hamburguesas y Pepito en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🍔</span></li></ul>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Hamburguesa normal</h4><span class="precio">8,00&nbsp;€</span></div>
 <p>Carne, lechuga, tomate, cebolla, queso, beicon, salsas y papitas</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Hamburguesa doble</h4><span class="precio">10,00&nbsp;€</span></div>
 <p>Pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Hamburguesa triple</h4><span class="precio">12,00&nbsp;€</span></div>
 <p>Chuleta, pollo y carne, con lechuga, tomate, cebolla, queso, beicon, salsas y papitas</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Pepito mixto</h4><span class="precio">14,00&nbsp;€</span></div>
 <p>Medio pan de barra con carne y pollo, col y zanahoria rallada, chorizo, maíz, queso amarillo, beicon, aguacate y papitas</p>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Pepito mixto especial</h4><span class="precio">22,00&nbsp;€</span></div>
 <p>Pan de barra completo, con lo mismo que el pepito mixto</p>
 </li>
@@ -345,169 +437,179 @@ footer .borde { border: 1px solid rgba(245,197,66,.45); color: var(--oro); }
 </section>
 <div class="grupo"><span>Postres</span></div>
 <section class="cat" id="postres" data-chip="postres">
-<h2>Postres</h2>
+<header class="cab"><h2>Postres</h2><span class="cuenta">4 opciones</span></header>
 <p class="nota">Todos a 4,00€</p>
-<div class="fotos"><img src="img/carta/postres.jpg" alt="Postres en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/postres.jpg" alt="Postres en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🍮</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Quesillo</h4><span class="precio">4,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Tres leches</h4><span class="precio">4,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Arroz con leche</h4><span class="precio">4,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Bizcocho</h4><span class="precio">4,00&nbsp;€</span></div>
 </li>
 </ul>
 </section>
 <div class="grupo"><span>Bebidas</span></div>
 <section class="cat" id="bebidas" data-chip="bebidas">
-<h2>Bebidas</h2>
+<header class="cab"><h2>Bebidas</h2><span class="cuenta">30 opciones</span></header>
 <h3>Jugos naturales</h3>
-<div class="fotos"><img src="img/carta/bebidas-jugos-naturales.jpg" alt="Jugos naturales en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+
+<ul class="destacados" aria-label="Platos destacados: Jugos naturales">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLnch9lGglxIFh_opu-ghfAr56w4wfMft2In1-wQlEyhWbtcgapqY8DIlZfitHPmPbbuUDe8T5W5Pxb5t_9JzWJ-YlCKtTEMb74pQc3BYM2m-lWtireoFFBJCmrlzKgq-qZvZyYTb2MyFEZFYGGaU97C4AOA76rPwlZfY2K3d22XrDrDSSy41Dbj48S_ar_GVrOn5-FMOZGif7pP-W66JzAfzhmpDrXuZnqnrIjIv5xjeKLlQkALpRDA" alt="Papelón con Limón Frío" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥤</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Papelón con Limón Frío</h4><span class="precio">2,60&nbsp;€</span></div>
-<p>Jugo artesanal caribeño elaborado con panela pura de caña, abundante zumo de lima recién exprimido y mucho hielo picado.</p>
+<p>Jugo artesanal caribeño elaborado con panela pura de caña, abundante zumo de lima recién exprimido y mucho hielo picado.</p><div class="tags"><span class="tag ">Refrescante 100%</span></div>
+</div>
 </li>
-<li class="plato">
+</ul>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Guayaba</h4><span class="precio">2,80&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Chicha</h4><span class="precio">2,80&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Guanábana</h4><span class="precio">2,60&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Tamarindo</h4><span class="precio">2,60&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Fresa</h4><span class="precio">2,60&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Parchita</h4><span class="precio">2,60&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Avena</h4><span class="precio">2,60&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Mora</h4><span class="precio">2,60&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Piña</h4><span class="precio">2,60&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Naranja</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
 </ul>
 <h3>Batidos</h3><p class="nota">Todos fríos · 3,50€</p>
-<div class="fotos"><img src="img/carta/bebidas-batidos.jpg" alt="Batidos en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/bebidas-batidos.jpg" alt="Batidos en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥤</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Batido de chocolate</h4><span class="precio">3,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Batido de vainilla</h4><span class="precio">3,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Batido de Oreo</h4><span class="precio">3,50&nbsp;€</span></div>
 </li>
 </ul>
 <h3>Refrescos, zumos y agua</h3>
-<div class="fotos"><img src="img/carta/bebidas-refrescos-zumos-y-agua.jpg" alt="Refrescos, zumos y agua en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/bebidas-refrescos-zumos-y-agua.jpg" alt="Refrescos, zumos y agua en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥤</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Malta</h4><span class="precio">2,70&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Frescolita</h4><span class="precio">2,80&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Refresco de uva</h4><span class="precio">2,80&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Coca-Cola</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Coca-Cola Zero</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Sprite</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Fanta naranja</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Acuario</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Fuze Tea</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Zumo de melocotón</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Zumo de piña</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Agua con gas</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Agua</h4><span class="precio">1,50&nbsp;€</span></div>
 </li>
 </ul>
 <h3>Cafés</h3>
-<div class="fotos"><img src="img/carta/bebidas-cafes.jpg" alt="Cafés en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+<div class="portada" data-foto data-3d="portada"><div class="marco"><img src="img/carta/bebidas-cafes.jpg" alt="Cafés en La Guaira, restaurante venezolano en Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🥤</span></div>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Café con leche</h4><span class="precio">1,80&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Café solo</h4><span class="precio">1,70&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Suplemento de café</h4><span class="precio">0,50&nbsp;€</span></div>
 </li>
 </ul>
 </section>
 <section class="cat" id="licores" data-chip="licores">
-<h2>Cervezas y Licores</h2>
+<header class="cab"><h2>Cervezas y Licores</h2><span class="cuenta">10 opciones</span></header>
 
-<div class="fotos"><img src="img/carta/licores.jpg" alt="Cervezas y Licores en La Guaira, Colmenar Viejo" loading="lazy" decoding="async" width="900" height="600"></div>
-<ul>
-<li class="plato">
+
+<ul class="destacados" aria-label="Platos destacados: Cervezas y Licores">
+<li class="dest" data-foto data-3d="tarjeta">
+<div class="dfoto"><div class="marco"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6CEHUWOWOIAIOLrYP2V9QFC3_TqbbJdQH6dIWSuQluG9DB6DVM8tIA2rXL96JGVwCSfqcRVGwRwqc_JWihZRApCKL7S1LPra168SLe5sW1g7Lw2JGTjGXLOwkRIzFtbnC_TGk5unRxovdHuca73whXapsjpY54v7riSWYsySdsPSQy9eEcny5qGv7gz_tXAQhbnhN1JyOBDMZ7f-XEJXrYUDxN5kfcJOrDXs7VkyOG8uNIJaABkQjhg" alt="Ron Santa Teresa 1796" loading="lazy" decoding="async" width="900" height="600" data-par onerror="this.closest('[data-foto]').classList.add('sin-foto');this.remove()"></div><span class="vacio" aria-hidden="true">🍺</span></div>
+<div class="dtxt">
 <div class="linea"><h4>Ron Santa Teresa 1796</h4><span class="precio">9,50&nbsp;€</span></div>
-<p>Ron solera ultra-premium de los Valles de Aragua servido con hielo de roca y piel de naranja flambeada.</p>
+<p>Ron solera ultra-premium de los Valles de Aragua servido con hielo de roca y piel de naranja flambeada.</p><div class="tags"><span class="tag ">Denominación de Origen</span></div>
+</div>
 </li>
-<li class="plato">
+</ul>
+<ul class="lista">
+<li class="plato rev">
 <div class="linea"><h4>Polar Pilsen</h4><span class="precio">2,20&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Polar Premium</h4><span class="precio">2,50&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Cerveza Zulia</h4><span class="precio">2,70&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Buchanan's 12 años DeLuxe</h4><span class="precio">12,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Ron Santa Teresa</h4><span class="precio">7,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Ron Cacique</h4><span class="precio">7,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Ron Negrita</h4><span class="precio">5,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Tequila Don Julio</h4><span class="precio">7,00&nbsp;€</span></div>
 </li>
-<li class="plato">
+<li class="plato rev">
 <div class="linea"><h4>Jack Daniel's</h4><span class="precio">7,00&nbsp;€</span></div>
 </li>
 </ul>
@@ -520,6 +622,7 @@ footer .borde { border: 1px solid rgba(245,197,66,.45); color: var(--oro); }
 <div class="acciones"><a class="oro" href="tel:+34919472027">Llamar 919 47 20 27</a><a class="borde" href="/">Ver la web y reservar</a></div>
 </div></footer>
 <script>
+// Categorías: resalta la pestaña del apartado que se está leyendo
 (function () {
   var nav = document.querySelector('.chips nav'), chips = {}, actual = null;
   nav.querySelectorAll('a').forEach(function (a) { chips[a.dataset.chip] = a; });
@@ -538,6 +641,93 @@ footer .borde { border: 1px solid rgba(245,197,66,.45); color: var(--oro); }
   var pendiente = false;
   addEventListener('scroll', function () { if (pendiente) return; pendiente = true; requestAnimationFrame(function () { pendiente = false; medir(); }); }, { passive: true });
   medir();
+})();
+
+// 3D sutil ligado al scroll. Solo transform y opacity (van por la GPU) y solo en lo que está en pantalla.
+(function () {
+  var AJUSTES_3D = {
+    intensidad: 1,       // multiplica todo el efecto: 0 = apagado, 0.6 = más discreto, 1.4 = algo más marcado
+    inclinacion: 3,      // grados máximos de inclinación de las fotos al entrar desde abajo
+    elevacion: 18,       // píxeles que sube la foto mientras entra
+    escala: 0.025,       // cuánto crece (2,5 %) hasta su tamaño final
+    paralaje: 3.5,       // % que se desplaza la imagen dentro de su marco
+    giroFila: 5,         // grados de giro de las tarjetas laterales en las filas deslizables
+    escalaFila: 0.05,    // cuánto se reducen las tarjetas laterales
+    gamaBaja: 0.6,       // factor para móviles modestos (4 núcleos o menos, ahorro de datos)
+    perspectiva: 1100    // px; más alto = profundidad más plana y elegante
+  };
+  var reducir = matchMedia('(prefers-reduced-motion: reduce)');
+  if (reducir.matches || !('IntersectionObserver' in window) || /[?&]3d=0/.test(location.search)) return;
+  var C = AJUSTES_3D, I = C.intensidad;
+  var con = navigator.connection || {};
+  if ((navigator.hardwareConcurrency || 8) <= 4 || con.saveData || (navigator.deviceMemory || 8) <= 3) I *= C.gamaBaja;
+  document.documentElement.classList.add('mov');
+
+  // Aparición suave de la lista de platos (sin 3D: el texto nunca se inclina)
+  var ioRev = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('dentro'); ioRev.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.rev').forEach(function (el) { ioRev.observe(el); });
+
+  // Fotos y tarjetas que reaccionan al scroll vertical: solo las visibles
+  var visibles = new Set();
+  var io3d = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) visibles.add(e.target); else visibles.delete(e.target); });
+    pedir();
+  }, { rootMargin: '15% 0px 15% 0px' });
+  document.querySelectorAll('.portada[data-3d], .destacados:not(.fila) [data-3d]').forEach(function (el) { io3d.observe(el); });
+
+  var cola = false;
+  function pedir() { if (!cola) { cola = true; requestAnimationFrame(pintar); } }
+  function lim(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function suave(t) { return t * t * (3 - 2 * t); }
+
+  function pintar() {
+    cola = false;
+    if (I <= 0) return;
+    var vh = innerHeight;
+    visibles.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      var c = (r.top + r.height / 2) / vh;              // 0 = arriba de la pantalla, 1 = abajo
+      var k = suave(lim((c - 0.55) / 0.5, 0, 1));         // 0 ya colocada, 1 entrando por abajo
+      el.style.transform = 'perspective(' + C.perspectiva + 'px) translate3d(0,' + (k * C.elevacion * I).toFixed(1) + 'px,0) rotateX(' + (k * C.inclinacion * I).toFixed(2) + 'deg) scale(' + (1 - k * C.escala * I).toFixed(4) + ')';
+      var im = el.querySelector('[data-par]');
+      if (im) im.style.transform = 'translate3d(0,' + (lim(c - 0.5, -0.8, 0.8) * C.paralaje * 2 * I).toFixed(2) + '%,0) scale(1.08)';
+    });
+  }
+  addEventListener('scroll', pedir, { passive: true });
+  addEventListener('resize', pedir, { passive: true });
+
+  // Filas deslizables: la tarjeta central queda plana; las laterales giran y se alejan muy poco
+  document.querySelectorAll('.fila').forEach(function (fila) {
+    var items = [].slice.call(fila.children), pend = false;
+    function pintarFila() {
+      pend = false;
+      var fr = fila.getBoundingClientRect(), centro = fr.left + fr.width / 2;
+      items.forEach(function (it) {
+        var r = it.getBoundingClientRect();
+        var d = lim((r.left + r.width / 2 - centro) / r.width, -1.2, 1.2), a = Math.abs(d);
+        it.style.transform = 'perspective(' + C.perspectiva + 'px) rotateY(' + (-d * C.giroFila * I).toFixed(2) + 'deg) scale(' + (1 - Math.min(a, 1) * C.escalaFila * I).toFixed(4) + ')';
+      });
+    }
+    fila.addEventListener('scroll', function () { if (!pend) { pend = true; requestAnimationFrame(pintarFila); } }, { passive: true });
+    addEventListener('resize', pintarFila, { passive: true });
+    pintarFila();
+  });
+
+  // Si el móvil va justo (fotogramas lentos al hacer scroll), se rebaja el efecto automáticamente
+  var t0 = 0, lentos = 0, n = 0;
+  function vigilar(t) {
+    if (t0) { var dt = t - t0; n++; if (dt > 26) lentos++; }
+    t0 = t;
+    if (n >= 90) { if (lentos > 25) { I *= 0.5; if (I < 0.3) { I = 0; visibles.forEach(function (el) { el.style.transform = ''; }); } } return; }
+    requestAnimationFrame(vigilar);
+  }
+  addEventListener('scroll', function arrancar() { removeEventListener('scroll', arrancar); requestAnimationFrame(vigilar); }, { passive: true });
+
+  // Si el usuario activa "reducir movimiento" con la página abierta, todo queda quieto
+  if (reducir.addEventListener) reducir.addEventListener('change', function (e) { if (e.matches) { I = 0; document.querySelectorAll('[data-3d], [data-par], .fila > li').forEach(function (el) { el.style.transform = ''; }); } });
+  pintar();
 })();
 </script>
 </body>
