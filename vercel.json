@@ -7,6 +7,18 @@
     {
       "source": "/carta",
       "destination": "/carta.html"
+    },
+    {
+      "source": "/arepas-colmenar-viejo",
+      "destination": "/arepas-colmenar-viejo.html"
+    },
+    {
+      "source": "/desayunos-colmenar-viejo",
+      "destination": "/desayunos-colmenar-viejo.html"
+    },
+    {
+      "source": "/menu-del-dia-colmenar-viejo",
+      "destination": "/menu-del-dia-colmenar-viejo.html"
     }
   ]
 }

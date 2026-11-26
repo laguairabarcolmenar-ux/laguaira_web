@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://barlaguaira.es/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://barlaguaira.es/carta</loc>
     <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://barlaguaira.es/arepas-colmenar-viejo</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://barlaguaira.es/desayunos-colmenar-viejo</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://barlaguaira.es/menu-del-dia-colmenar-viejo</loc>
+    <lastmod>2026-11-26</lastmod>
   </url>
 </urlset>

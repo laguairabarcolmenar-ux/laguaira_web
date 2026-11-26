@@ -75,6 +75,8 @@ console.log(`Carta generada: ${carta.pestanas.length} pestañas, ${carta.paneles
 
 // La carta para móvil (carta.html) sale de los mismos datos: se regenera siempre a la vez.
 require('./generar-carta-movil.js');
+// Páginas para Google (arepas, desayunos, menú del día): mismos datos y precios.
+require('./generar-landings.js');
 
 // Estilos ya generados (css/estilos.css) con las clases que use ahora code.html.
 require('./generar-css.js');
