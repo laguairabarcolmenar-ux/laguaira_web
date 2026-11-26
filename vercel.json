@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.barlaguaira.es"
+        }
+      ],
+      "destination": "https://barlaguaira.es/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
