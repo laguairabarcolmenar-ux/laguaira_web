@@ -1,4 +1,42 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.barlaguaira.es"
+        }
+      ],
+      "destination": "https://barlaguaira.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/code.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/carta.html",
+      "destination": "/carta",
+      "permanent": true
+    },
+    {
+      "source": "/arepas-colmenar-viejo.html",
+      "destination": "/arepas-colmenar-viejo",
+      "permanent": true
+    },
+    {
+      "source": "/desayunos-colmenar-viejo.html",
+      "destination": "/desayunos-colmenar-viejo",
+      "permanent": true
+    },
+    {
+      "source": "/menu-del-dia-colmenar-viejo.html",
+      "destination": "/menu-del-dia-colmenar-viejo",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
