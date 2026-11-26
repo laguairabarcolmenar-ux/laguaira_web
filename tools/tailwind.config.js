@@ -55,7 +55,8 @@ const cfg = {
           "margin": "3rem",
           "gutter-mobile": "1rem",
           "space-lg": "1.5rem",
-          "space-sm": "0.5rem"
+          "space-sm": "0.5rem",
+          "13": "3.25rem"
         },
         fontFamily: {
           "headline-lg": ["Plus Jakarta Sans"],
